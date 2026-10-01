@@ -32,6 +32,7 @@ import styles from "./ParticipationForm.module.css";
 export type ParticipationFormProps = {
   initialInterest?: ParticipationInterest;
   initialVillage?: ParticipationVillage;
+  crmEnabled?: boolean;
 };
 
 const interestIcons = {
@@ -55,6 +56,7 @@ const fieldLabels: Record<keyof ParticipationFields, string> = {
 function ParticipationFormContent({
   initialInterest,
   initialVillage,
+  crmEnabled = false,
 }: ParticipationFormProps) {
   const query = useSearchParams();
   const id = useId();
@@ -67,6 +69,12 @@ function ParticipationFormContent({
   });
   const [errors, setErrors] = useState<ParticipationErrors>({});
   const [review, setReview] = useState(false);
+  const [consent, setConsent] = useState(false);
+  const [website, setWebsite] = useState("");
+  const [sending, setSending] = useState(false);
+  const [sendError, setSendError] = useState("");
+  const [received, setReceived] = useState<{ id: string } | null>(null);
+  const requestKey = useRef<string | null>(null);
   const [copyStatus, setCopyStatus] = useState<
     "idle" | "copied" | "unavailable"
   >("idle");
@@ -117,7 +125,32 @@ function ParticipationFormContent({
   function edit() {
     setReview(false);
     setCopyStatus("idle");
+    setSendError("");
+    setConsent(false);
+    requestKey.current = null;
     requestAnimationFrame(() => focusField("firstName"));
+  }
+
+  async function sendConsultation() {
+    if (!consent || sending || received) return;
+    requestKey.current ??= crypto.randomUUID();
+    setSending(true);
+    setSendError("");
+    try {
+      const response = await fetch("/api/leads", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...values, consent, website, idempotencyKey: requestKey.current }),
+      });
+      const result = await response.json();
+      if (!response.ok || typeof result.id !== "string") {
+        throw new Error(result.error || "No pudimos registrar la consulta. Inténtalo de nuevo o contacta por WhatsApp.");
+      }
+      setReceived({ id: result.id });
+      requestAnimationFrame(() => reviewHeading.current?.focus());
+    } catch (cause) {
+      setSendError(cause instanceof Error ? cause.message : "Comprueba tu conexión e inténtalo de nuevo. Tus datos siguen aquí.");
+    } finally { setSending(false); }
   }
 
   async function copyMessage() {
@@ -157,7 +190,7 @@ function ParticipationFormContent({
     return (
       <section className={styles.card} aria-labelledby={`${id}-review-title`}>
         <div className={styles.step}>
-          <span>02</span> Revisa tu consulta
+          <span>{received ? "03" : "02"}</span> {received ? "Consulta recibida" : "Revisa tu consulta"}
         </div>
         <h2
           ref={reviewHeading}
@@ -165,15 +198,13 @@ function ParticipationFormContent({
           id={`${id}-review-title`}
           className={styles.heading}
         >
-          La conversación empieza aquí.
+          {received ? "Tu consulta ya está en la comunidad." : "La conversación empieza aquí."}
         </h2>
         <p className={styles.intro}>
-          Tu mensaje está preparado. Al abrir WhatsApp podrás revisarlo y
-          enviarlo a Comunidad Kiryus:{" "}
-          <strong>{siteConfig.whatsappDisplay}</strong>.
+          {received ? <>El equipo podrá revisarla y contactarte por el correo que indicaste. Referencia: <strong>{received.id.slice(0, 8)}</strong>. Esta consulta no confirma una reserva.</> : crmEnabled ? "Revisa tus datos. Al enviar la consulta, el equipo de Kiryus podrá guardarla y darle seguimiento." : <>Tu mensaje está preparado. Al abrir WhatsApp podrás revisarlo y enviarlo a Comunidad Kiryus: <strong>{siteConfig.whatsappDisplay}</strong>.</>}
         </p>
         <label className={styles.label} htmlFor={`${id}-prepared-message`}>
-          Mensaje que llevarás a WhatsApp
+          {crmEnabled ? "Tu consulta" : "Mensaje que llevarás a WhatsApp"}
         </label>
         <textarea
           ref={messageArea}
@@ -185,9 +216,18 @@ function ParticipationFormContent({
           aria-describedby={`${id}-review-note`}
         />
         <p id={`${id}-review-note`} className={styles.hint}>
-          Todavía no se ha enviado ninguna solicitud. Si vuelves desde WhatsApp,
-          tu mensaje seguirá en esta página mientras la mantengas abierta.
+          {received ? "Consulta registrada. WhatsApp es un canal adicional y abrirlo no envía mensajes automáticamente." : "Todavía no se ha enviado ninguna solicitud. Tu mensaje seguirá en esta página mientras la mantengas abierta."}
         </p>
+        {crmEnabled && !received && <div className={styles.submitConsultation}>
+          <label className={styles.consent}>
+            <input type="checkbox" checked={consent} onChange={(event) => setConsent(event.target.checked)} disabled={sending} />
+            <span>Acepto que Comunidad Kiryus guarde esta consulta y mis datos de contacto para responder y dar seguimiento a mi interés. <a href="/privacidad">Información de privacidad</a>.</span>
+          </label>
+          {sendError && <p className={styles.errorSummary} role="alert">{sendError}</p>}
+          <button className={styles.primary} type="button" disabled={!consent || sending} onClick={() => void sendConsultation()}>
+            {sending ? "Enviando consulta…" : "Enviar consulta a Kiryus"} <ArrowUpRight size={18} aria-hidden="true" />
+          </button>
+        </div>}
         <div className={styles.reviewActions}>
           <a
             className={styles.primary}
@@ -221,12 +261,11 @@ function ParticipationFormContent({
           {copyStatus === "unavailable" &&
             "No pudimos copiar automáticamente. El mensaje está seleccionado: usa Copiar o Ctrl/Cmd + C para llevarlo a WhatsApp."}
         </p>
-        <button className={styles.back} type="button" onClick={edit}>
+        {!received && <button className={styles.back} type="button" onClick={edit} disabled={sending}>
           <ArrowLeft size={17} aria-hidden="true" /> Volver a editar
-        </button>
+        </button>}
         <p className={styles.privacy}>
-          Los datos permanecen en la memoria de esta página. Se compartirán con
-          WhatsApp solo cuando decidas abrirlo.{" "}
+          {received ? "Tus datos se han guardado para gestionar esta consulta. Puedes solicitar su corrección o eliminación al equipo. " : crmEnabled ? "Los datos se guardan solo cuando eliges Enviar consulta a Kiryus. También puedes usar únicamente WhatsApp. " : "Los datos permanecen en la memoria de esta página. Se compartirán con WhatsApp solo cuando decidas abrirlo. "}
           <a href="/privacidad">Cómo cuidamos tus datos</a>.
         </p>
       </section>
@@ -247,6 +286,7 @@ function ParticipationFormContent({
         las posibilidades de cada aldea.
       </p>
       <form noValidate onSubmit={submit}>
+        {crmEnabled && <div className={styles.honeypot} aria-hidden="true"><label htmlFor={`${id}-website`}>Sitio web<input id={`${id}-website`} name="website" autoComplete="off" tabIndex={-1} value={website} onChange={(event) => setWebsite(event.target.value)} /></label></div>}
         {errorFields.length > 0 && (
           <div className={styles.errorSummary} role="alert">
             <p>
@@ -479,17 +519,14 @@ function ParticipationFormContent({
         </div>
         <div className={styles.continue}>
           <p>
-            Revisarás el mensaje antes de abrir WhatsApp. Tú decides cuándo
-            enviarlo allí.
+            {crmEnabled ? "Revisarás la consulta antes de enviarla. La comunidad podrá guardarla y responderte; también puedes elegir WhatsApp." : "Revisarás el mensaje antes de abrir WhatsApp. Tú decides cuándo enviarlo allí."}
           </p>
           <button className={styles.primary} type="submit">
-            Continuar por WhatsApp <ArrowUpRight size={18} aria-hidden="true" />
+            {crmEnabled ? "Revisar mi consulta" : "Continuar por WhatsApp"} <ArrowUpRight size={18} aria-hidden="true" />
           </button>
         </div>
         <p className={styles.privacy}>
-          Los campos con * son necesarios para preparar tu consulta. Esta web no
-          guarda tus respuestas en un servidor ni en el almacenamiento del
-          navegador. <a href="/privacidad">Información de privacidad</a>.
+          Los campos con * son necesarios para preparar tu consulta. {crmEnabled ? "Tus respuestas se guardarán únicamente después de revisar y aceptar el envío." : "Esta web no guarda tus respuestas en un servidor ni en el almacenamiento del navegador."} <a href="/privacidad">Información de privacidad</a>.
         </p>
       </form>
     </section>

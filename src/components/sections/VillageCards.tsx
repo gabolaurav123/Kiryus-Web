@@ -14,7 +14,7 @@ export function VillageCards() {
           <div className="village-photo">
             <Photo
               image={village.image}
-              sizes="(max-width: 700px) 100vw, 33vw"
+              sizes="(max-width: 700px) 100vw, 50vw"
             />
             <span className="village-number">{village.number}</span>
             <span className="card-arrow">

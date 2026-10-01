@@ -1,6 +1,6 @@
 import manifest from "../../docs/images-manifest.json";
 
-export type VillageSlug = "argentina" | "colombia" | "espana";
+export type VillageSlug = "argentina" | "colombia";
 export type DocumentaryImage = {
   src: string;
   alt: string;
@@ -10,8 +10,7 @@ export type DocumentaryImage = {
 };
 export type VillageStatus =
   | "En funcionamiento"
-  | "En desarrollo activo"
-  | "En desarrollo";
+  | "En desarrollo activo";
 export type Village = {
   slug: VillageSlug;
   country: string;
@@ -118,42 +117,6 @@ export const villages: Village[] = [
       "colombia-paisaje",
     ].map(documentaryImage),
     source: "https://www.comunidadkiryus.org/kiryus-colombia",
-  },
-  {
-    slug: "espana",
-    country: "España",
-    region: "Región de Murcia",
-    location: "Campo de San Juan, Moratalla",
-    number: "03",
-    coordinatesLabel: "Europa mediterránea",
-    status: "En desarrollo",
-    focus: "Regenerar desde las raíces",
-    description:
-      "Agricultura regenerativa, permacultura y producción local en la finca Orihuelo.",
-    introduction:
-      "En Campo de San Juan, Moratalla, la finca Orihuelo es el territorio donde Kiryus desarrolla su proyecto europeo. El trabajo se enfoca en el suelo, los cultivos de frutos secos y la producción local.",
-    image: documentaryImage("espana-convivencia"),
-    activities: [
-      "Agricultura regenerativa",
-      "Diseño con principios de permacultura",
-      "Cultivo de frutos secos y producción local",
-      "Visitas, voluntariado y proyectos por coordinar",
-    ],
-    story: [
-      {
-        year: "Un proyecto en desarrollo",
-        text: "La sede europea se construye alrededor de prácticas agrícolas y del cuidado del territorio de la finca Orihuelo.",
-      },
-    ],
-    details: [
-      { label: "Territorio", value: "Finca Orihuelo" },
-      { label: "Enfoque", value: "Agricultura regenerativa" },
-      { label: "Participación", value: "Por coordinación previa" },
-    ],
-    gallery: ["espana-convivencia", "espana-encuentro", "espana-cultivo"].map(
-      documentaryImage,
-    ),
-    source: "https://www.comunidadkiryus.org/kiryus-espa%C3%B1a",
   },
 ];
 export function getVillage(slug: string) {

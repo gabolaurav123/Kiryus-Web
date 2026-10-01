@@ -3,10 +3,19 @@ import path from "node:path";
 import { test } from "node:test";
 import sharp from "sharp";
 import manifest from "../docs/images-manifest.json";
-import { villages } from "../src/content/villages";
+import { getVillage, villages } from "../src/content/villages";
+import { spainLegacy } from "../src/content/legacy";
+import { impactFigures } from "../src/content/impact";
+
+test("España se conserva como legado y solo Argentina y Colombia son aldeas actuales", () => {
+  assert.deepEqual(villages.map((village) => village.slug), ["argentina", "colombia"]);
+  assert.equal(getVillage("espana"), undefined);
+  assert.equal(spainLegacy.slug, "espana");
+  assert.equal(impactFigures.find((figure) => figure.id === "villages")?.value, villages.length);
+});
 
 test("las fotografías de cada sede tienen una asociación respaldada por su página", () => {
-  for (const village of villages) {
+  for (const village of [...villages, spainLegacy]) {
     assert.ok(village.gallery.length > 0, `Falta galería: ${village.country}`);
     for (const image of [village.image, ...village.gallery]) {
       const asset = manifest.assets.find(
@@ -30,7 +39,7 @@ test("las fotografías de cada sede tienen una asociación respaldada por su pá
 });
 
 test("las dimensiones del contenido corresponden a los archivos reales y no amplían el original", async () => {
-  const images = villages.flatMap((village) => [
+  const images = [...villages, spainLegacy].flatMap((village) => [
     village.image,
     ...village.gallery,
   ]);

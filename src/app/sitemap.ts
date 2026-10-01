@@ -10,7 +10,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     "/aldeas",
     "/aldeas/argentina",
     "/aldeas/colombia",
-    "/aldeas/espana",
+    "/legado/espana",
     "/involucrate",
     "/blog",
     "/contacto",

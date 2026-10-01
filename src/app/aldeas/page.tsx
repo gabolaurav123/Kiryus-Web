@@ -1,16 +1,17 @@
 import { pageMetadata } from "@/lib/metadata";
 import { VillageCards } from "@/components/sections/VillageCards";
+import { LegacyPreview } from "@/components/sections/LegacyPreview";
 import { Closing } from "@/components/sections/Closing";
 export const metadata = pageMetadata(
   "Nuestras aldeas",
-  "Explora Kiryus Argentina, Colombia y España. Conoce cada territorio, sus prácticas y las posibilidades de acercarte a la comunidad.",
+  "Explora las aldeas Kiryus en Argentina y Colombia. Conoce cada territorio, sus prácticas y las posibilidades de acercarte a la comunidad.",
   "/aldeas",
 );
 export default function VillagesPage() {
   return (
     <>
       <section className="page-hero container">
-        <p className="eyebrow">Los territorios / Tres países conectados</p>
+        <p className="eyebrow">Los territorios / Argentina y Colombia</p>
         <div className="page-hero-grid">
           <h1>
             Lugares para
@@ -18,7 +19,7 @@ export default function VillagesPage() {
             <em>crecer juntos.</em>
           </h1>
           <p>
-            Una red que se construye desde las particularidades de cada paisaje,
+            Dos aldeas que se construyen desde las particularidades de cada paisaje,
             con una intención compartida de cuidar y colaborar.
           </p>
         </div>
@@ -34,6 +35,7 @@ export default function VillagesPage() {
           </p>
         </div>
       </section>
+      <LegacyPreview />
       <Closing />
     </>
   );

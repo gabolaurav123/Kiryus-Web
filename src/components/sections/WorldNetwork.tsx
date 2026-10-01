@@ -10,9 +10,10 @@ export function WorldNetwork() {
           role="img"
           aria-labelledby="map-title map-desc"
         >
-          <title id="map-title">La red Kiryus en tres países</title>
+          <title id="map-title">Las dos aldeas de Kiryus y el legado de España</title>
           <desc id="map-desc">
-            Argentina y Colombia en América del Sur; España en Europa.
+            Aldeas actuales en Argentina y Colombia, en América del Sur.
+            España, en Europa, se muestra como legado histórico.
             Representación de países, no de entradas a las fincas.
           </desc>
           <defs>
@@ -54,7 +55,7 @@ export function WorldNetwork() {
             <circle cx="264" cy="190" r="17" opacity=".12" />
             <circle cx="264" cy="190" r="5" />
             <circle cx="470" cy="94" r="17" opacity=".12" />
-            <circle cx="470" cy="94" r="5" />
+            <circle cx="470" cy="94" r="5" fill="none" stroke="currentColor" strokeWidth="2" />
             <text x="292" y="293">
               Argentina
             </text>
@@ -62,11 +63,11 @@ export function WorldNetwork() {
               Colombia
             </text>
             <text x="489" y="99">
-              España
+              España · legado
             </text>
           </g>
         </svg>
-        <p>Un encuentro entre América del Sur y Europa.</p>
+        <p>Dos aldeas en América del Sur. Un legado compartido desde España.</p>
       </div>
       <div className="network-countries">
         {villages.map((village) => (
@@ -81,6 +82,13 @@ export function WorldNetwork() {
             <span>{village.location}</span>
           </Link>
         ))}
+        <Link href="/legado/espana">
+          <span className="eyebrow">Memoria de la comunidad / Legado histórico</span>
+          <span className="network-country-name">
+            España <ArrowUpRight size={23} aria-hidden="true" />
+          </span>
+          <span>Aportaciones y aprendizajes compartidos</span>
+        </Link>
       </div>
     </div>
   );

@@ -10,16 +10,20 @@ Consulta: 1 de octubre de 2026. Fuentes principales: sitio público de Kiryus, H
 
 El inventario estructurado se conserva en `content-sources.json`; las fotografías y su procedencia están en `images-manifest.json`.
 
+## Corrección confirmada por la comunidad
+
+El 1 de octubre de 2026, el usuario confirmó que las aldeas actuales son Argentina y Colombia. España pasa a un apartado de legado por su aportación histórica. Esta actualización prevalece sobre el estado de España y el número de sedes que aún figuran en la web anterior. Se conservan su relato y las fotografías en `/legado/espana`, sin ofrecer participación, visitas, estadías o voluntariado en España. No se deducen fecha de cierre ni nuevos hitos históricos.
+
 ## Inventario de las siete páginas requeridas
 
 | Fuente | Contenido observado | Decisión de implementación |
 | --- | --- | --- |
-| [Inicio](https://www.comunidadkiryus.org/) | Red en Argentina, Colombia y España; permacultura, regeneración y colaboración. Cifras publicadas: tres sedes, más de 240 árboles y 15 hectáreas. | Describir tres países conectados, conservar cifras como comunicación de Kiryus, aclarar que no se informa período de medición. |
+| [Inicio](https://www.comunidadkiryus.org/) | Red en Argentina, Colombia y España; permacultura, regeneración y colaboración. Cifras publicadas: tres sedes, más de 240 árboles y 15 hectáreas. | Corregir a dos aldeas actuales por confirmación de la comunidad. España se presenta como legado separado. Conservar las cifras ambientales atribuidas a Kiryus, sin período de medición. |
 | [Nosotros](https://www.comunidadkiryus.org/nosotros) | Iniciativa presentada como sin ánimo de lucro y creada en 2020; tres pilares: territorio, autonomía y comunidad. | Usar el año como historia publicada. No deducir razón social ni registro legal. No inventar equipo. |
 | [Argentina](https://www.comunidadkiryus.org/kiryus-argentina) | Altos de Medina, Burruyacú, Tucumán; 9 ha; capacidad publicada 15 personas; enfoque en bioconstrucción y energía; descrita en funcionamiento. | Mantener su estado diferente del de otras sedes. Capacidad no equivale a disponibilidad. Visitas y estadías por consulta. |
 | [Colombia](https://www.comunidadkiryus.org/kiryus-colombia) | El Hatillo, Guatavita, Cundinamarca; gestación 2022, desarrollo desde septiembre de 2023; bosque comestible, reforestación y permacultura; desarrollo activo. | Cronología respaldada por la página. No inventar superficie, camas ni acceso exacto. |
-| [España](https://www.comunidadkiryus.org/kiryus-espa%C3%B1a) | Orihuelo, Campo de San Juan, Moratalla, Murcia; agricultura regenerativa, frutos secos y permacultura; desarrollo en curso. | No inventar año de fundación ni capacidad. Utilizar fotografías publicadas específicamente en esta página. |
-| [Involúcrate](https://www.comunidadkiryus.org/involucrate) | Visitas, voluntariado, estadías y colaboración; formulario original solicita motivo, nombre, apellido, nacimiento, correo, teléfono y aldea. | Motivos separados, mensaje claro y datos mínimos. Omitir nacimiento al no constar necesidad. El nuevo recorrido prepara un mensaje; la persona lo revisa y envía en WhatsApp. |
+| [España](https://www.comunidadkiryus.org/kiryus-espa%C3%B1a) | Orihuelo, Campo de San Juan, Moratalla, Murcia; agricultura regenerativa, frutos secos y permacultura; el sitio anterior la describe en desarrollo. | Conservar las prácticas y fotografías como archivo histórico de su aportación. No es una sede actual. No inventar año de inicio o cierre, capacidad ni hitos. |
+| [Involúcrate](https://www.comunidadkiryus.org/involucrate) | Visitas, voluntariado, estadías y colaboración; formulario original solicita motivo, nombre, apellido, nacimiento, correo, teléfono y aldea. | Motivos separados, mensaje claro y datos mínimos. Omitir nacimiento al no constar necesidad. El nuevo recorrido ofrece revisión y consentimiento antes de guardar una consulta cuando el CRM esté activado; mantiene WhatsApp como alternativa. |
 | [Blog](https://www.comunidadkiryus.org/blog) | Estado sin publicaciones. | Mantener estado vacío y estructura editorial. Excluir borradores de producción y sitemap. |
 
 ## Contactos publicados y recorrido real
@@ -28,11 +32,11 @@ El HTML del [inicio](https://www.comunidadkiryus.org/) enlaza a [WhatsApp +57 31
 
 El enlace antiguo [Google Forms](https://forms.gle/CLtWb7EkLh1B66aB6) redirige a un formulario no disponible. El agente principal confirmó en navegador vivo el mensaje de archivo inexistente. No incorporarlo como alternativa activa sin una nueva verificación.
 
-La privacidad de la nueva web debe describir su implementación final: dónde se guarda un borrador y qué ocurre al abrir WhatsApp. No inventar correo de contacto, responsable legal, servicios de recepción ni políticas existentes.
+La privacidad de la nueva web describe el modo activo: sin configuración de CRM, borrador solo en memoria y contacto por WhatsApp; con volumen y credenciales válidas, revisión y consentimiento antes de guardar una consulta en el panel privado. No inventar correo público, responsable legal ni políticas existentes. El correo administrativo sirve exclusivamente para acceder al panel.
 
 ## Impacto y confianza
 
-Las cifras se registran como declaraciones de Kiryus, observadas el día de consulta. Esa fecha no es un período de medición. No se halló método, desglose por sede ni auditoría pública de los árboles o hectáreas. Los contadores terminan en el valor publicado; no extrapolar.
+Las cifras ambientales se registran como declaraciones de Kiryus, observadas el día de consulta. Esa fecha no es un período de medición. No se halló método, desglose por sede ni auditoría pública de los árboles o hectáreas. Los contadores ambientales terminan en el valor publicado; no extrapolar. El contador territorial se corrige a dos aldeas actuales según la confirmación del usuario.
 
 El footer menciona Fundación Nueva Humanidad y un número 12345-ONG. En las páginas examinadas no hay documento que acredite esa vinculación o el registro y su jurisdicción. Por instrucción del encargo, omitir aval y número en la nueva versión hasta obtener respaldo. Esto es una decisión de publicación, no una conclusión sobre su autenticidad.
 
@@ -63,10 +67,10 @@ Presentar esta relación como orientación de las prácticas. No atribuir aval, 
 - Coordenadas y acceso exacto a cada finca; los enlaces a mapas deben ser búsquedas de localidad.
 - Localidad, fecha y autoría de fotografías generales; no inferirlas por filenames o similitudes visuales.
 
-Las diferencias de etapa entre las tres sedes se conservan. Las solicitudes no constituyen reservas ni promesas de plaza.
+Las diferencias de etapa entre Argentina y Colombia se conservan. España se mantiene como legado histórico. Las solicitudes no constituyen reservas ni promesas de plaza.
 
 ## Revisión de implementación
 
-Las fichas y páginas de sede muestran las etapas publicadas: Argentina en funcionamiento, Colombia en desarrollo activo y España en desarrollo. No se añadieron capacidades, precios, superficies o fechas desconocidas.
+Las fichas y páginas de sede muestran las etapas publicadas: Argentina en funcionamiento y Colombia en desarrollo activo. El legado de España tiene una página propia, sin opciones de participación asociadas. No se añadieron capacidades, precios, superficies o fechas desconocidas.
 
 Los datos fotográficos de sede y sus galerías usan el mismo inventario de procedencia. Los textos alternativos describen el contenido visible; las fotografías generales no se asignan a un país concreto. Las comprobaciones automatizadas contrastan la asociación de cada fotografía con su página de origen y las dimensiones con los archivos reales.

@@ -4,7 +4,7 @@ Registro de la versión implementada el 1 de octubre de 2026. Explica los criter
 
 ## Entorno y dependencias
 
-El proyecto fija **Next.js 16.3.8, React/React DOM 19.3.0, TypeScript 5.9.3, ESLint 9.39.5 y pnpm 11.19.0**. Node.js 24 es el entorno elegido para desarrollo, CI y Seenode. Aunque `engines.node` permite versiones desde 22, la referencia reproducible de esta entrega es 24.
+El proyecto fija **Next.js 16.3.8, React/React DOM 19.3.0, TypeScript 5.9.3, ESLint 9.39.5 y pnpm 11.19.0**. Node.js 24 es el entorno elegido para desarrollo, CI y Seenode. El campo `engines.node` exige Node 24 para el backend SQLite incorporado.
 
 TypeScript 5.9.3 y ESLint 9.39.5 se fijaron después de comprobar incompatibilidades de TypeScript 7 y ESLint 10 con los plugins del conjunto de lint usado aquí. La elección conserva una cadena de comprobaciones funcional; cualquier actualización debe revisar de nuevo la compatibilidad completa y el lockfile, no solo el número de versión del paquete principal.
 
@@ -18,7 +18,9 @@ App Router mantiene el contenido editorial en componentes de servidor. Las pági
 
 `Reveal` mantiene `initial={false}` para no ocultar el contenido antes de cargar JavaScript. Los efectos respetan la preferencia de movimiento reducido. La interacción mejora la presentación, mientras que el contenido y los enlaces principales siguen presentes en el documento servido.
 
-El mapa de `WorldNetwork` es un SVG esquemático con título, descripción y etiquetas de países, acompañado por una lista de enlaces a las tres sedes. Representa la red en Argentina, Colombia y España; no calcula posiciones ni indica entradas a fincas. Evita incorporar un proveedor cartográfico y no introduce coordenadas exactas sin evidencia.
+El mapa de `WorldNetwork` es un SVG esquemático con título, descripción y etiquetas de países. Acompaña enlaces a las dos aldeas actuales, Argentina y Colombia, y un enlace etiquetado como legado histórico de España; este último usa un punto hueco y una descripción diferenciada. No calcula posiciones ni indica entradas a fincas. Evita incorporar un proveedor cartográfico y no introduce coordenadas exactas sin evidencia.
+
+La confirmación del usuario del 1 de octubre de 2026 actualiza el modelo territorial. `VillageSlug` y `villages` solo incluyen Argentina y Colombia. España usa `spainLegacy`, contenido separado en `/legado/espana`; los enlaces de aldea antiguos redirigen permanentemente al legado. El contador muestra dos aldeas actuales y la navegación conserva Legado fuera del menú Aldeas. No se inventaron fecha de cierre ni hitos nuevos. El adaptador editorial reserva `aldea` a los dos destinos actuales y utiliza `legacy: espana` para artículos relacionados con el archivo histórico.
 
 ## Fotografías y evidencia
 
@@ -28,9 +30,9 @@ Publicar una fotografía en la web original no acredita ubicación exacta, fecha
 
 ## Participación y privacidad
 
-El formulario es de cliente y prepara una consulta para WhatsApp. Valida, muestra el mensaje y permite editarlo, copiarlo o abrir el canal oficial. La persona lo envía allí; el sitio no confirma recepción, disponibilidad ni reserva.
+El formulario valida y permite revisar una consulta. Sin configuración CRM conserva el flujo de WhatsApp. Al activar el backend con credenciales y volumen persistente, añade consentimiento explícito y un envío separado a `/api/leads`; confirma recepción únicamente al obtener una referencia guardada. WhatsApp sigue siendo una alternativa voluntaria. Ningún recorrido confirma disponibilidad ni reserva.
 
-Los datos permanecen en memoria mientras la página sigue abierta. No se implementó backend, base de datos, envío por correo ni almacenamiento persistente del navegador. Al abrir WhatsApp, el texto se incorpora al enlace del proveedor externo. El flujo visible y la página de Privacidad describen este comportamiento.
+El borrador permanece en memoria mientras la página sigue abierta. El backend incorpora SQLite en un volumen persistente, panel administrativo autenticado, filtros, estados, notas y CSV. Sin la configuración necesaria en producción no se reciben consultas ni se usa almacenamiento efímero. No hay envío automático de correos, mensajes ni almacenamiento persistente del navegador. Al abrir WhatsApp, el texto se incorpora al enlace externo. El flujo visible y Privacidad describen el modo activo. Seguridad y operación en `crm.md`.
 
 No se incorporaron analítica, publicidad, cookies de seguimiento ni embeds de Instagram, TikTok o mapas. Las fuentes se sirven localmente y los canales externos se abren mediante enlaces elegidos por la persona. Cualquier futura recepción de consultas, medición o servicio incrustado necesita implementación y actualización de la información de privacidad.
 

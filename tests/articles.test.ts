@@ -54,6 +54,17 @@ test("las consultas por slug no pueden recorrer directorios", async (t) => {
   }
 });
 
+test("un artículo sobre España se asocia al legado histórico y no a una aldea actual", async (t) => {
+  const { directory, adapter } = await fixture(t);
+  const filename = path.join(directory, "memoria.mdx");
+  await writeFile(filename, source("memoria", "2026-10-01", "legacy: espana\n"));
+  const article = await adapter.getPublishedArticle("memoria");
+  assert.equal(article?.frontmatter.legacy, "espana");
+  assert.equal(article?.frontmatter.aldea, undefined);
+  await writeFile(filename, source("memoria", "2026-10-01", "aldea: espana\n"));
+  await assert.rejects(adapter.getPublishedArticles(), /legacy: espana/);
+});
+
 test("los artículos publicados se ordenan por su fecha real y conservan metadatos opcionales", async (t) => {
   const { directory, adapter } = await fixture(t);
   await writeFile(

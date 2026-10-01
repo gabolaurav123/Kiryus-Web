@@ -5,9 +5,10 @@ import { Photo } from "@/components/ui/Photo";
 import { getImage } from "@/content/images";
 import { Closing } from "@/components/sections/Closing";
 import { WorldNetwork } from "@/components/sections/WorldNetwork";
+import { LegacyPreview } from "@/components/sections/LegacyPreview";
 export const metadata = pageMetadata(
   "Nuestra comunidad",
-  "Conoce la historia y los principios de Comunidad Kiryus: regeneración, autonomía y colaboración en tres territorios.",
+  "Conoce la historia y los principios de Comunidad Kiryus: aldeas en Argentina y Colombia, legado de España, regeneración, autonomía y colaboración.",
   "/nosotros",
 );
 export default function AboutPage() {
@@ -46,10 +47,10 @@ export default function AboutPage() {
             alrededor del cuidado de la tierra, la autonomía y la colaboración.
           </p>
           <p>
-            Desde entonces, el proyecto ha tomado forma en territorios de
-            Argentina, Colombia y España. Cada sede tiene una historia y una
-            etapa propia; las conecta una forma compartida de aprender y
-            trabajar.
+            El proyecto tiene hoy dos aldeas, en Argentina y Colombia. Cada una
+            tiene una historia y una etapa propia; las conecta una forma
+            compartida de aprender y trabajar. España forma parte del legado de
+            Kiryus por sus aportes y aprendizajes a lo largo del camino.
           </p>
           <p>
             La comunidad se construye en la práctica: recuperar un espacio,
@@ -62,6 +63,7 @@ export default function AboutPage() {
           </Link>
         </div>
       </section>
+      <LegacyPreview />
       <section className="section principles-section">
         <div className="container">
           <p className="eyebrow">Lo que nos reúne</p>

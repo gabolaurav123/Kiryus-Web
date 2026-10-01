@@ -52,7 +52,19 @@ Una migración al dominio definitivo requiere una instrucción específica para 
 4. Comprobar las redirecciones de sedes antiguas, incluida la variante con ñ, y las rutas nuevas.
 5. Verificar todas las páginas, imágenes, navegación móvil y formulario sin enviar consultas de prueba a la comunidad.
 
-El filesystem del servicio es efímero. No guardar consultas, uploads ni cambios editoriales allí. El contenido del sitio vive en Git; un almacenamiento persistente futuro requiere diseño y configuración propios.
+El filesystem del servicio es efímero. El contenido del sitio vive en Git. El CRM incorporado debe permanecer desactivado hasta adjuntar un volumen persistente y configurar las credenciales; no guardar consultas en la capa efímera.
+
+## Activar el CRM
+
+El 1 de octubre de 2026 se verificó en el diálogo de Seenode el volumen mínimo de **5 GB por US$2,50/mes**. Unido a Basic, el total de Kiryus sería **US$6,50/mes**, con una sola réplica. El límite anterior era US$4/mes: no contratar el volumen hasta recibir la ampliación del límite. Su aprobación y creación se registrarán por separado.
+
+1. Adjuntar el volumen de 5 GB a `/data`. Su creación provoca una interrupción breve.
+2. Configurar `CRM_DATA_DIR=/data/kiryus-crm`, `CRM_ADMIN_EMAIL` con el correo responsable y `CRM_ADMIN_PASSWORD_HASH` generado localmente con `node scripts/hash-crm-password.mjs`. El responsable conserva su contraseña; nunca subirla a Git. Mantener `NEXT_PUBLIC_SITE_URL=https://kiryus-web.seenode.app` y una réplica.
+3. Aplicar y desplegar el commit revisado. El formulario y Privacidad son dinámicos y describen la recepción solo cuando están presentes la ruta persistente y las credenciales válidas. Si falta configuración, continúa el flujo de WhatsApp.
+4. Verificar login, consulta consentida, listado, notas, estados, CSV y cierre de sesión con datos ficticios. Reiniciar y comprobar que la consulta sigue presente. Eliminar solo los datos de esa verificación identificados como desechables.
+5. Mantener backups restringidos y probar restauraciones según [crm.md](crm.md). No hay backup externo automático contratado.
+
+La prueba automatizada `pnpm test:crm` arranca el servidor de producción en 3102 con credenciales aleatorias y una base temporal, verifica persistencia tras reinicio y limpia exclusivamente su directorio de prueba. La CI también la ejecuta.
 
 ## Publicar artículos reales
 
@@ -76,7 +88,7 @@ status: draft
 
 El ejemplo no es una publicación válida hasta reemplazar los marcadores con datos reales. Mantener `draft` durante la revisión. Las categorías preparadas son `naturaleza`, `practicas-sostenibles` y `vida-comunitaria`. La autoría puede tener `type: Person` o `Organization`, según quién escribió el artículo.
 
-Campos opcionales: `aldea` (`argentina`, `colombia` o `espana`), `updatedAt` (fecha real de modificación) y `cover`, con `src`, `alt`, `width` y `height`. La portada debe ser local bajo `/images/`, tener procedencia y permiso documentados, y usar sus dimensiones reales. Omitirla cuando no exista una imagen confirmada.
+Campos opcionales: `aldea` (`argentina` o `colombia`), `legacy: espana` para material histórico, `updatedAt` (fecha real de modificación) y `cover`, con `src`, `alt`, `width` y `height`. La portada debe ser local bajo `/images/`, tener procedencia y permiso documentados, y usar sus dimensiones reales. Omitirla cuando no exista una imagen confirmada.
 
 La fecha debe ser una cadena entre comillas y existir en el calendario. La fecha de modificación no puede preceder a la publicación. El cuerpo empieza con títulos `##`, porque la plantilla de lectura ya presenta un H1.
 

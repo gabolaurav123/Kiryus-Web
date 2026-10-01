@@ -10,7 +10,8 @@ export const articleCategories = {
 
 export type ArticleCategory = keyof typeof articleCategories;
 export type ArticleStatus = "draft" | "published";
-export type ArticleAldea = "argentina" | "colombia" | "espana";
+export type ArticleAldea = "argentina" | "colombia";
+export type ArticleLegacy = "espana";
 
 export interface ArticleCover {
   src: string;
@@ -29,6 +30,7 @@ export interface ArticleFrontmatter {
   status: ArticleStatus;
   updatedAt?: string;
   aldea?: ArticleAldea;
+  legacy?: ArticleLegacy;
   cover?: ArticleCover;
 }
 
@@ -109,11 +111,15 @@ function publishedFrontmatter(
   const aldea = data.aldea;
   if (
     aldea !== undefined &&
-    !["argentina", "colombia", "espana"].includes(String(aldea))
+    !["argentina", "colombia"].includes(String(aldea))
   ) {
     throw new Error(
-      "La aldea relacionada debe ser argentina, colombia o espana.",
+      "La aldea relacionada debe ser argentina o colombia. Para el legado de España, usa legacy: espana.",
     );
+  }
+  const legacy = data.legacy;
+  if (legacy !== undefined && legacy !== "espana") {
+    throw new Error("El legado relacionado debe ser espana.");
   }
   let cover: ArticleCover | undefined;
   if (data.cover !== undefined) {
@@ -157,6 +163,7 @@ function publishedFrontmatter(
     status: "published",
     ...(updatedAt ? { updatedAt } : {}),
     ...(aldea ? { aldea: aldea as ArticleAldea } : {}),
+    ...(legacy ? { legacy: legacy as ArticleLegacy } : {}),
     ...(cover ? { cover } : {}),
   };
 }

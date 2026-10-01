@@ -1,12 +1,15 @@
 import Link from "next/link";
 import { pageMetadata } from "@/lib/metadata";
 import { directWhatsapp } from "@/lib/config";
+import { isCrmConfigured } from "@/lib/crm/server";
+export const dynamic = "force-dynamic";
 export const metadata = pageMetadata(
   "Privacidad",
   "Cómo funciona el formulario de consulta, qué datos se utilizan y cuándo se abren los canales externos de Comunidad Kiryus.",
   "/privacidad",
 );
 export default function PrivacyPage() {
+  const crmEnabled = isCrmConfigured();
   return (
     <>
       <section className="page-hero container">
@@ -25,10 +28,7 @@ export default function PrivacyPage() {
         <p>Última actualización: 1 de octubre de 2026.</p>
         <h2>Qué ocurre con el formulario</h2>
         <p>
-          El formulario prepara un mensaje en tu navegador. No lo envía a un
-          servidor de Kiryus ni crea una reserva. Los datos permanecen en la
-          página mientras preparas la consulta y no se guardan en una base de
-          datos ni en el almacenamiento persistente de tu navegador.
+          {crmEnabled ? "El formulario prepara una consulta para que puedas revisarla. Al aceptar el tratamiento para contacto y elegir Enviar consulta a Kiryus, se guardan tus datos y tu mensaje en el sistema privado de seguimiento de la comunidad. El equipo administrativo podrá revisarlos, anotar el seguimiento y responderte. Esto no crea una reserva ni confirma disponibilidad." : "El formulario prepara un mensaje en tu navegador. Mientras el sistema de recepción no esté activado, no lo envía a un servidor de Kiryus ni crea una reserva. Los datos permanecen en la página mientras preparas la consulta y no se guardan en una base de datos ni en el almacenamiento persistente de tu navegador."}
         </p>
         <p>
           Al elegir abrir WhatsApp, los datos incluidos en el mensaje se
@@ -62,9 +62,11 @@ export default function PrivacyPage() {
           procesar información técnica necesaria para prestar y proteger el
           servicio.
         </p>
+        <p>El acceso administrativo utiliza una cookie de sesión necesaria, protegida y con caducidad. No se utiliza para publicidad ni seguimiento de visitantes.</p>
+        {crmEnabled && <><h2>Conservación y acceso</h2><p>Las consultas se conservan para gestionar el contacto y su seguimiento. El acceso al panel está restringido al equipo administrativo; las notas internas no aparecen en la web pública. Puedes solicitar la corrección o eliminación de tus datos por el canal oficial. La consulta incluye la fecha de consentimiento; no se utiliza para suscribirte a publicidad.</p></>}
         <h2>Consultas sobre información enviada</h2>
         <p>
-          Si ya compartiste datos con la comunidad por WhatsApp, puedes
+          Si ya compartiste datos con la comunidad, puedes
           solicitar información sobre su uso o pedir su corrección mediante el
           mismo canal.{" "}
           <a href={directWhatsapp} target="_blank" rel="noopener noreferrer">

@@ -18,6 +18,7 @@ import {
   sustainableGoals,
 } from "@/content/impact";
 import { VillageCards } from "@/components/sections/VillageCards";
+import { LegacyPreview } from "@/components/sections/LegacyPreview";
 import { Gallery } from "@/components/sections/Gallery";
 import { WorldNetwork } from "@/components/sections/WorldNetwork";
 import { ParticipationCards } from "@/components/sections/ParticipationCards";
@@ -27,7 +28,7 @@ import type { DocumentaryImage } from "@/content/villages";
 import { getImage, lifeImages } from "@/content/images";
 export const metadata = pageMetadata(
   "Habitar la Tierra. Regenerar el futuro.",
-  "Conoce la red de ecoaldeas Kiryus en Argentina, Colombia y España. Vida comunitaria, permacultura y oportunidades de participación.",
+  "Conoce las ecoaldeas Kiryus en Argentina y Colombia y el legado de España. Vida comunitaria, permacultura y oportunidades de participación.",
   "/",
 );
 const hero: DocumentaryImage = getImage("comunidad-paisaje");
@@ -69,7 +70,7 @@ export default function Home() {
           <div className="hero-bottom">
             <span>
               <Earth size={18} strokeWidth={1.4} aria-hidden="true" /> Argentina
-              · Colombia · España
+              · Colombia
             </span>
             <a href="#la-comunidad" aria-label="Explorar la comunidad">
               <ArrowDown size={20} />
@@ -113,8 +114,8 @@ export default function Home() {
             </p>
             <p>
               En Kiryus, la permacultura, la autonomía local y el trabajo
-              colectivo toman forma en territorios de Argentina, Colombia y
-              España.
+              colectivo toman forma en las aldeas de Argentina y Colombia.
+              Nuestra historia también guarda los aportes de España.
             </p>
             <Link href="/nosotros" className="text-link">
               Conoce nuestra historia{" "}
@@ -129,7 +130,7 @@ export default function Home() {
             <div>
               <p className="eyebrow">02 / Nuestras aldeas</p>
               <h2>
-                Tres territorios.
+                Dos aldeas.
                 <br />
                 <em>Una intención.</em>
               </h2>
@@ -142,6 +143,7 @@ export default function Home() {
           <VillageCards />
         </div>
       </section>
+      <LegacyPreview />
       <section className="section principles-section">
         <div className="container">
           <p className="eyebrow">03 / Cómo trabajamos</p>

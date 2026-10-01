@@ -1,5 +1,28 @@
 # Verificación de la implementación
 
+## Correcciones y CRM — 1 de octubre de 2026
+
+Esta revisión sustituye la clasificación territorial de la entrega inicial: Argentina y Colombia son las dos aldeas actuales; España está en `/legado/espana`. La hoja decorativa del cierre se redibujó con silueta, nervio y venas conectadas; en móvil tiene un espacio propio. El CRM está implementado, pero su activación pública requiere un volumen persistente y credenciales privadas. Hasta entonces la web mantiene WhatsApp y las API privadas permanecen protegidas.
+
+| Comprobación ejecutada | Resultado |
+| --- | --- |
+| Instalación congelada, tipos y lint | Aprobados; sin errores ni advertencias |
+| Pruebas de unidad e integración de módulos | 30 aprobadas, incluidas 11 de CRM |
+| Build de producción | Aprobado; APIs y panel dinámicos en Node 24 |
+| Rutas públicas | 10 páginas 200 con H1 único, metadatos y HTML inicial; cinco redirecciones 308 al destino correcto; cuatro 404 reales |
+| Acceso administrativo | `/admin` sin sesión devuelve 307 a login; login no indexable; APIs de leads y CSV sin sesión devuelven 401 |
+| CRM HTTP real (`pnpm test:crm`) | Consentimiento, validación, cuerpo acotado, Origin, cookie privada, reintento sin duplicados, conflicto de contenido, notas, estado, filtros y CSV verificados |
+| Persistencia | Servidor de producción detenido y arrancado con la misma base temporal: consulta, notas y sesión conservadas; logout revoca el acceso |
+| Prueba en navegador | Login con cuenta local ficticia; selección y actualización de estado/notas; filtro Argentina; formulario móvil Colombia con revisión, consentimiento y referencia real; consulta visible en el panel |
+| Diseño adaptable | CRM, legado y directorio sin desbordamiento horizontal a 360, 768 y 1024 px; CRM y formulario a 390 px; escritorio a 1440 px |
+| Menú móvil | Solo Argentina y Colombia bajo Nuestras aldeas; Legado de España separado |
+
+Los datos usados para las pruebas son ficticios y están aislados del servicio público. No se enviaron mensajes a WhatsApp ni correos. Las pruebas HTTP crean credenciales aleatorias y eliminan exclusivamente sus directorios temporales. Una segunda revisión encontró y corrigió un riesgo de mezclar notas al cambiar de selección durante una actualización y la codificación del enlace mailto.
+
+El volumen mínimo se verificó en el diálogo de Seenode: 5 GB por US$2,50/mes, total Basic + volumen US$6,50/mes. El límite previo era US$4/mes; no se contrató almacenamiento sin ampliarlo. La comprobación de persistencia local no acredita por sí sola un volumen remoto activado. El responsable debe configurar sus credenciales, un plazo de conservación y backups; detalles en [crm.md](crm.md).
+
+Las secciones siguientes conservan el registro histórico de la entrega inicial.
+
 Revisión realizada el 1 de octubre de 2026 sobre el build de producción local de Next.js, servido en `http://localhost:3000`. El código se publicó en `main` con el commit `b29663775db2ae30b2a11c568a2ac27f433ca8bc`. [GitHub Actions](https://github.com/gabolaurav123/Kiryus-Web/actions/runs/36919771401) repitió instalación, tipos, lint, 17 pruebas, build y rutas en Ubuntu con resultado aprobado. Vista previa pública: https://kiryus-web.seenode.app. El despliegue de `041bd59dd61c6c984074211dc528509d202ae1e7` quedó activo y su [CI](https://github.com/gabolaurav123/Kiryus-Web/actions/runs/36920791318) también pasó.
 
 ## Comprobaciones ejecutadas

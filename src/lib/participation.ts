@@ -10,7 +10,6 @@ export const participationInterests = [
 export const participationVillages = [
   { value: "argentina", label: "Argentina" },
   { value: "colombia", label: "Colombia" },
-  { value: "espana", label: "España" },
   { value: "orientacion", label: "Quiero orientación" },
 ] as const;
 

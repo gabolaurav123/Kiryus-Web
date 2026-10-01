@@ -76,7 +76,8 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
               <h2>Las historias empiezan en el territorio.</h2>
               <p>
                 Este cuaderno todavía no tiene artículos publicados. Mientras
-                tanto, puedes conocer la comunidad y explorar sus tres aldeas.
+                tanto, puedes conocer la comunidad, explorar sus dos aldeas y
+                descubrir el legado de España.
               </p>
               <p>
                 Personas, paisajes y formas de colaborar: hay mucho por

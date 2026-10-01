@@ -3,6 +3,8 @@ import { ParticipationForm } from "@/components/sections/ParticipationForm";
 import { Photo } from "@/components/ui/Photo";
 import { getImage } from "@/content/images";
 import { Compass, HandHeart, House, Sprout } from "lucide-react";
+import { isCrmConfigured } from "@/lib/crm/server";
+export const dynamic = "force-dynamic";
 export const metadata = pageMetadata(
   "Encuentra tu forma de participar",
   "Consulta visitas, voluntariado, estadías y colaboraciones en Kiryus. Prepara tu mensaje y conversa directamente con la comunidad por WhatsApp.",
@@ -52,7 +54,7 @@ export default function ParticipatePage() {
             cada aldea. Esta consulta no confirma una reserva.
           </p>
         </aside>
-        <ParticipationForm />
+        <ParticipationForm crmEnabled={isCrmConfigured()} />
       </section>
     </>
   );

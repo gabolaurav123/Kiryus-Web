@@ -9,10 +9,10 @@ export type ImpactFigure = {
 
 export const impactFigures: ImpactFigure[] = [
   {
-    id: "countries",
-    value: 3,
-    label: "Países conectados",
-    source: "https://www.comunidadkiryus.org/",
+    id: "villages",
+    value: 2,
+    label: "Aldeas actuales",
+    source: "Confirmación de la comunidad, 1 de octubre de 2026",
     measurementPeriod: null,
   },
   {
@@ -33,7 +33,7 @@ export const impactFigures: ImpactFigure[] = [
 ];
 
 export const impactContext =
-  "Árboles y superficie: cifras comunicadas por Kiryus. El período de medición no está especificado en la información publicada.";
+  "Dos aldeas actuales: Argentina y Colombia. España forma parte del legado de Kiryus. Árboles y superficie: cifras comunicadas por Kiryus, sin período de medición especificado.";
 
 export const sustainableGoals = [
   {

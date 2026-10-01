@@ -24,14 +24,15 @@ function validFields(
 
 test("preselección acepta las cuatro opciones y descarta valores desconocidos", () => {
   const parsed = parseParticipationQuery(
-    new URLSearchParams("interes=voluntariado&aldea=espana"),
+    new URLSearchParams("interes=voluntariado&aldea=argentina"),
   );
-  assert.deepEqual(parsed, { interest: "voluntariado", village: "espana" });
+  assert.deepEqual(parsed, { interest: "voluntariado", village: "argentina" });
   assert.deepEqual(
     parseParticipationQuery(new URLSearchParams("interes=otro&aldea=otro")),
     { interest: "", village: "" },
   );
-  assert.equal(createInitialParticipation(parsed).village, "espana");
+  assert.equal(createInitialParticipation(parsed).village, "argentina");
+  assert.deepEqual(parseParticipationQuery(new URLSearchParams("aldea=espana")), { interest: "", village: "" });
   for (const interest of [
     "visita",
     "voluntariado",

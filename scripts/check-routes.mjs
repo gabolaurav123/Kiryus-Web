@@ -44,7 +44,7 @@ try {
     "/aldeas",
     "/aldeas/argentina",
     "/aldeas/colombia",
-    "/aldeas/espana",
+    "/legado/espana",
     "/involucrate",
     "/contacto",
     "/blog",
@@ -75,14 +75,30 @@ try {
   for (const [from, to] of [
     ["/kiryus-argentina", "/aldeas/argentina"],
     ["/kiryus-colombia", "/aldeas/colombia"],
-    ["/kiryus-espana", "/aldeas/espana"],
-    ["/kiryus-espa%C3%B1a", "/aldeas/espana"],
+    ["/aldeas/espana", "/legado/espana"],
+    ["/kiryus-espana", "/legado/espana"],
+    ["/kiryus-espa%C3%B1a", "/legado/espana"],
   ]) {
     const response = await fetch(base + from, { redirect: "manual" });
     assert.equal(response.status, 308, from);
     assert.equal(response.headers.get("location"), to, from);
     assert.equal((await fetch(base + to)).status, 200, to);
   }
+  const adminResponse = await fetch(base + "/admin", { redirect: "manual" });
+  assert.equal(adminResponse.status, 307, "/admin: requiere sesión");
+  assert.equal(
+    new URL(adminResponse.headers.get("location"), base).pathname,
+    "/admin/login",
+    "/admin: redirección al acceso privado",
+  );
+  const loginResponse = await fetch(base + "/admin/login");
+  assert.equal(loginResponse.status, 200, "/admin/login");
+  const loginHtml = await loginResponse.text();
+  assert.match(
+    loginHtml,
+    /name="robots" content="noindex, nofollow(?:,[^"]*)?"/,
+    "/admin/login: acceso no indexable",
+  );
   for (const route of [
     "/aldeas/inexistente",
     "/blog/inexistente",
@@ -105,7 +121,7 @@ try {
     assert.equal((await fetch(base + asset)).status, 200, asset);
   }
   console.log(
-    "Rutas: 10 páginas con HTML, títulos, H1 y SEO; 4 redirecciones; 4 respuestas 404; robots, sitemap y recursos aprobados.",
+    "Rutas: 10 páginas con HTML, títulos, H1 y SEO; 5 redirecciones; acceso administrativo protegido; 4 respuestas 404; robots, sitemap y recursos aprobados.",
   );
 } finally {
   server.kill("SIGTERM");

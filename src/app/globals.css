@@ -554,7 +554,7 @@ main:focus {
 }
 .village-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 28px;
 }
 .village-card {
@@ -989,13 +989,13 @@ main:focus {
 }
 .closing .eyebrow {
   color: #bfceb6;
-  max-width: 75%;
+  max-width: 70%;
 }
 .closing h2 {
   color: var(--cream);
   margin-top: 25px;
   font-size: clamp(40px, 5.1vw, 74px);
-  max-width: 75%;
+  max-width: 70%;
 }
 .closing h2 em {
   color: #bbccaf;
@@ -1010,13 +1010,14 @@ main:focus {
 }
 .closing-leaf {
   position: absolute;
-  right: 0;
-  top: -50px;
-  width: 300px;
-  height: 350px;
+  right: 12px;
+  top: 50%;
+  width: 260px;
+  height: auto;
   color: #bfceb6;
-  opacity: 0.35;
-  transform: rotate(15deg);
+  opacity: 0.62;
+  transform: translateY(-50%) rotate(12deg);
+  pointer-events: none;
 }
 .site-footer {
   background: var(--forest);
@@ -1699,8 +1700,8 @@ main:focus {
     height: 420px;
   }
   .closing-leaf {
-    width: 230px;
-    right: -25px;
+    width: 205px;
+    right: 0;
   }
   .page-hero h1 {
     font-size: 54px;
@@ -2039,10 +2040,14 @@ main:focus {
     z-index: 1;
   }
   .closing-leaf {
-    width: 180px;
-    top: 0;
-    right: -35px;
-    opacity: 0.16;
+    position: relative;
+    display: block;
+    width: 130px;
+    top: auto;
+    right: auto;
+    margin: 24px 0 -20px auto;
+    opacity: 0.52;
+    transform: rotate(12deg);
   }
   .closing .button {
     position: relative;

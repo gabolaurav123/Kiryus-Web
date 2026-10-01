@@ -3,7 +3,15 @@
   "classification": {
     "observed": "Publicado en el sitio de Kiryus y leído en HTTP público vivo; no supone verificación independiente.",
     "documented": "Respaldado por documentación primaria ajena al texto promocional.",
-    "pending": "No hay respaldo suficiente para publicarlo como hecho confirmado."
+    "pending": "No hay respaldo suficiente para publicarlo como hecho confirmado.",
+    "user_confirmed": "Corrección de vigencia confirmada directamente por el usuario de la comunidad."
+  },
+  "currentTerritorialCorrection": {
+    "confirmedAt": "2026-10-01",
+    "classification": "user_confirmed",
+    "currentVillages": ["argentina", "colombia"],
+    "historicalLegacy": ["espana"],
+    "decision": "España se conserva como legado histórico y no aparece como aldea ni destino de participación. No se infiere fecha de cierre."
   },
   "organization": {
     "name": "Comunidad Kiryus",
@@ -53,22 +61,24 @@
       "availability": "Por coordinación previa; no prometer alojamiento ni fechas disponibles.",
       "history": "El proyecto se gestó en 2022 y comenzó su desarrollo en septiembre de 2023. La página publica experiencias de retiros y talleres, y describe proyectos ambientales en curso.",
       "pending": ["Superficie", "Capacidad de alojamiento", "Responsable local", "Condiciones de voluntariado", "Acceso exacto"]
-    },
+    }
+  ],
+  "legacy": [
     {
       "id": "espana",
       "country": "España",
       "location": "Finca Orihuelo, Campo de San Juan, Moratalla, Murcia",
       "focus": ["Agricultura regenerativa", "Permacultura", "Frutos secos", "Producción local"],
-      "statusLabel": "En desarrollo",
-      "participation": ["Visitas coordinadas", "Voluntariado", "Proyectos vinculados al territorio"],
+      "statusLabel": "Legado histórico",
+      "previouslyPublishedStatus": "En desarrollo",
+      "participation": [],
       "heroImage": "espana-convivencia",
       "galleryImages": ["espana-convivencia", "espana-encuentro", "espana-cultivo"],
       "source": "https://www.comunidadkiryus.org/kiryus-espa%C3%B1a",
-      "classification": "observed",
-      "locationPrecision": "localidad; no dirección exacta de ingreso",
-      "availability": "Por coordinación previa; no prometer alojamiento ni fechas disponibles.",
-      "history": "La página presenta el desarrollo europeo del proyecto en Orihuelo y el crecimiento de sus prácticas agrícolas, plantaciones y colaboraciones.",
-      "pending": ["Año de inicio", "Superficie", "Capacidad de alojamiento", "Responsable local", "Acceso exacto", "Condiciones de participación"]
+      "historicalContentClassification": "observed",
+      "currentStatusClassification": "user_confirmed",
+      "history": "La página histórica presenta la experiencia europea en Orihuelo y sus prácticas agrícolas, plantaciones y colaboraciones. Se conservan como aportación histórica, sin prometer actividad vigente ni inventar fecha de cierre.",
+      "pending": ["Año de inicio", "Cronología histórica detallada"]
     }
   ],
   "impact": {
@@ -77,11 +87,11 @@
     "measurementPeriod": null,
     "verificationMethod": null,
     "metrics": [
-      { "publishedLabel": "Sedes operativas", "publishedValue": "3", "displayValue": "3", "displayLabel": "Países conectados", "note": "La red descrita cubre tres países con distintos estados de desarrollo." },
+      { "publishedLabel": "Sedes operativas", "publishedValue": "3", "displayValue": "2", "displayLabel": "Aldeas actuales", "note": "Valor corregido por confirmación del usuario: Argentina y Colombia. España se conserva como legado histórico." },
       { "publishedLabel": "Árboles plantados", "publishedValue": "+240", "displayValue": "+240", "displayLabel": "Árboles plantados" },
       { "publishedLabel": "Hectáreas regeneradas", "publishedValue": "15", "displayValue": "15", "displayLabel": "Hectáreas regeneradas" }
     ],
-    "displayContext": "Cifras comunicadas por Kiryus. Fuente consultada en octubre de 2026; período de medición no informado."
+    "displayContext": "Dos aldeas actuales confirmadas por el usuario. Árboles y superficie: cifras comunicadas por Kiryus; período de medición no informado."
   },
   "contact": {
     "classification": "observed",

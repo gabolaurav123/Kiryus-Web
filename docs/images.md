@@ -24,9 +24,9 @@ Se eligieron 17 fotografías y el logo. Se inspeccionaron dos hojas de contacto 
 | colombia-comunidad | Hero o ficha de Colombia | 1200×1330 | Publicada en la página Colombia |
 | colombia-encuentro | Galería de Colombia | 900×900 | Publicada en la página Colombia |
 | colombia-paisaje | Paisaje de Colombia en módulo pequeño | 719×719 | Publicada en la página Colombia |
-| espana-convivencia | Hero o ficha de España | 1600×1600 | Publicada en la página España |
-| espana-encuentro | Galería de España | 1600×1600 | Publicada en la página España |
-| espana-cultivo | Prácticas y galería de España | 900×1112 | Publicada en la página España |
+| espana-convivencia | Hero y apartado de legado de España | 1600×1600 | Publicada en la página histórica de España |
+| espana-encuentro | Galería del legado de España | 1600×1600 | Publicada en la página histórica de España |
+| espana-cultivo | Prácticas históricas y galería del legado | 900×1112 | Publicada en la página histórica de España |
 
 La asociación por sede reproduce la selección editorial de Kiryus en esa página. No acredita por sí sola coordenadas, fecha, propiedad de la finca ni identidad de las personas. Los textos alternativos describen lo visible, sin asignar nombres o prometer resultados de las actividades.
 

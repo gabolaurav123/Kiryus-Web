@@ -8,7 +8,6 @@ const countries = [
   { href: "/aldeas", text: "Explorar las aldeas" },
   { href: "/aldeas/argentina", text: "Argentina · Tucumán" },
   { href: "/aldeas/colombia", text: "Colombia · Guatavita" },
-  { href: "/aldeas/espana", text: "España · Murcia" },
 ];
 export function Header() {
   const pathname = usePathname();
@@ -157,6 +156,12 @@ export function Header() {
             </div>
           </div>
           <Link
+            href="/legado/espana"
+            aria-current={pathname.startsWith("/legado") ? "page" : undefined}
+          >
+            Legado
+          </Link>
+          <Link
             href="/involucrate"
             aria-current={pathname === "/involucrate" ? "page" : undefined}
           >
@@ -248,6 +253,13 @@ export function Header() {
               </Link>
             ))}
           </div>
+          <Link
+            href="/legado/espana"
+            onClick={closeMobile}
+            aria-current={pathname.startsWith("/legado") ? "page" : undefined}
+          >
+            Legado de España
+          </Link>
           <Link
             href="/involucrate"
             onClick={closeMobile}

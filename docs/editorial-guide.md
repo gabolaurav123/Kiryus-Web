@@ -6,7 +6,7 @@ Esta guía explica cómo cambiar el contenido de la web sin presentar borradores
 
 Registrar la fuente, la fecha de consulta, el texto que respalda la afirmación y el alcance de ese respaldo. Un dato publicado por Kiryus se puede atribuir a la comunidad; no se convierte por ello en una medición auditada, una certificación o un aval institucional.
 
-Las tres sedes tienen etapas y condiciones diferentes. La capacidad comunicada de una sede no equivale a plazas disponibles. No añadir precios, responsables, calendarios, coordenadas exactas, condiciones de alojamiento o resultados ambientales sin confirmación. Las métricas necesitan período, método y alcance antes de describirse como resultados medidos. Mantener pendientes los datos legales y de Fundación Nueva Humanidad hasta contar con documentación.
+Las dos aldeas actuales, Argentina y Colombia, tienen etapas y condiciones diferentes. España forma parte del legado histórico y no ofrece visitas, estadías ni voluntariado a través de esta web. La capacidad comunicada de una sede no equivale a plazas disponibles. No añadir precios, responsables, calendarios, coordenadas exactas, condiciones de alojamiento o resultados ambientales sin confirmación. Las métricas necesitan período, método y alcance antes de describirse como resultados medidos. Mantener pendientes los datos legales y de Fundación Nueva Humanidad hasta contar con documentación.
 
 Los mapas enlazan búsquedas de localidad. No presentarlos como indicaciones precisas de llegada a la finca. Las consultas de participación sirven para coordinar; el sitio no confirma reservas ni tiempos de respuesta.
 
@@ -15,6 +15,7 @@ Los mapas enlazan búsquedas de localidad. No presentarlos como indicaciones pre
 | Contenido | Archivo o carpeta |
 | --- | --- |
 | Datos y relato de las sedes | `src/content/villages.ts` |
+| Aportación histórica de España | `src/content/legacy.ts` y `src/app/legado/espana/page.tsx` |
 | Textos de Inicio, Nosotros, Contacto y Privacidad | Sus páginas en `src/app/` y las secciones que utilizan |
 | Número y canales oficiales | `src/lib/config.ts` |
 | Opciones, preselección y mensaje de participación | `src/lib/participation.ts` |
@@ -59,7 +60,8 @@ El ejemplo es un borrador, no un artículo listo para publicar. Reemplazar cada 
 | `date` | Fecha real, válida y entre comillas: `"YYYY-MM-DD"` |
 | `status` | `draft` durante la preparación; `published` tras la revisión |
 | `updatedAt` | Opcional; fecha real de modificación que no preceda a `date` |
-| `aldea` | Opcional; `argentina`, `colombia` o `espana`, si la relación está confirmada |
+| `aldea` | Opcional; `argentina` o `colombia`, si la relación está confirmada |
+| `legacy` | Opcional; `espana`, para una relación confirmada con el legado histórico |
 | `cover` | Opcional; objeto con `src`, `alt`, `width` y `height` |
 
 La portada debe existir dentro de `public/images/`; `src` utiliza `/images/nombre-del-archivo.webp`. Indicar las dimensiones reales del archivo servido y un texto alternativo descriptivo. El adaptador verifica el formato del frontmatter; la revisión editorial debe comprobar que el recurso existe, corresponde al artículo y tiene permiso de uso.

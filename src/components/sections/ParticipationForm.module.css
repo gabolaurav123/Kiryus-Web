@@ -389,6 +389,13 @@
   border: 0;
 }
 
+.submitConsultation { border: 1px solid #cbd9c3; background: #f1f5e9; border-radius: 12px; padding: 22px; margin-top: 24px; }
+.consent { display: flex; align-items: flex-start; gap: 12px; font-size: .82rem; line-height: 1.75; margin-bottom: 20px; color: #36523d; }
+.consent input { width: 20px; height: 20px; flex-shrink: 0; accent-color: #256d4e; margin-top: 4px; }
+.consent a { color: #256d4e; text-underline-offset: 3px; }
+.primary:disabled,.back:disabled { opacity: .6; cursor: not-allowed; }
+.honeypot { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+
 @media (max-width: 540px) {
   .card {
     padding: 24px 20px;

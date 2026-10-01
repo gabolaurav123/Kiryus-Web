@@ -17,17 +17,22 @@ const config: NextConfig = {
       },
       {
         source: "/kiryus-españa",
-        destination: "/aldeas/espana",
+        destination: "/legado/espana",
         permanent: true,
       },
       {
         source: "/kiryus-espa%C3%B1a",
-        destination: "/aldeas/espana",
+        destination: "/legado/espana",
         permanent: true,
       },
       {
         source: "/kiryus-espana",
-        destination: "/aldeas/espana",
+        destination: "/legado/espana",
+        permanent: true,
+      },
+      {
+        source: "/aldeas/espana",
+        destination: "/legado/espana",
         permanent: true,
       },
     ];

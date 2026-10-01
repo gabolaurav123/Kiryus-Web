@@ -54,8 +54,9 @@ El bloqueo de robots no protege el acceso. Si el contenido de una revisión debe
 | `/blog` | `/blog` | Conservada; sin publicaciones de ejemplo |
 | `/kiryus-argentina` | `/aldeas/argentina` | Redirección permanente configurada |
 | `/kiryus-colombia` | `/aldeas/colombia` | Redirección permanente configurada |
-| `/kiryus-españa` | `/aldeas/espana` | Redirección permanente configurada; comprobar URL codificada con `%C3%B1` |
-| `/kiryus-espana` | `/aldeas/espana` | Variante sin ñ con redirección permanente configurada |
+| `/kiryus-españa` | `/legado/espana` | Redirección permanente al legado; comprobar URL codificada con `%C3%B1` |
+| `/kiryus-espana` | `/legado/espana` | Variante sin ñ con redirección permanente al legado |
+| `/aldeas/espana` | `/legado/espana` | Redirección permanente; España dejó de figurar como aldea actual por confirmación del usuario |
 | Sin equivalente principal previo | `/aldeas`, `/contacto`, `/privacidad` | Rutas nuevas de la entrega |
 
 Las redirecciones están en `next.config.ts`; comprobar su comportamiento HTTP al desplegar. Las rutas históricas de Tienda, Donaciones y Eventos no forman parte de esta primera versión. Inventariar tráfico, enlaces externos y contenido útil de esas secciones antes de decidir su retirada, conservación o destino. No publicar programación antigua como próxima ni usar una redirección general al inicio para ocultar páginas ausentes.

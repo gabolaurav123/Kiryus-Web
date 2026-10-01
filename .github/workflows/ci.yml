@@ -41,3 +41,5 @@ jobs:
         run: pnpm build
       - name: Rutas y SEO de la vista previa
         run: pnpm test:routes
+      - name: CRM y persistencia tras reinicio
+        run: pnpm test:crm

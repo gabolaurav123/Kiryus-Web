@@ -89,7 +89,8 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
       ({ frontmatter: candidate }) =>
         candidate.slug !== slug &&
         (candidate.category === frontmatter.category ||
-          (frontmatter.aldea && candidate.aldea === frontmatter.aldea)),
+          (frontmatter.aldea && candidate.aldea === frontmatter.aldea) ||
+          (frontmatter.legacy && candidate.legacy === frontmatter.legacy)),
     )
     .slice(0, 3);
   const url = new URL(`/blog/${frontmatter.slug}`, siteConfig.url).toString();
@@ -162,6 +163,16 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
                 className="button button-outline"
               >
                 Conoce la aldea relacionada
+              </Link>
+            </p>
+          )}
+          {frontmatter.legacy && (
+            <p style={{ marginTop: "2rem" }}>
+              <Link
+                href={`/legado/${frontmatter.legacy}`}
+                className="button button-outline"
+              >
+                Conoce el legado de España
               </Link>
             </p>
           )}

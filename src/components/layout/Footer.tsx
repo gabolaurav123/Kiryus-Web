@@ -25,12 +25,13 @@ export function Footer() {
         <div>
           <h2>La comunidad</h2>
           <Link href="/nosotros">Nosotros</Link>
+          <Link href="/legado/espana">Legado de España</Link>
           <Link href="/involucrate">Formas de participar</Link>
           <Link href="/blog">Blog</Link>
           <Link href="/contacto">Contacto</Link>
         </div>
         <div>
-          <h2>Los territorios</h2>
+          <h2>Las aldeas actuales</h2>
           {villages.map((village) => (
             <Link key={village.slug} href={`/aldeas/${village.slug}`}>
               {village.country}
@@ -59,7 +60,7 @@ export function Footer() {
       </div>
       <div className="container footer-bottom">
         <p>© {new Date().getFullYear()} Comunidad Kiryus</p>
-        <span>Tres países. Una intención compartida.</span>
+        <span>Dos aldeas. Una intención compartida.</span>
         <Link href="/privacidad">Privacidad</Link>
       </div>
     </footer>
