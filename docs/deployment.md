@@ -1,0 +1,105 @@
+# Desplegar y mantener Kiryus
+
+Esta guía describe la configuración del proyecto. No acredita por sí sola que se haya creado un servicio o completado un despliegue.
+
+## Entorno reproducible
+
+Usar Node.js 24 y pnpm 11.19.0. Conservar `pnpm-lock.yaml` y el campo `packageManager` de `package.json`. No mezclar lockfiles de npm, Yarn y pnpm.
+
+```sh
+npx --yes pnpm@11.19.0 install --frozen-lockfile
+npx --yes pnpm@11.19.0 typecheck
+npx --yes pnpm@11.19.0 lint
+npx --yes pnpm@11.19.0 test
+npx --yes pnpm@11.19.0 build
+node scripts/start.mjs
+```
+
+El script de arranque ejecuta el servidor de producción de Next.js sobre `0.0.0.0` y respeta `PORT`; utiliza 3000 cuando esa variable no existe. Este proyecto usa la salida normal de Next.js. No requiere copiar carpetas standalone ni construir una imagen Docker.
+
+## Vista previa en Seenode
+
+Crear un **Web service** conectado al repositorio de GitHub autorizado. Seleccionar la rama que contiene la versión revisada y verificar su commit. Si `package.json` está en la raíz, dejar vacío **Root directory**.
+
+| Campo | Valor |
+| --- | --- |
+| Language | Node 24 |
+| Build command | `npx --yes pnpm@11.19.0 install --frozen-lockfile && npx --yes pnpm@11.19.0 build` |
+| Start command | `node scripts/start.mjs` |
+| Port | `3000` |
+| `PORT` | `3000` |
+| `NEXT_PUBLIC_SITE_URL` | URL HTTPS real del servicio de vista previa |
+| `SITE_INDEXABLE` | `false` |
+| `NEXT_TELEMETRY_DISABLED` | `1` (opcional) |
+
+El campo **Port** de Seenode y `PORT` deben coincidir. Seenode no garantiza inyectar esa variable: definirla expresamente. Un puerto distinto o una escucha limitada a localhost suele producir un error 502.
+
+Precios consultados el 1 de octubre de 2026: Basic, 512 MB, US$4/mes; Standard, 1 GB, US$7/mes; Pro, 2 GB, US$14/mes. Standard ofrece un margen inicial de memoria, pero no sustituye revisar métricas y necesidades reales. Confirmar precio y recursos en el dashboard antes de crear. No añadir base de datos ni volumen al sitio público si no existe una necesidad concreta de persistencia.
+
+El sitio original continuará disponible. La vista previa no modifica dominio, DNS ni hosting de producción. Su configuración desactiva indexación, bloquea robots y publica un sitemap vacío. `robots.txt` no es un control de acceso: el enlace de vista previa sigue siendo público.
+
+Abrir los logs de build y runtime, esperar el estado activo y comprobar la URL. Auto-deploy está desactivado por defecto; puede activarse en Settings para la rama elegida después de revisar el flujo. La CI valida el código y no despliega ni compra servicios.
+
+## Variables y producción
+
+Las variables están disponibles en build y ejecución. **Apply changes** en Seenode reinicia la imagen existente sin reconstruir Git. Al cambiar `NEXT_PUBLIC_SITE_URL`, cualquier `NEXT_PUBLIC_*` o un valor utilizado para generar páginas durante el build, realizar un nuevo despliegue del commit revisado. Next.js incorpora las variables públicas al código generado.
+
+Una migración al dominio definitivo requiere una instrucción específica para ese entorno. Cuando se autorice:
+
+1. Configurar `NEXT_PUBLIC_SITE_URL` con el dominio HTTPS definitivo y revisar canonical y metadatos sociales.
+2. Configurar `SITE_INDEXABLE=true` y reconstruir. Revisar `robots.txt`, `sitemap.xml` y las etiquetas robots.
+3. Configurar el dominio en Seenode y aplicar únicamente los registros DNS que indique el proveedor; esperar verificación de dominio y TLS.
+4. Comprobar las redirecciones de sedes antiguas, incluida la variante con ñ, y las rutas nuevas.
+5. Verificar todas las páginas, imágenes, navegación móvil y formulario sin enviar consultas de prueba a la comunidad.
+
+El filesystem del servicio es efímero. No guardar consultas, uploads ni cambios editoriales allí. El contenido del sitio vive en Git; un almacenamiento persistente futuro requiere diseño y configuración propios.
+
+## Publicar artículos reales
+
+Los archivos editoriales se guardan en `src/content/articles/`. `src/lib/articles.ts` ofrece un adaptador de archivos con un contrato que puede implementarse con un CMS más adelante. El listado, las recomendaciones, las rutas y el sitemap consultan exclusivamente `status: published`.
+
+La búsqueda por título/resumen y el selector de categorías aparecen solamente cuando existen artículos publicados. Usan un formulario GET y renderizado de servidor; funcionan sin JavaScript. Un resultado vacío conserva los filtros y ofrece volver al listado completo.
+
+`borrador-editorial.mdx` es una plantilla interna. Permanece en `draft`, no aparece públicamente y su URL devuelve 404. Crear un archivo nuevo llamado exactamente como su slug. Su frontmatter publicado debe contener:
+
+```yaml
+slug: slug-confirmado
+title: "Título revisado"
+summary: "Resumen del artículo"
+category: naturaleza
+author:
+  name: "Autoría real confirmada"
+  type: Person
+date: "YYYY-MM-DD"
+status: draft
+```
+
+El ejemplo no es una publicación válida hasta reemplazar los marcadores con datos reales. Mantener `draft` durante la revisión. Las categorías preparadas son `naturaleza`, `practicas-sostenibles` y `vida-comunitaria`. La autoría puede tener `type: Person` o `Organization`, según quién escribió el artículo.
+
+Campos opcionales: `aldea` (`argentina`, `colombia` o `espana`), `updatedAt` (fecha real de modificación) y `cover`, con `src`, `alt`, `width` y `height`. La portada debe ser local bajo `/images/`, tener procedencia y permiso documentados, y usar sus dimensiones reales. Omitirla cuando no exista una imagen confirmada.
+
+La fecha debe ser una cadena entre comillas y existir en el calendario. La fecha de modificación no puede preceder a la publicación. El cuerpo empieza con títulos `##`, porque la plantilla de lectura ya presenta un H1.
+
+MDX se compila únicamente desde archivos editoriales confiables y revisados. No utilizar texto del formulario, contenido de visitantes, URLs remotas ni imports dinámicos como fuente MDX. La compilación bloquea expresiones JavaScript. No incluir secretos en el frontmatter ni en el cuerpo. Un CMS futuro debe mantener esta frontera de confianza y el filtrado de borradores.
+
+Después de la aprobación editorial, cambiar a `status: published`, ejecutar las comprobaciones, revisar la página y desplegar. Las rutas se generan durante el build: cada alta, baja o cambio de slug requiere reconstrucción. Al retirar un artículo, revisar enlaces y decidir una redirección editorial cuando exista un destino adecuado.
+
+## Comprobaciones de despliegue
+
+- Instalación congelada, tipos, lint, pruebas y build completados.
+- Blog vacío sin artículos de ejemplo publicados; borrador e inexistente responden 404.
+- Con `SITE_INDEXABLE=false`, robots bloqueados y sitemap sin URLs.
+- Metadatos y sitemap utilizan la URL pública configurada.
+- Servidor accesible por el puerto configurado; recursos sin 404 y rutas sin errores.
+- Revisión visual de móvil/escritorio y contactos realizada sin enviar solicitudes reales.
+
+Registrar resultados efectivos y el commit desplegado en la documentación de verificación. No presentar esta lista como comprobada hasta ejecutar los pasos.
+
+## Fuentes oficiales
+
+- [Next.js en Seenode](https://seenode.com/docs/frameworks/javascript/nextjs)
+- [Puertos](https://seenode.com/docs/deploy/port)
+- [Variables](https://seenode.com/docs/configure/environment-variables)
+- [Runtimes](https://seenode.com/docs/reference/runtimes)
+- [Precios](https://seenode.com/pricing)
+- [Variables y self-hosting de Next.js](https://nextjs.org/docs/app/guides/self-hosting)

@@ -1,0 +1,43 @@
+name: Comprobaciones
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: checks-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      NEXT_PUBLIC_SITE_URL: https://preview.example.com
+      SITE_INDEXABLE: "false"
+      NEXT_TELEMETRY_DISABLED: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+      - uses: pnpm/action-setup@v4
+        with:
+          version: "11.19.0"
+          run_install: false
+      - name: Instalación reproducible
+        run: pnpm install --frozen-lockfile
+      - name: Tipos
+        run: pnpm typecheck
+      - name: Lint
+        run: pnpm lint
+      - name: Pruebas
+        run: pnpm test
+      - name: Build de producción
+        run: pnpm build
+      - name: Rutas y SEO de la vista previa
+        run: pnpm test:routes

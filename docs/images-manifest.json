@@ -1,0 +1,1037 @@
+{
+  "consultedAt": "2026-10-01",
+  "method": "HTTP público vivo, originales de Wix sin /v1, inspección visual con view_image, Pillow sin ampliación artificial.",
+  "assets": [
+    {
+      "id": "logo-kiryus-white",
+      "kind": "logo",
+      "publicPath": "/images/logo-kiryus-white.png",
+      "width": 1200,
+      "height": 577,
+      "bytes": 78731,
+      "alt": "Kiryus",
+      "originalFile": "originals/logo-kiryus-original.png",
+      "originalUrl": "https://static.wixstatic.com/media/12f587_7c2590b694c0492082f46fd61f3f369d~mv2.png",
+      "originalDimensions": {
+        "width": 2495,
+        "height": 791
+      },
+      "originalBytes": 168196,
+      "appearances": [
+        {
+          "page": "home",
+          "pageUrl": "https://www.comunidadkiryus.org/",
+          "index": 0,
+          "alt": "kiryus_edited_edited.png"
+        },
+        {
+          "page": "nosotros",
+          "pageUrl": "https://www.comunidadkiryus.org/nosotros",
+          "index": 0,
+          "alt": "kiryus_edited_edited.png"
+        },
+        {
+          "page": "argentina",
+          "pageUrl": "https://www.comunidadkiryus.org/kiryus-argentina",
+          "index": 0,
+          "alt": "kiryus_edited_edited.png"
+        },
+        {
+          "page": "colombia",
+          "pageUrl": "https://www.comunidadkiryus.org/kiryus-colombia",
+          "index": 0,
+          "alt": "kiryus_edited_edited.png"
+        },
+        {
+          "page": "espana",
+          "pageUrl": "https://www.comunidadkiryus.org/kiryus-espa%C3%B1a",
+          "index": 0,
+          "alt": "kiryus_edited_edited.png"
+        },
+        {
+          "page": "involucrate",
+          "pageUrl": "https://www.comunidadkiryus.org/involucrate",
+          "index": 0,
+          "alt": "kiryus_edited_edited.png"
+        },
+        {
+          "page": "blog",
+          "pageUrl": "https://www.comunidadkiryus.org/blog",
+          "index": 0,
+          "alt": "kiryus_edited_edited.png"
+        }
+      ],
+      "association": {
+        "country": null,
+        "status": "observed_brand_logo"
+      },
+      "cropPosition": "50% 50%",
+      "recommendedUse": "Logo blanco original sobre verde profundo. Copia con margen transparente recortado; sin redibujo.",
+      "processing": {
+        "transparentMarginCrop": [
+          554,
+          77,
+          1987,
+          766
+        ],
+        "resizedWithoutUpscaling": true,
+        "transparencyPreserved": true
+      },
+      "visualReviewed": true,
+      "variants": [],
+      "rights": "Marca de Comunidad Kiryus; conservar sus derechos separados de la licencia del código."
+    },
+    {
+      "id": "comunidad-grupo",
+      "kind": "photograph",
+      "publicPath": "/images/comunidad-grupo.webp",
+      "width": 960,
+      "height": 1280,
+      "bytes": 242832,
+      "alt": "Grupo de personas en un prado con una bandera de Kiryus.",
+      "originalFile": "originals/comunidad-grupo.jpeg",
+      "originalUrl": "https://static.wixstatic.com/media/12f587_8870d086d40545f18524de0e0c031359~mv2.jpeg",
+      "originalDimensions": {
+        "width": 960,
+        "height": 1280
+      },
+      "originalBytes": 230178,
+      "appearances": [
+        {
+          "page": "home",
+          "pageUrl": "https://www.comunidadkiryus.org/",
+          "index": 1,
+          "alt": "WhatsApp Image 2025-12-03 at 8.39.23 PM.jpeg"
+        }
+      ],
+      "association": {
+        "country": null,
+        "status": "general_site_material_location_unconfirmed",
+        "note": "Se publica en una página general. No atribuir una sede o fecha concreta."
+      },
+      "cropPosition": "50% 60%",
+      "recommendedUse": "home hero dividido; conservar el grupo completo",
+      "variants": [
+        {
+          "publicPath": "/images/comunidad-grupo-480.webp",
+          "file": "optimized/comunidad-grupo-480.webp",
+          "width": 480,
+          "height": 640,
+          "bytes": 70368
+        },
+        {
+          "publicPath": "/images/comunidad-grupo.webp",
+          "file": "optimized/comunidad-grupo.webp",
+          "width": 960,
+          "height": 1280,
+          "bytes": 242832
+        }
+      ],
+      "visualReviewed": true,
+      "rights": "Material publicado por Comunidad Kiryus, reutilizado para su propia web conforme al encargo; no implica licencia general para terceros."
+    },
+    {
+      "id": "comunidad-jardin",
+      "kind": "photograph",
+      "publicPath": "/images/comunidad-jardin.webp",
+      "width": 540,
+      "height": 540,
+      "bytes": 86432,
+      "alt": "Personas alrededor de un pequeño jardín delimitado con piedras.",
+      "originalFile": "originals/comunidad-jardin.jpg",
+      "originalUrl": "https://static.wixstatic.com/media/12f587_fb745ebb04b64886adf985545b840776~mv2.jpg",
+      "originalDimensions": {
+        "width": 540,
+        "height": 540
+      },
+      "originalBytes": 337508,
+      "appearances": [
+        {
+          "page": "home",
+          "pageUrl": "https://www.comunidadkiryus.org/",
+          "index": 2,
+          "alt": ""
+        }
+      ],
+      "association": {
+        "country": null,
+        "status": "general_site_material_location_unconfirmed",
+        "note": "Se publica en una página general. No atribuir una sede o fecha concreta."
+      },
+      "cropPosition": "50% 55%",
+      "recommendedUse": "detalle de prácticas y galería",
+      "variants": [
+        {
+          "publicPath": "/images/comunidad-jardin-480.webp",
+          "file": "optimized/comunidad-jardin-480.webp",
+          "width": 480,
+          "height": 480,
+          "bytes": 70812
+        },
+        {
+          "publicPath": "/images/comunidad-jardin.webp",
+          "file": "optimized/comunidad-jardin.webp",
+          "width": 540,
+          "height": 540,
+          "bytes": 86432
+        }
+      ],
+      "visualReviewed": true,
+      "rights": "Material publicado por Comunidad Kiryus, reutilizado para su propia web conforme al encargo; no implica licencia general para terceros."
+    },
+    {
+      "id": "colombia-encuentro",
+      "kind": "photograph",
+      "publicPath": "/images/colombia-encuentro.webp",
+      "width": 900,
+      "height": 900,
+      "bytes": 117728,
+      "alt": "Grupo de personas al aire libre, con montañas al fondo.",
+      "originalFile": "originals/colombia-encuentro.jpg",
+      "originalUrl": "https://static.wixstatic.com/media/12f587_bd92546e2f5f4d49b49cada793c5551a~mv2.jpg",
+      "originalDimensions": {
+        "width": 900,
+        "height": 900
+      },
+      "originalBytes": 759272,
+      "appearances": [
+        {
+          "page": "home",
+          "pageUrl": "https://www.comunidadkiryus.org/",
+          "index": 3,
+          "alt": ""
+        },
+        {
+          "page": "colombia",
+          "pageUrl": "https://www.comunidadkiryus.org/kiryus-colombia",
+          "index": 3,
+          "alt": "WhatsApp Image 2026-02-27 at 1.11_edited.jpg"
+        }
+      ],
+      "association": {
+        "country": "colombia",
+        "status": "observed_on_country_page",
+        "note": "Asociación editorial observada en la página de sede; no es una geolocalización independiente."
+      },
+      "cropPosition": "50% 50%",
+      "recommendedUse": "galería de Colombia",
+      "variants": [
+        {
+          "publicPath": "/images/colombia-encuentro-480.webp",
+          "file": "optimized/colombia-encuentro-480.webp",
+          "width": 480,
+          "height": 480,
+          "bytes": 45858
+        },
+        {
+          "publicPath": "/images/colombia-encuentro.webp",
+          "file": "optimized/colombia-encuentro.webp",
+          "width": 900,
+          "height": 900,
+          "bytes": 117728
+        }
+      ],
+      "visualReviewed": true,
+      "rights": "Material publicado por Comunidad Kiryus, reutilizado para su propia web conforme al encargo; no implica licencia general para terceros."
+    },
+    {
+      "id": "colombia-paisaje",
+      "kind": "photograph",
+      "publicPath": "/images/colombia-paisaje.webp",
+      "width": 719,
+      "height": 719,
+      "bytes": 120756,
+      "alt": "Paisaje de pradera y montañas al atardecer.",
+      "originalFile": "originals/colombia-paisaje.jpg",
+      "originalUrl": "https://static.wixstatic.com/media/12f587_07461314baf8452db3460a0004d5a08d~mv2.jpg",
+      "originalDimensions": {
+        "width": 719,
+        "height": 719
+      },
+      "originalBytes": 614320,
+      "appearances": [
+        {
+          "page": "home",
+          "pageUrl": "https://www.comunidadkiryus.org/",
+          "index": 4,
+          "alt": ""
+        },
+        {
+          "page": "colombia",
+          "pageUrl": "https://www.comunidadkiryus.org/kiryus-colombia",
+          "index": 2,
+          "alt": "WhatsApp Image 2026-02-27 at 1.11_edited.jpg"
+        }
+      ],
+      "association": {
+        "country": "colombia",
+        "status": "observed_on_country_page",
+        "note": "Asociación editorial observada en la página de sede; no es una geolocalización independiente."
+      },
+      "cropPosition": "50% 50%",
+      "recommendedUse": "detalle territorial; no ampliar por encima de su resolución",
+      "variants": [
+        {
+          "publicPath": "/images/colombia-paisaje-480.webp",
+          "file": "optimized/colombia-paisaje-480.webp",
+          "width": 480,
+          "height": 480,
+          "bytes": 55658
+        },
+        {
+          "publicPath": "/images/colombia-paisaje.webp",
+          "file": "optimized/colombia-paisaje.webp",
+          "width": 719,
+          "height": 719,
+          "bytes": 120756
+        }
+      ],
+      "visualReviewed": true,
+      "rights": "Material publicado por Comunidad Kiryus, reutilizado para su propia web conforme al encargo; no implica licencia general para terceros."
+    },
+    {
+      "id": "colombia-comunidad",
+      "kind": "photograph",
+      "publicPath": "/images/colombia-comunidad.webp",
+      "width": 1200,
+      "height": 1330,
+      "bytes": 382422,
+      "alt": "Grupo de personas frente a una construcción rodeada de colinas verdes.",
+      "originalFile": "originals/colombia-comunidad.png",
+      "originalUrl": "https://static.wixstatic.com/media/12f587_bd6187d5cef24a1fb66da53d0d17567a~mv2.png",
+      "originalDimensions": {
+        "width": 1200,
+        "height": 1330
+      },
+      "originalBytes": 3603322,
+      "appearances": [
+        {
+          "page": "home",
+          "pageUrl": "https://www.comunidadkiryus.org/",
+          "index": 5,
+          "alt": ""
+        },
+        {
+          "page": "colombia",
+          "pageUrl": "https://www.comunidadkiryus.org/kiryus-colombia",
+          "index": 1,
+          "alt": ""
+        }
+      ],
+      "association": {
+        "country": "colombia",
+        "status": "observed_on_country_page",
+        "note": "Asociación editorial observada en la página de sede; no es una geolocalización independiente."
+      },
+      "cropPosition": "50% 65%",
+      "recommendedUse": "hero o ficha Colombia; proteger los rostros de la franja inferior",
+      "variants": [
+        {
+          "publicPath": "/images/colombia-comunidad-480.webp",
+          "file": "optimized/colombia-comunidad-480.webp",
+          "width": 480,
+          "height": 532,
+          "bytes": 69214
+        },
+        {
+          "publicPath": "/images/colombia-comunidad-960.webp",
+          "file": "optimized/colombia-comunidad-960.webp",
+          "width": 960,
+          "height": 1064,
+          "bytes": 254216
+        },
+        {
+          "publicPath": "/images/colombia-comunidad.webp",
+          "file": "optimized/colombia-comunidad.webp",
+          "width": 1200,
+          "height": 1330,
+          "bytes": 382422
+        }
+      ],
+      "visualReviewed": true,
+      "rights": "Material publicado por Comunidad Kiryus, reutilizado para su propia web conforme al encargo; no implica licencia general para terceros."
+    },
+    {
+      "id": "comunidad-actividad",
+      "kind": "photograph",
+      "publicPath": "/images/comunidad-actividad.webp",
+      "width": 960,
+      "height": 1280,
+      "bytes": 306008,
+      "alt": "Personas reunidas alrededor de materiales dispuestos sobre el suelo.",
+      "originalFile": "originals/comunidad-actividad.jpeg",
+      "originalUrl": "https://static.wixstatic.com/media/12f587_4623f53ab4bd42f686c36c3913937e7c~mv2.jpeg",
+      "originalDimensions": {
+        "width": 960,
+        "height": 1280
+      },
+      "originalBytes": 402271,
+      "appearances": [
+        {
+          "page": "home",
+          "pageUrl": "https://www.comunidadkiryus.org/",
+          "index": 7,
+          "alt": ""
+        }
+      ],
+      "association": {
+        "country": null,
+        "status": "general_site_material_location_unconfirmed",
+        "note": "Se publica en una página general. No atribuir una sede o fecha concreta."
+      },
+      "cropPosition": "50% 60%",
+      "recommendedUse": "galería documental",
+      "variants": [
+        {
+          "publicPath": "/images/comunidad-actividad-480.webp",
+          "file": "optimized/comunidad-actividad-480.webp",
+          "width": 480,
+          "height": 640,
+          "bytes": 92110
+        },
+        {
+          "publicPath": "/images/comunidad-actividad.webp",
+          "file": "optimized/comunidad-actividad.webp",
+          "width": 960,
+          "height": 1280,
+          "bytes": 306008
+        }
+      ],
+      "visualReviewed": true,
+      "rights": "Material publicado por Comunidad Kiryus, reutilizado para su propia web conforme al encargo; no implica licencia general para terceros."
+    },
+    {
+      "id": "argentina-actividad",
+      "kind": "photograph",
+      "publicPath": "/images/argentina-actividad.webp",
+      "width": 900,
+      "height": 976,
+      "bytes": 177752,
+      "alt": "Personas jugando con una pelota grande en un espacio al aire libre.",
+      "originalFile": "originals/argentina-actividad.jpg",
+      "originalUrl": "https://static.wixstatic.com/media/12f587_64a25b4777934b3eb62232314fe6e33e~mv2.jpg",
+      "originalDimensions": {
+        "width": 900,
+        "height": 976
+      },
+      "originalBytes": 872641,
+      "appearances": [
+        {
+          "page": "home",
+          "pageUrl": "https://www.comunidadkiryus.org/",
+          "index": 9,
+          "alt": ""
+        },
+        {
+          "page": "argentina",
+          "pageUrl": "https://www.comunidadkiryus.org/kiryus-argentina",
+          "index": 1,
+          "alt": "WhatsApp Image 2026-02-27 at 1.10_edited.jpg"
+        }
+      ],
+      "association": {
+        "country": "argentina",
+        "status": "observed_on_country_page",
+        "note": "Asociación editorial observada en la página de sede; no es una geolocalización independiente."
+      },
+      "cropPosition": "50% 60%",
+      "recommendedUse": "hero o ficha Argentina; mantener pelota y participantes",
+      "variants": [
+        {
+          "publicPath": "/images/argentina-actividad-480.webp",
+          "file": "optimized/argentina-actividad-480.webp",
+          "width": 480,
+          "height": 521,
+          "bytes": 53980
+        },
+        {
+          "publicPath": "/images/argentina-actividad.webp",
+          "file": "optimized/argentina-actividad.webp",
+          "width": 900,
+          "height": 976,
+          "bytes": 177752
+        }
+      ],
+      "visualReviewed": true,
+      "rights": "Material publicado por Comunidad Kiryus, reutilizado para su propia web conforme al encargo; no implica licencia general para terceros."
+    },
+    {
+      "id": "comunidad-interior",
+      "kind": "photograph",
+      "publicPath": "/images/comunidad-interior.webp",
+      "width": 1600,
+      "height": 900,
+      "bytes": 92750,
+      "alt": "Espacio interior con asientos y una chimenea encendida.",
+      "originalFile": "originals/comunidad-interior.jpeg",
+      "originalUrl": "https://static.wixstatic.com/media/12f587_0dfdcdd70b1e495cb04299f1f4473517~mv2.jpeg",
+      "originalDimensions": {
+        "width": 1600,
+        "height": 900
+      },
+      "originalBytes": 292799,
+      "appearances": [
+        {
+          "page": "home",
+          "pageUrl": "https://www.comunidadkiryus.org/",
+          "index": 10,
+          "alt": ""
+        },
+        {
+          "page": "involucrate",
+          "pageUrl": "https://www.comunidadkiryus.org/involucrate",
+          "index": 4,
+          "alt": "WhatsApp Image 2026-02-27 at 1.10.58 PM.jpeg"
+        }
+      ],
+      "association": {
+        "country": null,
+        "status": "general_site_material_location_unconfirmed",
+        "note": "Se publica en una página general. No atribuir una sede o fecha concreta."
+      },
+      "cropPosition": "50% 50%",
+      "recommendedUse": "galería general, sin atribuir alojamiento a una sede concreta",
+      "variants": [
+        {
+          "publicPath": "/images/comunidad-interior-480.webp",
+          "file": "optimized/comunidad-interior-480.webp",
+          "width": 480,
+          "height": 270,
+          "bytes": 15480
+        },
+        {
+          "publicPath": "/images/comunidad-interior-960.webp",
+          "file": "optimized/comunidad-interior-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 43708
+        },
+        {
+          "publicPath": "/images/comunidad-interior.webp",
+          "file": "optimized/comunidad-interior.webp",
+          "width": 1600,
+          "height": 900,
+          "bytes": 92750
+        }
+      ],
+      "visualReviewed": true,
+      "rights": "Material publicado por Comunidad Kiryus, reutilizado para su propia web conforme al encargo; no implica licencia general para terceros."
+    },
+    {
+      "id": "comunidad-circulo",
+      "kind": "photograph",
+      "publicPath": "/images/comunidad-circulo.webp",
+      "width": 1280,
+      "height": 960,
+      "bytes": 257198,
+      "alt": "Grupo de personas sentadas en círculo junto a construcciones.",
+      "originalFile": "originals/comunidad-circulo.jpeg",
+      "originalUrl": "https://static.wixstatic.com/media/12f587_d7a00247dbbd4bb69bf7b6e1d5b381e0~mv2.jpeg",
+      "originalDimensions": {
+        "width": 1280,
+        "height": 960
+      },
+      "originalBytes": 248553,
+      "appearances": [
+        {
+          "page": "nosotros",
+          "pageUrl": "https://www.comunidadkiryus.org/nosotros",
+          "index": 1,
+          "alt": "WhatsApp Image 2025-12-03 at 8.46.07 PM.jpeg"
+        }
+      ],
+      "association": {
+        "country": null,
+        "status": "general_site_material_location_unconfirmed",
+        "note": "Se publica en una página general. No atribuir una sede o fecha concreta."
+      },
+      "cropPosition": "50% 60%",
+      "recommendedUse": "Nosotros y sección humana de inicio",
+      "variants": [
+        {
+          "publicPath": "/images/comunidad-circulo-480.webp",
+          "file": "optimized/comunidad-circulo-480.webp",
+          "width": 480,
+          "height": 360,
+          "bytes": 52136
+        },
+        {
+          "publicPath": "/images/comunidad-circulo-960.webp",
+          "file": "optimized/comunidad-circulo-960.webp",
+          "width": 960,
+          "height": 720,
+          "bytes": 172590
+        },
+        {
+          "publicPath": "/images/comunidad-circulo.webp",
+          "file": "optimized/comunidad-circulo.webp",
+          "width": 1280,
+          "height": 960,
+          "bytes": 257198
+        }
+      ],
+      "visualReviewed": true,
+      "rights": "Material publicado por Comunidad Kiryus, reutilizado para su propia web conforme al encargo; no implica licencia general para terceros."
+    },
+    {
+      "id": "argentina-mesa",
+      "kind": "photograph",
+      "publicPath": "/images/argentina-mesa.webp",
+      "width": 1200,
+      "height": 1600,
+      "bytes": 398770,
+      "alt": "Personas compartiendo una mesa al aire libre bajo un árbol.",
+      "originalFile": "originals/argentina-mesa.jpeg",
+      "originalUrl": "https://static.wixstatic.com/media/12f587_4259ce91548c4062be605369d44111e2~mv2.jpeg",
+      "originalDimensions": {
+        "width": 1200,
+        "height": 1600
+      },
+      "originalBytes": 447026,
+      "appearances": [
+        {
+          "page": "argentina",
+          "pageUrl": "https://www.comunidadkiryus.org/kiryus-argentina",
+          "index": 3,
+          "alt": "WhatsApp Image 2026-02-27 at 1.10.26 PM (1).jpeg"
+        }
+      ],
+      "association": {
+        "country": "argentina",
+        "status": "observed_on_country_page",
+        "note": "Asociación editorial observada en la página de sede; no es una geolocalización independiente."
+      },
+      "cropPosition": "50% 50%",
+      "recommendedUse": "galería de Argentina",
+      "variants": [
+        {
+          "publicPath": "/images/argentina-mesa-480.webp",
+          "file": "optimized/argentina-mesa-480.webp",
+          "width": 480,
+          "height": 640,
+          "bytes": 95376
+        },
+        {
+          "publicPath": "/images/argentina-mesa-960.webp",
+          "file": "optimized/argentina-mesa-960.webp",
+          "width": 960,
+          "height": 1280,
+          "bytes": 293126
+        },
+        {
+          "publicPath": "/images/argentina-mesa.webp",
+          "file": "optimized/argentina-mesa.webp",
+          "width": 1200,
+          "height": 1600,
+          "bytes": 398770
+        }
+      ],
+      "visualReviewed": true,
+      "rights": "Material publicado por Comunidad Kiryus, reutilizado para su propia web conforme al encargo; no implica licencia general para terceros."
+    },
+    {
+      "id": "espana-convivencia",
+      "kind": "photograph",
+      "publicPath": "/images/espana-convivencia.webp",
+      "width": 1600,
+      "height": 1600,
+      "bytes": 325098,
+      "alt": "Personas junto a una zona cubierta de encuentro al aire libre.",
+      "originalFile": "originals/espana-convivencia.jpg",
+      "originalUrl": "https://static.wixstatic.com/media/12f587_6ce883931c9c4bb6b8eae804403e44ca~mv2.jpg",
+      "originalDimensions": {
+        "width": 1688,
+        "height": 1688
+      },
+      "originalBytes": 2568717,
+      "appearances": [
+        {
+          "page": "espana",
+          "pageUrl": "https://www.comunidadkiryus.org/kiryus-espa%C3%B1a",
+          "index": 1,
+          "alt": "IMG_0368_edited.jpg"
+        }
+      ],
+      "association": {
+        "country": "espana",
+        "status": "observed_on_country_page",
+        "note": "Asociación editorial observada en la página de sede; no es una geolocalización independiente."
+      },
+      "cropPosition": "50% 55%",
+      "recommendedUse": "hero o ficha España",
+      "variants": [
+        {
+          "publicPath": "/images/espana-convivencia-480.webp",
+          "file": "optimized/espana-convivencia-480.webp",
+          "width": 480,
+          "height": 480,
+          "bytes": 61986
+        },
+        {
+          "publicPath": "/images/espana-convivencia-960.webp",
+          "file": "optimized/espana-convivencia-960.webp",
+          "width": 960,
+          "height": 960,
+          "bytes": 180252
+        },
+        {
+          "publicPath": "/images/espana-convivencia.webp",
+          "file": "optimized/espana-convivencia.webp",
+          "width": 1600,
+          "height": 1600,
+          "bytes": 325098
+        }
+      ],
+      "visualReviewed": true,
+      "rights": "Material publicado por Comunidad Kiryus, reutilizado para su propia web conforme al encargo; no implica licencia general para terceros."
+    },
+    {
+      "id": "espana-encuentro",
+      "kind": "photograph",
+      "publicPath": "/images/espana-encuentro.webp",
+      "width": 1600,
+      "height": 1600,
+      "bytes": 684998,
+      "alt": "Grupo de personas junto a una pared de roca.",
+      "originalFile": "originals/espana-encuentro.jpg",
+      "originalUrl": "https://static.wixstatic.com/media/12f587_87870f87b92049208bad6ec45e05bbb8~mv2.jpg",
+      "originalDimensions": {
+        "width": 1688,
+        "height": 1688
+      },
+      "originalBytes": 3320022,
+      "appearances": [
+        {
+          "page": "espana",
+          "pageUrl": "https://www.comunidadkiryus.org/kiryus-espa%C3%B1a",
+          "index": 2,
+          "alt": "IMG_0476_edited.jpg"
+        }
+      ],
+      "association": {
+        "country": "espana",
+        "status": "observed_on_country_page",
+        "note": "Asociación editorial observada en la página de sede; no es una geolocalización independiente."
+      },
+      "cropPosition": "50% 60%",
+      "recommendedUse": "galería de España; evitar cortar al grupo",
+      "variants": [
+        {
+          "publicPath": "/images/espana-encuentro-480.webp",
+          "file": "optimized/espana-encuentro-480.webp",
+          "width": 480,
+          "height": 480,
+          "bytes": 85178
+        },
+        {
+          "publicPath": "/images/espana-encuentro-960.webp",
+          "file": "optimized/espana-encuentro-960.webp",
+          "width": 960,
+          "height": 960,
+          "bytes": 306468
+        },
+        {
+          "publicPath": "/images/espana-encuentro.webp",
+          "file": "optimized/espana-encuentro.webp",
+          "width": 1600,
+          "height": 1600,
+          "bytes": 684998
+        }
+      ],
+      "visualReviewed": true,
+      "rights": "Material publicado por Comunidad Kiryus, reutilizado para su propia web conforme al encargo; no implica licencia general para terceros."
+    },
+    {
+      "id": "espana-cultivo",
+      "kind": "photograph",
+      "publicPath": "/images/espana-cultivo.webp",
+      "width": 900,
+      "height": 1112,
+      "bytes": 292228,
+      "alt": "Persona junto a un árbol joven en un terreno cultivado.",
+      "originalFile": "originals/espana-cultivo.jpg",
+      "originalUrl": "https://static.wixstatic.com/media/12f587_f20f54e7b038421aa851bdddc12814ed~mv2.jpg",
+      "originalDimensions": {
+        "width": 900,
+        "height": 1112
+      },
+      "originalBytes": 1167514,
+      "appearances": [
+        {
+          "page": "espana",
+          "pageUrl": "https://www.comunidadkiryus.org/kiryus-espa%C3%B1a",
+          "index": 3,
+          "alt": "WhatsApp Image 2026-02-27 at 1.10_edited.jpg"
+        }
+      ],
+      "association": {
+        "country": "espana",
+        "status": "observed_on_country_page",
+        "note": "Asociación editorial observada en la página de sede; no es una geolocalización independiente."
+      },
+      "cropPosition": "50% 50%",
+      "recommendedUse": "galería y prácticas agrícolas de España",
+      "variants": [
+        {
+          "publicPath": "/images/espana-cultivo-480.webp",
+          "file": "optimized/espana-cultivo-480.webp",
+          "width": 480,
+          "height": 593,
+          "bytes": 102518
+        },
+        {
+          "publicPath": "/images/espana-cultivo.webp",
+          "file": "optimized/espana-cultivo.webp",
+          "width": 900,
+          "height": 1112,
+          "bytes": 292228
+        }
+      ],
+      "visualReviewed": true,
+      "rights": "Material publicado por Comunidad Kiryus, reutilizado para su propia web conforme al encargo; no implica licencia general para terceros."
+    },
+    {
+      "id": "comunidad-colaboracion",
+      "kind": "photograph",
+      "publicPath": "/images/comunidad-colaboracion.webp",
+      "width": 960,
+      "height": 477,
+      "bytes": 108958,
+      "alt": "Grupo de personas en un terreno al aire libre.",
+      "originalFile": "originals/comunidad-colaboracion.jpg",
+      "originalUrl": "https://static.wixstatic.com/media/12f587_4e24df542a614e4a9acd96767d605ff0~mv2.jpg",
+      "originalDimensions": {
+        "width": 960,
+        "height": 477
+      },
+      "originalBytes": 455599,
+      "appearances": [
+        {
+          "page": "involucrate",
+          "pageUrl": "https://www.comunidadkiryus.org/involucrate",
+          "index": 1,
+          "alt": "WhatsApp Image 2025-11-30 at 3_edited.jpg"
+        }
+      ],
+      "association": {
+        "country": null,
+        "status": "general_site_material_location_unconfirmed",
+        "note": "Se publica en una página general. No atribuir una sede o fecha concreta."
+      },
+      "cropPosition": "50% 50%",
+      "recommendedUse": "cabecera participación; formato apaisado",
+      "variants": [
+        {
+          "publicPath": "/images/comunidad-colaboracion-480.webp",
+          "file": "optimized/comunidad-colaboracion-480.webp",
+          "width": 480,
+          "height": 238,
+          "bytes": 34900
+        },
+        {
+          "publicPath": "/images/comunidad-colaboracion.webp",
+          "file": "optimized/comunidad-colaboracion.webp",
+          "width": 960,
+          "height": 477,
+          "bytes": 108958
+        }
+      ],
+      "visualReviewed": true,
+      "rights": "Material publicado por Comunidad Kiryus, reutilizado para su propia web conforme al encargo; no implica licencia general para terceros."
+    },
+    {
+      "id": "comunidad-encuentro",
+      "kind": "photograph",
+      "publicPath": "/images/comunidad-encuentro.webp",
+      "width": 1200,
+      "height": 1600,
+      "bytes": 408138,
+      "alt": "Personas reunidas en un prado bajo un cielo con nubes.",
+      "originalFile": "originals/comunidad-encuentro.jpg",
+      "originalUrl": "https://static.wixstatic.com/media/12f587_c8b54bcc6f3b4cada01a98e0d76a3f15~mv2.jpg",
+      "originalDimensions": {
+        "width": 1200,
+        "height": 1600
+      },
+      "originalBytes": 387028,
+      "appearances": [
+        {
+          "page": "involucrate",
+          "pageUrl": "https://www.comunidadkiryus.org/involucrate",
+          "index": 2,
+          "alt": "IMG-20231001-WA0039.jpg"
+        }
+      ],
+      "association": {
+        "country": null,
+        "status": "general_site_material_location_unconfirmed",
+        "note": "Se publica en una página general. No atribuir una sede o fecha concreta."
+      },
+      "cropPosition": "50% 60%",
+      "recommendedUse": "galería general y participación",
+      "variants": [
+        {
+          "publicPath": "/images/comunidad-encuentro-480.webp",
+          "file": "optimized/comunidad-encuentro-480.webp",
+          "width": 480,
+          "height": 640,
+          "bytes": 84804
+        },
+        {
+          "publicPath": "/images/comunidad-encuentro-960.webp",
+          "file": "optimized/comunidad-encuentro-960.webp",
+          "width": 960,
+          "height": 1280,
+          "bytes": 291676
+        },
+        {
+          "publicPath": "/images/comunidad-encuentro.webp",
+          "file": "optimized/comunidad-encuentro.webp",
+          "width": 1200,
+          "height": 1600,
+          "bytes": 408138
+        }
+      ],
+      "visualReviewed": true,
+      "rights": "Material publicado por Comunidad Kiryus, reutilizado para su propia web conforme al encargo; no implica licencia general para terceros."
+    },
+    {
+      "id": "comunidad-amanecer",
+      "kind": "photograph",
+      "publicPath": "/images/comunidad-amanecer.webp",
+      "width": 1200,
+      "height": 1600,
+      "bytes": 367210,
+      "alt": "Personas con un gong en un prado iluminado por el sol bajo.",
+      "originalFile": "originals/comunidad-amanecer.jpg",
+      "originalUrl": "https://static.wixstatic.com/media/12f587_1e1b5f16710344b3b08e029a5e42cde6~mv2.jpg",
+      "originalDimensions": {
+        "width": 1200,
+        "height": 1600
+      },
+      "originalBytes": 398500,
+      "appearances": [
+        {
+          "page": "involucrate",
+          "pageUrl": "https://www.comunidadkiryus.org/involucrate",
+          "index": 3,
+          "alt": "Imagen de WhatsApp 2025-11-16 a las 07.52.31_64830275.jpg"
+        }
+      ],
+      "association": {
+        "country": null,
+        "status": "general_site_material_location_unconfirmed",
+        "note": "Se publica en una página general. No atribuir una sede o fecha concreta."
+      },
+      "cropPosition": "50% 55%",
+      "recommendedUse": "galería documental; no prometer resultados terapéuticos",
+      "variants": [
+        {
+          "publicPath": "/images/comunidad-amanecer-480.webp",
+          "file": "optimized/comunidad-amanecer-480.webp",
+          "width": 480,
+          "height": 640,
+          "bytes": 74398
+        },
+        {
+          "publicPath": "/images/comunidad-amanecer-960.webp",
+          "file": "optimized/comunidad-amanecer-960.webp",
+          "width": 960,
+          "height": 1280,
+          "bytes": 258916
+        },
+        {
+          "publicPath": "/images/comunidad-amanecer.webp",
+          "file": "optimized/comunidad-amanecer.webp",
+          "width": 1200,
+          "height": 1600,
+          "bytes": 367210
+        }
+      ],
+      "visualReviewed": true,
+      "rights": "Material publicado por Comunidad Kiryus, reutilizado para su propia web conforme al encargo; no implica licencia general para terceros."
+    },
+    {
+      "id": "comunidad-paisaje",
+      "kind": "photograph",
+      "publicPath": "/images/comunidad-paisaje.webp",
+      "width": 1280,
+      "height": 960,
+      "bytes": 233630,
+      "alt": "Personas sentadas frente a un paisaje de colinas y construcciones rurales.",
+      "originalFile": "originals/comunidad-paisaje.jpg",
+      "originalUrl": "https://static.wixstatic.com/media/12f587_eb829d00338e471bb261aed6b509d2e3~mv2.jpg",
+      "originalDimensions": {
+        "width": 1280,
+        "height": 960
+      },
+      "originalBytes": 237596,
+      "appearances": [
+        {
+          "page": "involucrate",
+          "pageUrl": "https://www.comunidadkiryus.org/involucrate",
+          "index": 5,
+          "alt": "Imagen de WhatsApp 2023-03-03 a las 02.42.0967.jpg"
+        }
+      ],
+      "association": {
+        "country": null,
+        "status": "general_site_material_location_unconfirmed",
+        "note": "Se publica en una página general. No atribuir una sede o fecha concreta."
+      },
+      "cropPosition": "50% 60%",
+      "recommendedUse": "hero, capítulo territorial o galería; mantener personas en mitad inferior",
+      "variants": [
+        {
+          "publicPath": "/images/comunidad-paisaje-480.webp",
+          "file": "optimized/comunidad-paisaje-480.webp",
+          "width": 480,
+          "height": 360,
+          "bytes": 45668
+        },
+        {
+          "publicPath": "/images/comunidad-paisaje-960.webp",
+          "file": "optimized/comunidad-paisaje-960.webp",
+          "width": 960,
+          "height": 720,
+          "bytes": 157640
+        },
+        {
+          "publicPath": "/images/comunidad-paisaje.webp",
+          "file": "optimized/comunidad-paisaje.webp",
+          "width": 1280,
+          "height": 960,
+          "bytes": 233630
+        }
+      ],
+      "visualReviewed": true,
+      "rights": "Material publicado por Comunidad Kiryus, reutilizado para su propia web conforme al encargo; no implica licencia general para terceros."
+    }
+  ],
+  "excluded": [
+    {
+      "file": "home-06.jpeg",
+      "reason": "Encuadre vertical de la misma escena que colombia-encuentro."
+    },
+    {
+      "file": "home-08.jpeg",
+      "reason": "Encuadre vertical del mismo paisaje que colombia-paisaje."
+    },
+    {
+      "file": "home-11.jpg",
+      "reason": "Bandera de Argentina; no fotografía documental de sede."
+    },
+    {
+      "file": "home-12.jpg",
+      "reason": "Bandera de España; no fotografía documental de sede."
+    },
+    {
+      "file": "home-13.jpg",
+      "reason": "Bandera de Colombia; no fotografía documental de sede."
+    },
+    {
+      "file": "argentina-02.png",
+      "reason": "Imagen aérea de240×266; resolución insuficiente para reconstruir un mapa fiable."
+    }
+  ]
+}

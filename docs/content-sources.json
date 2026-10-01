@@ -1,0 +1,111 @@
+{
+  "consultedAt": "2026-10-01",
+  "classification": {
+    "observed": "Publicado en el sitio de Kiryus y leído en HTTP público vivo; no supone verificación independiente.",
+    "documented": "Respaldado por documentación primaria ajena al texto promocional.",
+    "pending": "No hay respaldo suficiente para publicarlo como hecho confirmado."
+  },
+  "organization": {
+    "name": "Comunidad Kiryus",
+    "brand": "Kiryus",
+    "publishedStartYear": 2020,
+    "publishedNonprofitDescription": true,
+    "status": "observed",
+    "source": "https://www.comunidadkiryus.org/nosotros",
+    "pillars": ["Regeneración territorial", "Autonomía y autosostenibilidad", "Comunidad y colaboración"],
+    "legalIdentity": { "status": "pending", "decision": "No presentar aval ni número registral sin documentación." }
+  },
+  "villages": [
+    {
+      "id": "argentina",
+      "country": "Argentina",
+      "location": "Altos de Medina, Burruyacú, Tucumán",
+      "focus": ["Bioconstrucción", "Autonomía energética", "Regeneración ambiental", "Producción responsable"],
+      "statusLabel": "En funcionamiento",
+      "publishedAreaHectares": 9,
+      "publishedGuestCapacity": 15,
+      "publishedElevationMeters": 1900,
+      "participation": ["Visitas coordinadas", "Actividades comunitarias", "Consulta de estadía"],
+      "heroImage": "argentina-actividad",
+      "galleryImages": ["argentina-actividad", "argentina-mesa"],
+      "source": "https://www.comunidadkiryus.org/kiryus-argentina",
+      "classification": "observed",
+      "locationPrecision": "localidad; no dirección exacta de ingreso",
+      "availability": "Por coordinación previa; capacidad publicada no equivale a disponibilidad.",
+      "history": "El sitio describe el desarrollo colectivo de viviendas, infraestructura y espacios productivos. No añadir una fecha de fundación específica de la sede no publicada en el cuerpo.",
+      "pending": ["Condiciones y aporte económico de visitas y estadías", "Responsable local", "Acceso exacto y transporte", "Estado de disponibilidad"]
+    },
+    {
+      "id": "colombia",
+      "country": "Colombia",
+      "location": "Vereda El Hatillo, Guatavita, Cundinamarca",
+      "focus": ["Bosque comestible", "Permacultura", "Reforestación", "Recuperación de ecosistemas"],
+      "statusLabel": "En desarrollo activo",
+      "publishedOriginYear": 2022,
+      "publishedDevelopmentStart": "2023-09",
+      "publishedAlliance": "Familia Schmedling",
+      "participation": ["Visitas coordinadas", "Voluntariado", "Propuestas de colaboración"],
+      "heroImage": "colombia-comunidad",
+      "galleryImages": ["colombia-comunidad", "colombia-encuentro", "colombia-paisaje"],
+      "source": "https://www.comunidadkiryus.org/kiryus-colombia",
+      "classification": "observed",
+      "locationPrecision": "vereda y municipio; no dirección exacta de ingreso",
+      "availability": "Por coordinación previa; no prometer alojamiento ni fechas disponibles.",
+      "history": "El proyecto se gestó en 2022 y comenzó su desarrollo en septiembre de 2023. La página publica experiencias de retiros y talleres, y describe proyectos ambientales en curso.",
+      "pending": ["Superficie", "Capacidad de alojamiento", "Responsable local", "Condiciones de voluntariado", "Acceso exacto"]
+    },
+    {
+      "id": "espana",
+      "country": "España",
+      "location": "Finca Orihuelo, Campo de San Juan, Moratalla, Murcia",
+      "focus": ["Agricultura regenerativa", "Permacultura", "Frutos secos", "Producción local"],
+      "statusLabel": "En desarrollo",
+      "participation": ["Visitas coordinadas", "Voluntariado", "Proyectos vinculados al territorio"],
+      "heroImage": "espana-convivencia",
+      "galleryImages": ["espana-convivencia", "espana-encuentro", "espana-cultivo"],
+      "source": "https://www.comunidadkiryus.org/kiryus-espa%C3%B1a",
+      "classification": "observed",
+      "locationPrecision": "localidad; no dirección exacta de ingreso",
+      "availability": "Por coordinación previa; no prometer alojamiento ni fechas disponibles.",
+      "history": "La página presenta el desarrollo europeo del proyecto en Orihuelo y el crecimiento de sus prácticas agrícolas, plantaciones y colaboraciones.",
+      "pending": ["Año de inicio", "Superficie", "Capacidad de alojamiento", "Responsable local", "Acceso exacto", "Condiciones de participación"]
+    }
+  ],
+  "impact": {
+    "source": "https://www.comunidadkiryus.org/",
+    "classification": "observed",
+    "measurementPeriod": null,
+    "verificationMethod": null,
+    "metrics": [
+      { "publishedLabel": "Sedes operativas", "publishedValue": "3", "displayValue": "3", "displayLabel": "Países conectados", "note": "La red descrita cubre tres países con distintos estados de desarrollo." },
+      { "publishedLabel": "Árboles plantados", "publishedValue": "+240", "displayValue": "+240", "displayLabel": "Árboles plantados" },
+      { "publishedLabel": "Hectáreas regeneradas", "publishedValue": "15", "displayValue": "15", "displayLabel": "Hectáreas regeneradas" }
+    ],
+    "displayContext": "Cifras comunicadas por Kiryus. Fuente consultada en octubre de 2026; período de medición no informado."
+  },
+  "contact": {
+    "classification": "observed",
+    "source": "https://www.comunidadkiryus.org/",
+    "whatsappNumber": "+57 310 560 6709",
+    "whatsappBaseUrl": "https://wa.me/573105606709",
+    "instagram": "https://www.instagram.com/ecoaldeaskiryus/",
+    "tiktok": "https://www.tiktok.com/@ecoaldeaskiryus",
+    "legacyExternalForm": "https://forms.gle/CLtWb7EkLh1B66aB6",
+    "legacyExternalFormStatus": "unavailable_confirmed_in_live_browser_by_parent_agent",
+    "whatsappNote": "El número está publicado. Abrir un enlace no acredita recepción ni disponibilidad del servicio. No se enviaron mensajes."
+  },
+  "blog": { "classification": "observed", "source": "https://www.comunidadkiryus.org/blog", "publishedArticles": 0, "decision": "Estado vacío cuidado; no publicar artículos de muestra." },
+  "sustainableDevelopmentGoals": {
+    "classification": "documented",
+    "source": "https://www.undp.org/es/sustainable-development-goals",
+    "goals": [
+      { "number": 7, "name": "Energía asequible y no contaminante", "sitePractice": "Energías renovables y autonomía energética" },
+      { "number": 11, "name": "Ciudades y comunidades sostenibles", "sitePractice": "Convivencia colaborativa e infraestructura ecológica" },
+      { "number": 12, "name": "Producción y consumo responsables", "sitePractice": "Producción local y economía circular" },
+      { "number": 13, "name": "Acción por el clima", "sitePractice": "Recuperación ambiental y prácticas de cuidado del suelo" },
+      { "number": 15, "name": "Vida de ecosistemas terrestres", "sitePractice": "Reforestación y recuperación de biodiversidad" },
+      { "number": 17, "name": "Alianzas para lograr los objetivos", "sitePractice": "Colaboración con personas y actores locales" }
+    ],
+    "claimPolicy": "Expresar orientación de las prácticas publicadas, sin atribuir certificación, alianza institucional con ONU ni resultados medidos adicionales."
+  }
+}
