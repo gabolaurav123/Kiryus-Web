@@ -7,6 +7,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const pages = [
     "/",
     "/nosotros",
+    "/red",
+    "/regeneracion",
+    "/vida-en-comunidad",
     "/aldeas",
     "/aldeas/argentina",
     "/aldeas/colombia",

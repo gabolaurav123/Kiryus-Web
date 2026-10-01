@@ -1,0 +1,29 @@
+.frame {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.layer {
+  position: absolute;
+  inset: -48px -8px;
+  transform-origin: center;
+  will-change: transform;
+}
+
+.layer > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* CSS also protects reduced-motion users before hydration, with identical SSR markup. */
+@media (prefers-reduced-motion: reduce) {
+  .layer {
+    inset: 0;
+    transform: none !important;
+    will-change: auto;
+  }
+}

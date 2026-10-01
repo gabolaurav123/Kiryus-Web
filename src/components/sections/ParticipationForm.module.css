@@ -33,15 +33,9 @@
 
 .heading {
   color: #12382a;
-  font-family: var(
-    --font-fraunces,
-    "Fraunces Variable",
-    "Fraunces",
-    Georgia,
-    serif
-  );
+  font-family: var(--sans);
   font-size: clamp(1.8rem, 3.2vw, 2.65rem);
-  font-weight: 450;
+  font-weight: 750;
   line-height: 1.12;
   letter-spacing: -0.045em;
   margin: 0 0 18px;

@@ -1,67 +1,40 @@
 import Link from "next/link";
-import Image from "next/image";
-import { ArrowUpRight, Camera as Instagram, MessageCircle } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { villages } from "@/content/villages";
 import { directWhatsapp, siteConfig } from "@/lib/config";
+import styles from "./Navigation.module.css";
+
 export function Footer() {
   return (
-    <footer className="site-footer">
-      <div className="container footer-top">
-        <div className="footer-brand">
-          <Link href="/" aria-label="Comunidad Kiryus · Inicio">
-            <Image
-              src="/images/kiryus-logo.webp"
-              alt="Kiryus"
-              width={210}
-              height={101}
-            />
-          </Link>
-          <p>
-            Habitar con sentido.
-            <br />
-            Crecer en comunidad.
-          </p>
+    <footer className={styles.footer}>
+      <div className={styles.footerInner}>
+        <div className={styles.footerTop}>
+          <div className={styles.footerBrand}>
+            <Link href="/" aria-label="Comunidad Kiryus · Inicio" className={styles.footerWordmark}>KIRYUS<span aria-hidden="true">↗</span></Link>
+            <p>Habitar la Tierra.<br />Regenerar el futuro.</p>
+            <Link className={styles.footerCta} href="/involucrate">Sé parte de la comunidad<ArrowUpRight size={17} aria-hidden="true" /></Link>
+          </div>
+          <nav className={styles.footerGroup} aria-label="Explorar la comunidad">
+            <h2>Explorar</h2>
+            <Link href="/vida-en-comunidad">Vida en comunidad</Link>
+            <Link href="/nosotros">Nuestra historia</Link>
+            <Link href="/regeneracion">Regeneración</Link>
+            <Link href="/red">La red</Link>
+            <Link href="/blog">Blog</Link>
+          </nav>
+          <nav className={styles.footerGroup} aria-label="Aldeas y legado">
+            <h2>Nuestras aldeas</h2>
+            {villages.map((village) => <Link className={styles.footerVillage} href={`/aldeas/${village.slug}`} key={village.slug}>{village.country}<span>{village.region}</span></Link>)}
+            <Link className={styles.footerDirectory} href="/aldeas">Explorar las aldeas<ArrowUpRight size={14} aria-hidden="true" /></Link>
+            <div className={styles.footerLegacy}><span>Nuestro legado</span><Link href="/legado/espana">España<ArrowUpRight size={14} aria-hidden="true" /></Link></div>
+          </nav>
+          <nav className={styles.footerGroup} aria-label="Contacto y redes sociales">
+            <h2>Conectar</h2>
+            <Link href="/contacto">Hablemos</Link>
+            {[{ label: "Instagram", href: siteConfig.instagram }, { label: "TikTok", href: siteConfig.tiktok }, { label: "WhatsApp", href: directWhatsapp }].map((item) => <a href={item.href} key={item.label} target="_blank" rel="noopener noreferrer">{item.label}<ArrowUpRight size={14} aria-hidden="true" /><span className={styles.srOnly}> (se abre en otra pestaña)</span></a>)}
+          </nav>
         </div>
-        <div>
-          <h2>La comunidad</h2>
-          <Link href="/nosotros">Nosotros</Link>
-          <Link href="/legado/espana">Legado de España</Link>
-          <Link href="/involucrate">Formas de participar</Link>
-          <Link href="/blog">Blog</Link>
-          <Link href="/contacto">Contacto</Link>
-        </div>
-        <div>
-          <h2>Las aldeas actuales</h2>
-          {villages.map((village) => (
-            <Link key={village.slug} href={`/aldeas/${village.slug}`}>
-              {village.country}
-              <span>{village.region}</span>
-            </Link>
-          ))}
-        </div>
-        <div>
-          <h2>Sigamos en contacto</h2>
-          <a
-            href={siteConfig.instagram}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Instagram size={17} aria-hidden="true" /> Instagram{" "}
-            <ArrowUpRight size={14} aria-hidden="true" />
-          </a>
-          <a href={siteConfig.tiktok} target="_blank" rel="noopener noreferrer">
-            TikTok <ArrowUpRight size={14} aria-hidden="true" />
-          </a>
-          <a href={directWhatsapp} target="_blank" rel="noopener noreferrer">
-            <MessageCircle size={17} aria-hidden="true" /> WhatsApp{" "}
-            <ArrowUpRight size={14} aria-hidden="true" />
-          </a>
-        </div>
-      </div>
-      <div className="container footer-bottom">
-        <p>© {new Date().getFullYear()} Comunidad Kiryus</p>
-        <span>Dos aldeas. Una intención compartida.</span>
-        <Link href="/privacidad">Privacidad</Link>
+        <div className={styles.footerBottom}><p>© {new Date().getFullYear()} Comunidad Kiryus</p><span>Argentina · Colombia</span><div><Link href="/privacidad">Privacidad</Link><Link href="/admin">Acceso al equipo<ArrowUpRight size={12} aria-hidden="true" /></Link></div></div>
       </div>
     </footer>
   );

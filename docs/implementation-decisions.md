@@ -14,6 +14,10 @@ Sharp permanece como dependencia de producción para el procesamiento de imágen
 
 ## HTML inicial e interacción
 
+El rediseño posterior de octubre de 2026 reduce la portada a cuatro bloques y distribuye contenidos en `/red`, `/regeneracion` y `/vida-en-comunidad`. La navegación los ofrece desde cualquier página, junto a las aldeas, historia y legado. Manrope en titulares, acentos Fraunces y la paleta bosque/papel/lima sustituyen la composición anterior. `Home.module.css`, `Navigation.module.css` y `Discovery.module.css` encapsulan las nuevas composiciones; `refresh.css` mantiene las demás rutas con el mismo lenguaje visual.
+
+`HeroAtmosphere` utiliza valores de Motion vinculados al elemento para desplazar y escalar suavemente la fotografía. No modifica el desplazamiento nativo. La preferencia de movimiento reducido se respeta también por CSS antes de hidratar. Las entradas mantienen el contenido visible desde el servidor. Las superficies oscuras tienen foco de alto contraste y las composiciones entre 701 y 950 px reservan espacio para las tarjetas y acciones.
+
 App Router mantiene el contenido editorial en componentes de servidor. Las páginas pueden generarse durante el build y entregan su contenido en el HTML inicial, incluidos títulos, enlaces, fotografías y valores de impacto. Los componentes de cliente se limitan a navegación móvil, galería, formulario y animaciones concretas.
 
 `Reveal` mantiene `initial={false}` para no ocultar el contenido antes de cargar JavaScript. Los efectos respetan la preferencia de movimiento reducido. La interacción mejora la presentación, mientras que el contenido y los enlaces principales siguen presentes en el documento servido.

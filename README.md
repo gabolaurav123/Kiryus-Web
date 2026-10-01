@@ -50,7 +50,9 @@ node scripts/start.mjs
 
 ## Páginas y participación
 
-Las rutas principales son `/`, `/nosotros`, `/aldeas`, `/aldeas/argentina`, `/aldeas/colombia`, `/legado/espana`, `/involucrate`, `/blog`, `/contacto` y `/privacidad`. España no aparece como aldea ni como opción del formulario. `/aldeas/espana` y las rutas antiguas españolas redirigen permanentemente al legado. El acceso administrativo es `/admin/login`; `/admin` exige una sesión válida.
+Las rutas principales son `/`, `/nosotros`, `/red`, `/regeneracion`, `/vida-en-comunidad`, `/aldeas`, `/aldeas/argentina`, `/aldeas/colombia`, `/legado/espana`, `/involucrate`, `/blog`, `/contacto` y `/privacidad`. España no aparece como aldea ni como opción del formulario. `/aldeas/espana` y las rutas antiguas españolas redirigen permanentemente al legado. El acceso administrativo es `/admin/login`; `/admin` exige una sesión válida.
+
+La portada presenta una entrada fotográfica, cuatro accesos directos, las dos aldeas y tres destinos editoriales. La red, las prácticas de regeneración y la vida cotidiana tienen páginas propias y acceso desde el menú. El diseño combina Manrope con acentos Fraunces, bosque/papel/lima, tarjetas con fotografías y animaciones de entrada y paralaje moderado. Respeta movimiento reducido y conserva el contenido en el HTML inicial.
 
 El formulario ofrece visita, voluntariado, estadía y colaboración. Valida los datos, prepara un mensaje y muestra una revisión antes de abrir WhatsApp. La persona debe enviarlo dentro de WhatsApp; abrir el enlace o copiar el mensaje no crea una solicitud recibida ni una reserva. Las fechas son orientativas y la disponibilidad se coordina con la comunidad.
 

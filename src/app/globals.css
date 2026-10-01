@@ -1,11 +1,12 @@
 :root {
-  --forest: #12382a;
-  --green: #256d4e;
-  --salvia: #dce6d5;
-  --cream: #f5f2e9;
-  --ink: #202d24;
-  --muted: #56665a;
-  --line: #ccd3c5;
+  --forest: #102d24;
+  --green: #316b46;
+  --salvia: #e4edda;
+  --cream: #f4f5ee;
+  --ink: #182c23;
+  --muted: #526457;
+  --line: #d2dbcc;
+  --lime: #d2f27a;
   --terra: #985036;
   --sand: #c5a252;
   --serif: "Fraunces Variable", Georgia, serif;
@@ -77,8 +78,8 @@ p {
 h1,
 h2,
 h3 {
-  font-family: var(--serif);
-  font-weight: 450;
+  font-family: var(--sans);
+  font-weight: 750;
   line-height: 1.08;
   letter-spacing: -0.045em;
   color: var(--forest);
@@ -95,7 +96,8 @@ h3 {
 h1 em,
 h2 em,
 h3 em {
-  font-weight: 370;
+  font-family: var(--serif);
+  font-weight: 480;
   color: var(--green);
 }
 p {
@@ -114,11 +116,11 @@ main:focus {
   outline: none;
 }
 .container {
-  width: min(1280px, calc(100% - 100px));
+  width: min(1280px, calc(100% - 80px));
   margin-inline: auto;
 }
 .section {
-  padding-block: 110px;
+  padding-block: 80px;
 }
 .eyebrow {
   font: 600 11px/1.5 var(--sans);

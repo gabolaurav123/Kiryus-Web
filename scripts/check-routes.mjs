@@ -41,6 +41,9 @@ try {
   const routes = [
     "/",
     "/nosotros",
+    "/red",
+    "/regeneracion",
+    "/vida-en-comunidad",
     "/aldeas",
     "/aldeas/argentina",
     "/aldeas/colombia",
@@ -121,7 +124,7 @@ try {
     assert.equal((await fetch(base + asset)).status, 200, asset);
   }
   console.log(
-    "Rutas: 10 páginas con HTML, títulos, H1 y SEO; 5 redirecciones; acceso administrativo protegido; 4 respuestas 404; robots, sitemap y recursos aprobados.",
+    `Rutas: ${routes.length} páginas con HTML, títulos, H1 y SEO; 5 redirecciones; acceso administrativo protegido; 4 respuestas 404; robots, sitemap y recursos aprobados.`,
   );
 } finally {
   server.kill("SIGTERM");

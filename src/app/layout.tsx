@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import "@fontsource-variable/fraunces";
 import "@fontsource-variable/manrope";
 import "./globals.css";
+import "./refresh.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { siteConfig } from "@/lib/config";
@@ -16,7 +17,7 @@ export const metadata: Metadata = {
   icons: { icon: "/favicon.png", apple: "/favicon.png" },
 };
 export const viewport: Viewport = {
-  themeColor: "#12382A",
+  themeColor: "#102d24",
   width: "device-width",
   initialScale: 1,
 };

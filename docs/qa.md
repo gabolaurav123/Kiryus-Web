@@ -1,5 +1,20 @@
 # Verificación de la implementación
 
+## Rediseño visual y navegación — 1 de octubre de 2026
+
+La revisión posterior distribuye el contenido de la portada en tres destinos nuevos: `/red`, `/regeneracion` y `/vida-en-comunidad`. Inicio tiene una composición fotográfica, cuatro accesos directos, las dos aldeas, tres destinos editoriales y cierre. Header y footer ofrecen acceso a las nuevas páginas. Nosotros, aldeas, legado, contacto, blog y participación comparten tipografía, colores y tarjetas renovados. No cambia la configuración pendiente del CRM ni añade servicios de pago.
+
+- Tipos y lint sin errores; 30 pruebas de módulos aprobadas.
+- Nuevas páginas con un H1, contenido en HTML inicial, metadatos y título específico; sitemap incorpora las tres rutas cuando la indexación esté habilitada.
+- Revisión visual de Red, Regeneración, Vida en comunidad y Nosotros a 390, 768, 1024 y 1440 px; sin desbordamiento horizontal. Galería verificada con Escape y devolución de foco.
+- Inicio, directorio, Argentina, Colombia, legado, formulario, contacto y blog revisados a 360 y 1024 px; sin desbordamiento horizontal. Inicio también a 390 y 768 px.
+- Menú móvil: muestra todas las categorías; Escape cierra, devuelve el foco y restaura scroll; enlace a Regeneración navega y cierra el modal.
+- Los ajustes de 701–950 px evitan solapamiento de la tarjeta del hero con las acciones y dan altura suficiente a las tarjetas editoriales. A 768 px ambas tarjetas tienen contenido completo.
+- Logo del encabezado contrastado; focos lima en superficies oscuras; navegación de respaldo sin JavaScript; contenido visible desde SSR y movimiento reducido protegido por CSS y Motion.
+- Consola del navegador sin errores durante la revisión. Datos ambientales conservan fuente y período no especificado; no se añadieron artículos o eventos ficticios.
+
+Las comprobaciones HTTP de producción y la CI se ejecutan sobre el commit final antes de desplegar; la evidencia del despliegue queda fuera del repositorio en el archivo de verificación de la entrega.
+
 ## Correcciones y CRM — 1 de octubre de 2026
 
 Esta revisión sustituye la clasificación territorial de la entrega inicial: Argentina y Colombia son las dos aldeas actuales; España está en `/legado/espana`. La hoja decorativa del cierre se redibujó con silueta, nervio y venas conectadas; en móvil tiene un espacio propio. El CRM está implementado, pero su activación pública requiere un volumen persistente y credenciales privadas. Hasta entonces la web mantiene WhatsApp y las API privadas permanecen protegidas.

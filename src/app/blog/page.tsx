@@ -8,6 +8,8 @@ import {
 } from "@/lib/articles";
 import { siteConfig } from "@/lib/config";
 import { pageMetadata } from "@/lib/metadata";
+import { Photo } from "@/components/ui/Photo";
+import { getImage } from "@/content/images";
 
 export const metadata = {
   ...pageMetadata(
@@ -71,7 +73,9 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
       >
         <div className="container">
           {articles.length === 0 ? (
-            <div className="empty-state">
+            <div className="blog-empty">
+              <div className="blog-empty-photo"><Photo image={getImage("comunidad-interior")} sizes="(max-width: 700px) 100vw, 50vw" /><span>El cuaderno de la comunidad</span></div>
+              <div className="blog-empty-copy">
               <BookOpen size={48} strokeWidth={1.25} aria-hidden="true" />
               <h2>Las historias empiezan en el territorio.</h2>
               <p>
@@ -79,15 +83,11 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
                 tanto, puedes conocer la comunidad, explorar sus dos aldeas y
                 descubrir el legado de España.
               </p>
-              <p>
-                Personas, paisajes y formas de colaborar: hay mucho por
-                descubrir.
-              </p>
               <div
                 style={{
                   display: "flex",
                   flexWrap: "wrap",
-                  justifyContent: "center",
+                  justifyContent: "flex-start",
                   gap: "1rem",
                 }}
               >
@@ -99,6 +99,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
                   Explora las aldeas{" "}
                   <ArrowUpRight size={18} aria-hidden="true" />
                 </Link>
+              </div>
               </div>
             </div>
           ) : (
