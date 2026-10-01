@@ -2,7 +2,7 @@ import Link from "next/link";
 import { ArrowUpRight, MapPin } from "lucide-react";
 import { villages } from "@/content/villages";
 import { spainLegacy } from "@/content/legacy";
-import { getImage } from "@/content/images";
+import { enhancedLandscape } from "@/content/enhanced-images";
 import { pageMetadata } from "@/lib/metadata";
 import { Photo } from "@/components/ui/Photo";
 import { Action } from "@/components/ui/Action";
@@ -25,7 +25,8 @@ export default function NetworkPage() {
         label="La red Kiryus / Argentina + Colombia"
         title={<>Distintas latitudes.<br /><span>El mismo horizonte.</span></>}
         description="Cada territorio tiene su ritmo. Nos conecta el cuidado de la tierra y una forma compartida de aprender, colaborar y habitar."
-        image={getImage("comunidad-paisaje")}
+        image={enhancedLandscape}
+        quality={85}
         caption="Kiryus / Territorios que nos reúnen"
       >
         <Action href="#aldeas-actuales">Encuentra una aldea</Action>

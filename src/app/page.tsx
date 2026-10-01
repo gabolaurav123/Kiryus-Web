@@ -2,10 +2,12 @@ import Link from "next/link";
 import { ArrowUpRight, Globe2, Leaf, MapPin, MoveDown, Users } from "lucide-react";
 import { Action } from "@/components/ui/Action";
 import { Photo } from "@/components/ui/Photo";
+import { ResponsiveHeroPhoto } from "@/components/ui/ResponsiveHeroPhoto";
 import { Reveal } from "@/components/motion/Reveal";
 import { HeroAtmosphere } from "@/components/motion/AmbientMotion";
 import { Closing } from "@/components/sections/Closing";
 import { getImage } from "@/content/images";
+import { enhancedDawn, enhancedLandscape } from "@/content/enhanced-images";
 import { villages } from "@/content/villages";
 import { pageMetadata } from "@/lib/metadata";
 import styles from "./Home.module.css";
@@ -20,7 +22,7 @@ const paths = [
 export default function Home() {
   return (<>
     <section className={styles.hero} aria-labelledby="home-title">
-      <HeroAtmosphere className={styles.atmosphere}><Photo image={getImage("comunidad-amanecer")} priority sizes="100vw" /></HeroAtmosphere>
+      <HeroAtmosphere className={styles.atmosphere}><ResponsiveHeroPhoto desktop={enhancedLandscape} mobile={enhancedDawn} /></HeroAtmosphere>
       <div className={styles.heroShade} />
       <div className={`container ${styles.heroInner}`}>
         <div className={styles.heroCopy}>
@@ -29,7 +31,7 @@ export default function Home() {
           <p className={styles.heroDescription}>Volver a lo esencial. Cuidar el territorio. Construir una vida que se comparte.</p>
           <div className={styles.heroActions}><Action href="/aldeas" light>Descubre las aldeas</Action><Action href="/involucrate" secondary>Encuentra tu lugar</Action></div>
         </div>
-        <Link href="/vida-en-comunidad" className={styles.heroStory}><div className={styles.storyImage}><Photo image={getImage("comunidad-grupo")} sizes="160px" /></div><div><span>La vida sucede juntos</span><p>Asómate a la comunidad</p></div><ArrowUpRight size={22} aria-hidden="true" /></Link>
+        <Link href="/vida-en-comunidad" className={styles.heroStory}><div className={styles.storyImage}><Photo image={getImage("comunidad-grupo")} sizes="(max-width: 700px) 49px, (max-width: 1100px) 65px, 80px" /></div><div><span>La vida sucede juntos</span><p>Asómate a la comunidad</p></div><ArrowUpRight size={22} aria-hidden="true" /></Link>
         <div className={styles.heroFooter}><p><span className={styles.locationDot} />Argentina y Colombia <span className={styles.footerDivider}>/</span><span className={styles.heroMotto}>Dos aldeas. Una intención.</span></p><a href="#explorar" aria-label="Explorar Kiryus"><MoveDown size={17} aria-hidden="true" /></a></div>
       </div>
     </section>

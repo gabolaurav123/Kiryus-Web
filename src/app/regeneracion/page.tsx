@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ArrowUpRight, Leaf, Sprout, Zap } from "lucide-react";
 import { impactFigures, impactContext, sustainableGoals } from "@/content/impact";
-import { getImage } from "@/content/images";
+import { enhancedDawn } from "@/content/enhanced-images";
 import { pageMetadata } from "@/lib/metadata";
 import { Action } from "@/components/ui/Action";
 import { Reveal } from "@/components/motion/Reveal";
@@ -29,7 +29,8 @@ export default function RegenerationPage() {
         label="Regeneración / El cuidado se vuelve práctica"
         title={<>Pequeñas acciones.<br /><span>Territorios que cambian.</span></>}
         description="Recuperar el suelo, construir con responsabilidad y compartir lo que aprendemos. El cuidado empieza en lo que hacemos cada día."
-        image={getImage("comunidad-amanecer")}
+        image={enhancedDawn}
+        quality={85}
         caption="Kiryus / Cuidar lo que nos sostiene"
       >
         <Action href="#practicas">Explora nuestras prácticas</Action>

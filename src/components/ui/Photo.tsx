@@ -4,11 +4,13 @@ export function Photo({
   image,
   className = "",
   priority = false,
+  quality = 75,
   sizes = "(max-width: 768px) 100vw, 50vw",
 }: {
   image: DocumentaryImage;
   className?: string;
   priority?: boolean;
+  quality?: 75 | 85;
   sizes?: string;
 }) {
   return (
@@ -21,6 +23,7 @@ export function Photo({
       style={{ objectPosition: image.position || "center" }}
       sizes={sizes}
       preload={priority}
+      quality={quality}
     />
   );
 }

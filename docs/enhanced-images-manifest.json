@@ -1,0 +1,112 @@
+{
+  "createdAt": "2026-10-01",
+  "method": "Restauraciones mediante Built-in ImageGen. Maestros PNG copiados sin cambios; exportación WebP con Sharp quality92 effort6 sin resize ni upscale. Fotografías originales y manifiesto documental conservados.",
+  "assets": [
+    {
+      "id": "comunidad-paisaje-restaurada",
+      "kind": "ai-restored-photograph",
+      "sourceAssetId": "comunidad-paisaje",
+      "sourceOriginalUrl": "https://static.wixstatic.com/media/12f587_eb829d00338e471bb261aed6b509d2e3~mv2.jpg",
+      "sourceOriginalDimensions": {
+        "width": 1280,
+        "height": 960
+      },
+      "sourceOriginalFile": "originals/comunidad-paisaje.jpg",
+      "tool": "Built-in ImageGen",
+      "promptKey": "landscape",
+      "promptFile": "docs/image-enhancement-prompts.json",
+      "prompt": "Use case: high-fidelity photo restoration for a community website hero.\nInput: the attached authentic photograph of a group seated on a grassy hillside looking toward a small settlement and wooded hills. Edit this photograph; do not create a new scene.\nTask: conservatively improve visible image quality, natural clarity, fine texture and tonal balance. Remove compression artifacts and muddy noise; recover readable grass, shrubs, roof edges and cloud texture without crunchy sharpening, invented objects, plastic smoothing or an HDR look. Preserve the original overcast lighting and restrained natural colors. Keep all people exactly in their original count, seating positions, relative sizes, clothing colors and appearance, photographed from behind. Preserve the existing buildings, roof shapes/colors, vegetation, mountain silhouettes, cloud pattern and geographic arrangement. Do not add, delete or move people, buildings, roads, trees or terrain. No text, logos, watermarks or decorative effects.\nFraming: retain the full original 4:3 landscape framing. No outpainting, no rearrangement and no dramatic crop. This will be used in a responsive website with text layered separately.\nOutput: the highest native resolution available, ideally 4096×3072 pixels, as a clean, detailed photorealistic image. The result must still look like this same real photograph, with a careful restoration rather than a stylized repaint.",
+      "generatedSourceFilename": "exec-c58702a6-cb4e-4aaa-883b-31fbf0e1e92b.png",
+      "master": {
+        "deliverablePath": "outputs/images/comunidad-paisaje-restaurada-maestro.png",
+        "format": "png",
+        "width": 1448,
+        "height": 1086,
+        "bytes": 3278022,
+        "sha256": "0f37b1a177a89ed8aa922007e811481e662f41bb8e0c992edf02c2fbeb20129c"
+      },
+      "publicPath": "/images/comunidad-paisaje-restaurada.webp",
+      "width": 1448,
+      "height": 1086,
+      "bytes": 663840,
+      "sha256": "38a013036da6b66b4135bc021c49fc1e0eaa851edfc3bad2db7bad37bec4f762",
+      "alt": "Versión restaurada con IA de personas sentadas frente a un paisaje de colinas y construcciones rurales.",
+      "cropPosition": "50% 65%",
+      "export": {
+        "tool": "Sharp",
+        "format": "webp",
+        "quality": 92,
+        "effort": 6,
+        "resized": false,
+        "upscaled": false
+      },
+      "association": {
+        "country": null,
+        "status": "derived_from_general_site_material_location_unconfirmed",
+        "note": "No asignar una ubicación, fecha, identidad ni actividad nueva a partir del derivado."
+      },
+      "plannedUsage": [
+        "Inicio",
+        "Red"
+      ],
+      "visualReview": {
+        "reviewedBy": "Agente principal",
+        "assessment": "Sujetos, vestuario, objetos y territorio general reconocibles al comparar con la fotografía base. El detalle fino fue reconstruido mediante IA y no se afirma exactitud de microdetalle."
+      },
+      "captureClaim": "Derivado restaurado con IA de una fotografía real existente. No es una nueva captura documental."
+    },
+    {
+      "id": "comunidad-amanecer-restaurada",
+      "kind": "ai-restored-photograph",
+      "sourceAssetId": "comunidad-amanecer",
+      "sourceOriginalUrl": "https://static.wixstatic.com/media/12f587_1e1b5f16710344b3b08e029a5e42cde6~mv2.jpg",
+      "sourceOriginalDimensions": {
+        "width": 1200,
+        "height": 1600
+      },
+      "sourceOriginalFile": "originals/comunidad-amanecer.jpg",
+      "tool": "Built-in ImageGen",
+      "promptKey": "portrait",
+      "promptFile": "docs/image-enhancement-prompts.json",
+      "prompt": "Use case: high-fidelity restoration of an existing photograph for Comunidad Kiryus.\nInput: the attached real vertical photograph of two people outdoors at low sun, a seated person facing a large bronze gong, and a standing woman beside a microphone.\nEdit only the supplied photograph. Improve natural clarity, fine textile/grass texture, cloud detail and tonal balance; reduce compression artifacts and muddy noise. Preserve the original warm backlighting and believable photography, without crunchy sharpening, HDR halos or plastic smoothing.\nStrict invariants: keep exactly the two people in their original positions, identities, poses, clothing, hairstyles and sizes. Preserve the white crocheted hat, cream coat, blue pants and brown seated cushion; preserve the standing woman's dark jacket, white pants and microphone. Keep the gong's shape, suspension frame, existing small black marking and mallet; do not invent new writing. Preserve the sun's location, hills, grassy field, orange building with light roof, tree, stone arrangement, mats and sandals. No additions, removals or rearrangement of people, objects, buildings or terrain.\nRetain the full original portrait 3:4 composition. No outpainting and no change of viewpoint. No text overlay, logo, watermark or stylization.\nOutput the highest native resolution available, ideally 3072×4096 pixels. It must remain recognizable as the same authentic photograph, carefully restored rather than repainted into a different scene.",
+      "generatedSourceFilename": "exec-18c80a31-6097-4a65-8678-479a17456d6a.png",
+      "master": {
+        "deliverablePath": "outputs/images/comunidad-amanecer-restaurada-maestro.png",
+        "format": "png",
+        "width": 1086,
+        "height": 1448,
+        "bytes": 3217413,
+        "sha256": "ad6bf50137ddf68405605fc40f3a6a28921aa762f8bc67789eedade56b33d4ba"
+      },
+      "publicPath": "/images/comunidad-amanecer-restaurada.webp",
+      "width": 1086,
+      "height": 1448,
+      "bytes": 646050,
+      "sha256": "7244aa350e5f461a87e99a5f794cd8bb10d597a3bdeedf8d7d54c15a4bafb35b",
+      "alt": "Versión restaurada con IA de personas con un gong en un prado iluminado por el sol bajo.",
+      "cropPosition": "50% 64%",
+      "export": {
+        "tool": "Sharp",
+        "format": "webp",
+        "quality": 92,
+        "effort": 6,
+        "resized": false,
+        "upscaled": false
+      },
+      "association": {
+        "country": null,
+        "status": "derived_from_general_site_material_location_unconfirmed",
+        "note": "No asignar una ubicación, fecha, identidad ni actividad nueva a partir del derivado."
+      },
+      "plannedUsage": [
+        "Inicio móvil",
+        "Regeneración"
+      ],
+      "visualReview": {
+        "reviewedBy": "Agente principal",
+        "assessment": "Sujetos, vestuario, objetos y territorio general reconocibles al comparar con la fotografía base. El detalle fino fue reconstruido mediante IA y no se afirma exactitud de microdetalle."
+      },
+      "captureClaim": "Derivado restaurado con IA de una fotografía real existente. No es una nueva captura documental."
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 .hero { position:relative; isolation:isolate; overflow:hidden; margin:0 16px; border-radius:24px; min-height:660px; background:#102d24; color:#fff; }
 .atmosphere { position:absolute!important; inset:0; z-index:-2; }
-.atmosphere img { object-position:50% 53%!important; }
+.atmosphere img { object-position:50% 65%!important; }
 .heroShade { position:absolute; inset:0; z-index:-1; background:linear-gradient(90deg,#051811d1,#05181159 55%,#0518110d),linear-gradient(0deg,#051811b3,transparent 40%); }
 .heroInner { min-height:660px; position:relative; padding-top:62px; display:flex; flex-direction:column; }
 .tag { font-size:11px; font-weight:650; letter-spacing:.12em; text-transform:uppercase; display:flex; align-items:center; gap:11px; color:#e6efdf; }

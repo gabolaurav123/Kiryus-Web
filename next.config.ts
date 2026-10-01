@@ -2,7 +2,7 @@ import type { NextConfig } from "next";
 
 const config: NextConfig = {
   poweredByHeader: false,
-  images: { formats: ["image/avif", "image/webp"], minimumCacheTTL: 86400 },
+  images: { formats: ["image/avif", "image/webp"], qualities: [75, 85], minimumCacheTTL: 86400 },
   async redirects() {
     return [
       {

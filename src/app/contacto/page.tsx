@@ -1,9 +1,10 @@
-import { ArrowUpRight, Camera as Instagram, MessageCircle } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { pageMetadata } from "@/lib/metadata";
 import { directWhatsapp, siteConfig } from "@/lib/config";
 import { Action } from "@/components/ui/Action";
 import { Photo } from "@/components/ui/Photo";
 import { getImage } from "@/content/images";
+import { SocialIcon } from "@/components/ui/SocialIcon";
 export const metadata = pageMetadata(
   "Contacto",
   "Conversa con Comunidad Kiryus por WhatsApp y conoce sus canales oficiales de Instagram y TikTok.",
@@ -32,7 +33,7 @@ export default function ContactPage() {
         </div>
         <div className="contact-channels">
           <a href={directWhatsapp} target="_blank" rel="noopener noreferrer">
-            <MessageCircle size={29} strokeWidth={1.4} aria-hidden="true" />
+            <SocialIcon network="whatsapp" size={28} />
             <div>
               <span className="eyebrow">Hablemos directamente</span>
               <h2>WhatsApp</h2>
@@ -45,7 +46,7 @@ export default function ContactPage() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Instagram size={29} strokeWidth={1.4} aria-hidden="true" />
+            <SocialIcon network="instagram" size={28} />
             <div>
               <span className="eyebrow">La vida de la comunidad</span>
               <h2>Instagram</h2>
@@ -54,9 +55,7 @@ export default function ContactPage() {
             <ArrowUpRight size={27} aria-hidden="true" />
           </a>
           <a href={siteConfig.tiktok} target="_blank" rel="noopener noreferrer">
-            <span className="channel-monogram" aria-hidden="true">
-              tk
-            </span>
+            <SocialIcon network="tiktok" size={28} />
             <div>
               <span className="eyebrow">Ideas y momentos compartidos</span>
               <h2>TikTok</h2>

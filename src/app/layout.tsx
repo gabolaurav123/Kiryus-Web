@@ -5,6 +5,7 @@ import "./globals.css";
 import "./refresh.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { FloatingWhatsApp } from "@/components/layout/FloatingWhatsApp";
 import { siteConfig } from "@/lib/config";
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -45,6 +46,7 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
+        <FloatingWhatsApp />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

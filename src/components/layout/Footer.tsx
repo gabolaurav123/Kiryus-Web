@@ -2,7 +2,14 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { villages } from "@/content/villages";
 import { directWhatsapp, siteConfig } from "@/lib/config";
+import { SocialIcon } from "@/components/ui/SocialIcon";
 import styles from "./Navigation.module.css";
+
+const socialLinks = [
+  { network: "instagram", label: "Instagram", href: siteConfig.instagram },
+  { network: "tiktok", label: "TikTok", href: siteConfig.tiktok },
+  { network: "whatsapp", label: "WhatsApp", href: directWhatsapp },
+] as const;
 
 export function Footer() {
   return (
@@ -31,7 +38,7 @@ export function Footer() {
           <nav className={styles.footerGroup} aria-label="Contacto y redes sociales">
             <h2>Conectar</h2>
             <Link href="/contacto">Hablemos</Link>
-            {[{ label: "Instagram", href: siteConfig.instagram }, { label: "TikTok", href: siteConfig.tiktok }, { label: "WhatsApp", href: directWhatsapp }].map((item) => <a href={item.href} key={item.label} target="_blank" rel="noopener noreferrer">{item.label}<ArrowUpRight size={14} aria-hidden="true" /><span className={styles.srOnly}> (se abre en otra pestaña)</span></a>)}
+            {socialLinks.map((item) => <a className={styles.socialLink} href={item.href} key={item.label} target="_blank" rel="noopener noreferrer"><SocialIcon network={item.network} size={20} />{item.label}<ArrowUpRight size={14} aria-hidden="true" /><span className={styles.srOnly}> (se abre en otra pestaña)</span></a>)}
           </nav>
         </div>
         <div className={styles.footerBottom}><p>© {new Date().getFullYear()} Comunidad Kiryus</p><span>Argentina · Colombia</span><div><Link href="/privacidad">Privacidad</Link><Link href="/admin">Acceso al equipo<ArrowUpRight size={12} aria-hidden="true" /></Link></div></div>

@@ -9,6 +9,7 @@ export function EditorialHero({
   title,
   description,
   image,
+  quality = 75,
   caption,
   children,
 }: {
@@ -17,12 +18,13 @@ export function EditorialHero({
   title: ReactNode;
   description: string;
   image: DocumentaryImage;
+  quality?: 75 | 85;
   caption: string;
   children?: ReactNode;
 }) {
   return (
     <section className={styles.hero} aria-labelledby={id}>
-      <Photo image={image} className={styles.heroPhoto} priority sizes="100vw" />
+      <Photo image={image} className={styles.heroPhoto} priority sizes="100vw" quality={quality} />
       <div className={styles.heroShade} aria-hidden="true" />
       <div className={styles.heroCopy}>
         <p className={styles.heroLabel}>{label}</p>
