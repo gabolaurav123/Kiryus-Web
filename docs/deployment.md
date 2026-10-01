@@ -1,6 +1,6 @@
 # Desplegar y mantener Kiryus
 
-Esta guía describe la configuración del proyecto. No acredita por sí sola que se haya creado un servicio o completado un despliegue.
+Servicio creado: `Kiryus-Web` (`975066`), https://kiryus-web.seenode.app. Runtime Node 24, Basic (512 MB), una réplica, US$4/mes. Límite mensual autorizado por el usuario. El primer build y arranque remoto finalizaron correctamente. No se añadieron bases de datos ni volúmenes.
 
 ## Entorno reproducible
 
@@ -34,7 +34,7 @@ Crear un **Web service** conectado al repositorio de GitHub autorizado. Seleccio
 
 El campo **Port** de Seenode y `PORT` deben coincidir. Seenode no garantiza inyectar esa variable: definirla expresamente. Un puerto distinto o una escucha limitada a localhost suele producir un error 502.
 
-Precios consultados el 1 de octubre de 2026: Basic, 512 MB, US$4/mes; Standard, 1 GB, US$7/mes; Pro, 2 GB, US$14/mes. Standard ofrece un margen inicial de memoria, pero no sustituye revisar métricas y necesidades reales. Confirmar precio y recursos en el dashboard antes de crear. No añadir base de datos ni volumen al sitio público si no existe una necesidad concreta de persistencia.
+Precios consultados el 1 de octubre de 2026: Basic, 512 MB, US$4/mes; Standard, 1 GB, US$7/mes; Pro, 2 GB, US$14/mes. Se eligió Basic dentro del límite de US$4/mes autorizado. Revisar uso real antes de proponer cambios de plan; un aumento requiere ampliar ese límite. No añadir base de datos ni volumen al sitio público si no existe una necesidad concreta de persistencia.
 
 El sitio original continuará disponible. La vista previa no modifica dominio, DNS ni hosting de producción. Su configuración desactiva indexación, bloquea robots y publica un sitemap vacío. `robots.txt` no es un control de acceso: el enlace de vista previa sigue siendo público.
 

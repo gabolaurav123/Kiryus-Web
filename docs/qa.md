@@ -1,6 +1,6 @@
 # Verificación de la implementación
 
-Revisión realizada el 1 de octubre de 2026 sobre el build de producción local de Next.js, servido en `http://localhost:3000`. Los resultados de publicación y la URL final se registrarán después del despliegue.
+Revisión realizada el 1 de octubre de 2026 sobre el build de producción local de Next.js, servido en `http://localhost:3000`. El código se publicó en `main` con el commit `b29663775db2ae30b2a11c568a2ac27f433ca8bc`. [GitHub Actions](https://github.com/gabolaurav123/Kiryus-Web/actions/runs/36919771401) repitió instalación, tipos, lint, 17 pruebas, build y rutas en Ubuntu con resultado aprobado. La URL final y revisión externa se registrarán después del despliegue.
 
 ## Comprobaciones ejecutadas
 

@@ -1,6 +1,6 @@
 # Plan de migración
 
-El destino solicitado para el código es `gabolaurav123/Kiryus-Web`. La publicación del repositorio y el despliegue en Seenode están pendientes de verificación. El sitio actual `https://www.comunidadkiryus.org/` continúa siendo la referencia pública; este documento no acredita cambios en su dominio, DNS o hosting.
+El destino solicitado para el código es `gabolaurav123/Kiryus-Web`. La publicación del código y su CI están verificadas. El servicio independiente de Seenode fue creado y su primer build y runtime están activos. El sitio actual `https://www.comunidadkiryus.org/` continúa siendo la referencia pública; este documento no acredita cambios en su dominio, DNS o hosting.
 
 ## Registro de la entrega
 
@@ -8,13 +8,13 @@ Completar únicamente con información comprobada:
 
 | Dato | Valor actual |
 | --- | --- |
-| URL del repositorio accesible | Pendiente de verificar después del push |
-| Rama publicada | Pendiente de registrar |
-| Commit revisado | Pendiente de registrar |
-| Servicio e identificador de Seenode | Pendiente de crear o verificar |
-| URL HTTPS de vista previa | Pendiente de registrar; utilizar la URL real asignada por Seenode |
-| Build y runtime del servicio | Pendiente de comprobar en logs |
-| Revisión funcional y visual de la URL pública | Pendiente de registrar con alcance y resultados |
+| URL del repositorio accesible | https://github.com/gabolaurav123/Kiryus-Web |
+| Rama publicada | `main` |
+| Commit revisado | `b29663775db2ae30b2a11c568a2ac27f433ca8bc` (implementación y CI aprobadas) |
+| Servicio e identificador de Seenode | `Kiryus-Web`, servicio `975066`, Basic (512 MB), Node 24, US$4/mes |
+| URL HTTPS de vista previa | https://kiryus-web.seenode.app |
+| Build y runtime del servicio | Logs de Seenode confirmaron Build successful y Deployment successful; puerto 3000 |
+| Revisión funcional y visual de la URL pública | La portada responde y entrega contenido. Reconstruir con la URL asignada antes de verificar los metadatos finales. QA local completa en `qa.md`. |
 | Cambio de dominio definitivo | Fuera de la etapa de vista previa; pendiente de una instrucción específica |
 
 No sustituir estos pendientes por una URL de ejemplo ni interpretar un build local como un despliegue público.

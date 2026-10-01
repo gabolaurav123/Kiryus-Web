@@ -6,12 +6,12 @@ Web de Comunidad Kiryus construida con React, Next.js App Router y TypeScript. P
 
 | Elemento | Estado que debe verificarse |
 | --- | --- |
-| Destino solicitado en GitHub | `gabolaurav123/Kiryus-Web`; push pendiente de confirmar |
-| Servicio de vista previa en Seenode | Pendiente de crear o verificar; registrar su URL real después del despliegue |
-| Commit desplegado | Pendiente de registrar junto con el resultado del build |
+| Destino solicitado en GitHub | [gabolaurav123/Kiryus-Web](https://github.com/gabolaurav123/Kiryus-Web); rama `main` publicada |
+| Servicio de vista previa en Seenode | [kiryus-web.seenode.app](https://kiryus-web.seenode.app), servicio `975066`, Basic (512 MB), US$4/mes |
+| Versión publicada | Rama `main`; implementación `b29663775db2ae30b2a11c568a2ac27f433ca8bc` validada y CI aprobada. Los commits posteriores documentan publicación; consultar el historial. |
 | Dominio actual | `https://www.comunidadkiryus.org/`; sin migración de DNS en esta entrega |
 
-Esta tabla documenta pendientes, no acredita un despliegue. Actualizarla únicamente con resultados comprobados. La configuración inicial mantiene la vista previa fuera de los índices de búsqueda.
+El servicio independiente fue creado y el primer build y arranque remoto finalizaron correctamente. Se configuró la URL HTTPS asignada para reconstruir los metadatos de vista previa. La configuración inicial mantiene la vista previa fuera de los índices de búsqueda.
 
 ## Desarrollo local
 
@@ -46,7 +46,7 @@ npx --yes pnpm@11.19.0 check
 node scripts/start.mjs
 ```
 
-`check` ejecuta tipos, lint, pruebas y build. También están disponibles `typecheck`, `lint`, `test` y `build` por separado. Estos comandos son instrucciones de verificación; su presencia aquí no implica que todas las comprobaciones ya hayan pasado. El servidor escucha en `0.0.0.0`, utiliza `PORT` y adopta 3000 si la variable no está definida.
+`check` ejecuta tipos, lint, pruebas, build y comprobaciones HTTP de rutas. También están disponibles `typecheck`, `lint`, `test` y `build` por separado. La instalación congelada, los tipos, lint, 17 pruebas, build y rutas pasaron localmente y en [GitHub Actions](https://github.com/gabolaurav123/Kiryus-Web/actions/runs/36919771401). El servidor escucha en `0.0.0.0`, utiliza `PORT` y adopta 3000 si la variable no está definida.
 
 ## Páginas y participación
 
@@ -79,7 +79,7 @@ Consultar la [guía editorial](docs/editorial-guide.md), la [auditoría de conte
 
 ## Vista previa y despliegue
 
-La CI de GitHub utiliza Node.js 24 y pnpm 11.19.0, instala con lockfile congelado y ejecuta tipos, lint, pruebas y build. No despliega el sitio. La ruta prevista es GitHub → servicio web Node 24 en Seenode, con:
+La CI de GitHub utiliza Node.js 24 y pnpm 11.19.0, instala con lockfile congelado y ejecuta tipos, lint, pruebas, build y rutas HTTP. No despliega el sitio. La ruta prevista es GitHub → servicio web Node 24 en Seenode, con:
 
 ```text
 Build: npx --yes pnpm@11.19.0 install --frozen-lockfile && npx --yes pnpm@11.19.0 build
