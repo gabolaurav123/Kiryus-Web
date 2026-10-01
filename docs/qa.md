@@ -1,6 +1,6 @@
 # Verificación de la implementación
 
-Revisión realizada el 1 de octubre de 2026 sobre el build de producción local de Next.js, servido en `http://localhost:3000`. El código se publicó en `main` con el commit `b29663775db2ae30b2a11c568a2ac27f433ca8bc`. [GitHub Actions](https://github.com/gabolaurav123/Kiryus-Web/actions/runs/36919771401) repitió instalación, tipos, lint, 17 pruebas, build y rutas en Ubuntu con resultado aprobado. La URL final y revisión externa se registrarán después del despliegue.
+Revisión realizada el 1 de octubre de 2026 sobre el build de producción local de Next.js, servido en `http://localhost:3000`. El código se publicó en `main` con el commit `b29663775db2ae30b2a11c568a2ac27f433ca8bc`. [GitHub Actions](https://github.com/gabolaurav123/Kiryus-Web/actions/runs/36919771401) repitió instalación, tipos, lint, 17 pruebas, build y rutas en Ubuntu con resultado aprobado. Vista previa pública: https://kiryus-web.seenode.app. El despliegue de `041bd59dd61c6c984074211dc528509d202ae1e7` quedó activo y su [CI](https://github.com/gabolaurav123/Kiryus-Web/actions/runs/36920791318) también pasó.
 
 ## Comprobaciones ejecutadas
 
@@ -39,7 +39,7 @@ Contrastes calculados para las combinaciones principales: verde profundo/crema 1
 
 El HTML inicial entrega texto, enlaces y valores finales de impacto. Las animaciones no ocultan contenido esencial. CSS y Motion contemplan `prefers-reduced-motion`; los contadores comprueban esa preferencia antes de animar. No se cambió la configuración de accesibilidad del sistema del usuario para forzar la preferencia.
 
-No se obtuvieron mediciones de campo de Core Web Vitals, ni se atribuyen puntuaciones Lighthouse a este sitio. LCP ≤2,5 s, CLS <0,1 e INP <200 ms son objetivos para el seguimiento tras publicar. La revisión de tamaños no sustituye una auditoría completa con lectores de pantalla, zoom del navegador o dispositivos físicos.
+Se solicitó PageSpeed Insights para la URL pública; la API devolvió HTTP 429 por cuota agotada, sin resultados Lighthouse. No se obtuvieron mediciones de campo de Core Web Vitals, ni se atribuyen puntuaciones Lighthouse a este sitio. LCP ≤2,5 s, CLS <0,1 e INP <200 ms son objetivos para el seguimiento tras publicar. La revisión de tamaños no sustituye una auditoría completa con lectores de pantalla, zoom del navegador o dispositivos físicos.
 
 ## Capturas
 
@@ -52,3 +52,13 @@ Se guardaron seis capturas reales de viewport, fuera del repositorio, en la carp
 - Respaldo institucional del registro que figuraba en el footer antiguo, omitido de esta versión.
 - Artículos reales, autoría y fechas aprobadas para activar el blog.
 - Una instrucción específica para trasladar el dominio de producción.
+
+## Verificación pública en Seenode
+
+- Servicio `975066`, Basic 512 MB, una réplica. El panel muestra US$4,00/mes y despliegue activo del commit `041bd59`.
+- Se verificaron las diez páginas públicas con HTTP 200, H1 único, canonical HTTPS correcto y `noindex, nofollow`.
+- Las cuatro redirecciones devolvieron 308; páginas, sedes, artículos inexistentes y el borrador real devolvieron 404. Robots bloquea rastreo y sitemap no tiene URLs.
+- En navegador público a 390 px: CTA «Consultar visita» de Colombia preseleccionó visita y Colombia; se verificaron errores, nombres con tildes, revisión, enlace de WhatsApp, copia y conservación al editar. Menú móvil cerró con Escape y devolvió el foco.
+- Portada pública a 1440 px: logo y fotografía principal terminaron de cargar; sin errores de consola en el recorrido revisado. Se guardó una captura adicional de la web pública.
+- El runtime mostró una petición con Server Reference ID inválido, no correspondiente a una acción implementada en el sitio. No se reprodujo como fallo funcional en la navegación o el formulario revisados; el formulario no utiliza Server Actions ni recepción de servidor. No se atribuye una causa no comprobada a esa petición.
+- Los resultados HTTP completos se guardaron en `outputs/verification-public.json` fuera del repositorio. Los commits posteriores a esta verificación documentan la entrega, sin cambiar el código de la web.

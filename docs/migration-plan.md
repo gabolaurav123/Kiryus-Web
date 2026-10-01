@@ -14,7 +14,7 @@ Completar únicamente con información comprobada:
 | Servicio e identificador de Seenode | `Kiryus-Web`, servicio `975066`, Basic (512 MB), Node 24, US$4/mes |
 | URL HTTPS de vista previa | https://kiryus-web.seenode.app |
 | Build y runtime del servicio | Logs de Seenode confirmaron Build successful y Deployment successful; puerto 3000 |
-| Revisión funcional y visual de la URL pública | La portada responde y entrega contenido. Reconstruir con la URL asignada antes de verificar los metadatos finales. QA local completa en `qa.md`. |
+| Revisión funcional y visual de la URL pública | Diez páginas, redirecciones, 404, canonical HTTPS y noindex verificados; CTA, validación, revisión, copia y menú móvil probados. Ver `qa.md`. |
 | Cambio de dominio definitivo | Fuera de la etapa de vista previa; pendiente de una instrucción específica |
 
 No sustituir estos pendientes por una URL de ejemplo ni interpretar un build local como un despliegue público.

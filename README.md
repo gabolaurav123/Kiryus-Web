@@ -11,7 +11,7 @@ Web de Comunidad Kiryus construida con React, Next.js App Router y TypeScript. P
 | Versión publicada | Rama `main`; implementación `b29663775db2ae30b2a11c568a2ac27f433ca8bc` validada y CI aprobada. Los commits posteriores documentan publicación; consultar el historial. |
 | Dominio actual | `https://www.comunidadkiryus.org/`; sin migración de DNS en esta entrega |
 
-El servicio independiente fue creado y el primer build y arranque remoto finalizaron correctamente. Se configuró la URL HTTPS asignada para reconstruir los metadatos de vista previa. La configuración inicial mantiene la vista previa fuera de los índices de búsqueda.
+El servicio independiente fue creado y el primer build y arranque remoto finalizaron correctamente. Se reconstruyó con la URL HTTPS asignada y se verificaron los canonical, noindex, rutas y formulario en la web pública. Resultados completos en [qa.md](docs/qa.md). La configuración inicial mantiene la vista previa fuera de los índices de búsqueda.
 
 ## Desarrollo local
 
