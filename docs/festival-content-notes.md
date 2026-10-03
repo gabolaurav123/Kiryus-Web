@@ -17,7 +17,7 @@
 - Yoga Nidra guiado por Marité; Baño de Gong guiado por Carlos Sat Nam; concierto meditativo de Alma Qhana, integrado por ambos. La hora del concierto del dúo no se inventa: forma parte de la noche del sábado, con el escenario a partir de las 20:30.
 - Siete talleres con sus objetivos, actividades, duración informada y participación práctica.
 - Tarifas en pesos argentinos: general $133.000, VIP $369.000, reserva $20.000, voucher general 5 × 4 $532.000 y voucher VIP 5 × 4 $1.476.000.
-- La organización confirmó conservar el 10% adicional de servicio de Fanz para compras online. Las cifras anteriores se identifican como valores base; se muestra el aviso del cargo y se remite al desglose del checkout. No se atribuye ese recargo al traslado contratado por consulta directa.
+- En su última corrección, el usuario pidió publicar exactamente los importes suministrados, sin porcentajes, recargos calculados ni la etiqueta «valor base». La configuración de porcentajes del panel Fanz se conserva sin intervenir; la página de Kiryus muestra los precios indicados por la organización.
 - Traslado de ida y vuelta San Miguel de Tucumán–Aldea Kiryus por $25.000 ARS por persona; carpa individual y colchón inflable con precio y disponibilidad a consultar.
 - Cupo previsto del festival: 120 personas. No se anuncia la cantidad de entradas restantes.
 - General incluye acceso durante los tres días y dos noches de alojamiento en carpas comunitarias compartidas, una para mujeres y otra para hombres, o espacio para instalar una carpa propia. Cada persona lleva sus elementos personales de descanso.

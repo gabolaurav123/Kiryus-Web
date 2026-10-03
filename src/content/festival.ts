@@ -55,8 +55,6 @@ export const festival = {
   invitation: "No vengas solamente a escuchar hablar de una Nueva Humanidad. Vení a vivirla.",
   programNote:
     "Programa previsto por la organización. Las duraciones de los talleres son orientativas; la distribución por bloques, los horarios definitivos y los cupos se confirmarán antes del festival.",
-  onlineServiceNote:
-    "La compra online en Fanz agrega un 10% de cargo por servicio a los valores base. Revisá el desglose y el total antes de pagar.",
 } as const;
 
 export const festivalDays: FestivalDay[] = [
@@ -458,7 +456,7 @@ export const festivalPurchaseConditions: {
   {
     title: "Reserva de $20.000 ARS",
     description:
-      "Podés comenzar tu inscripción con una reserva de valor base $20.000 ARS. Las condiciones de confirmación y su aplicación al valor de la entrada se anunciarán próximamente.",
+      "Podés comenzar tu inscripción con una reserva. Las condiciones de confirmación y su aplicación al valor de la entrada se anunciarán próximamente.",
   },
   {
     title: "Pago del saldo",
@@ -473,7 +471,7 @@ export const festivalPurchaseConditions: {
   {
     title: "Medios de pago",
     description:
-      "Los precios publicados de entradas, reservas y vouchers son valores base en ARS. La compra online en Fanz agrega un 10% de cargo por servicio; revisá el desglose y el total antes de pagar. Los medios de pago disponibles y sus condiciones se muestran al momento de comprar.",
+      "Los medios de pago disponibles y sus condiciones se muestran en la plataforma al momento de comprar.",
   },
   {
     title: "Participación de menores",
@@ -514,7 +512,7 @@ export const festivalTickets: FestivalTicket[] = [
     name: "Reserva",
     price: 20000,
     description:
-      "Comenzá tu inscripción con una reserva de valor base $20.000 ARS. La compra online en Fanz agrega un 10% de cargo por servicio. Las condiciones de confirmación, pago del saldo y cancelaciones se anunciarán próximamente.",
+      "Comenzá tu inscripción con una reserva de $20.000 ARS. Las condiciones de confirmación, pago del saldo y cancelaciones se anunciarán próximamente.",
   },
   {
     id: "voucher-general",
@@ -621,7 +619,7 @@ export const festivalFaqs: { question: string; answer: string }[] = [
   {
     question: "¿Cómo adquiero mi entrada?",
     answer:
-      "Elegí Adquirir para ir a Fanz. Los precios de entradas, reservas y vouchers publicados aquí son valores base en pesos argentinos (ARS). La compra online agrega un 10% de cargo por servicio: revisá el desglose y el total antes de pagar. Los medios de pago se muestran al comprar.",
+      "Elegí el botón Adquirir para ir a la plataforma oficial del festival. Allí podés revisar las modalidades disponibles y sus condiciones antes de completar la compra. Todos los valores mostrados en esta página están expresados en pesos argentinos (ARS).",
   },
   {
     question: "¿Qué incluye la entrada General?",
@@ -636,7 +634,7 @@ export const festivalFaqs: { question: string; answer: string }[] = [
   {
     question: "¿Puedo reservar y cuándo tengo que completar el pago?",
     answer:
-      "Podés comenzar tu inscripción con una reserva de valor base $20.000 ARS. La compra online en Fanz agrega un 10% de cargo por servicio; revisá el desglose y el total antes de pagar. Sus condiciones de confirmación, la aplicación al valor final de la entrada, el plazo para pagar el saldo y las políticas de cambios, cancelaciones y devoluciones se anunciarán próximamente. Los medios de pago disponibles se muestran al comprar.",
+      "Podés comenzar tu inscripción con una reserva de $20.000 ARS. Sus condiciones de confirmación, la aplicación al valor final de la entrada, el plazo para pagar el saldo y las políticas de cambios, cancelaciones y devoluciones se anunciarán próximamente. Los medios de pago disponibles se muestran en la plataforma al momento de comprar.",
   },
   {
     question: "¿Puedo participar de todos los talleres?",
