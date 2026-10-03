@@ -1,8 +1,8 @@
 # Plan de migración
 
-El destino solicitado para el código es `gabolaurav123/Kiryus-Web`. La publicación del código y su CI están verificadas. El servicio independiente de Seenode fue creado y su primer build y runtime están activos. El sitio actual `https://www.comunidadkiryus.org/` continúa siendo la referencia pública; este documento no acredita cambios en su dominio, DNS o hosting.
+El código está publicado en `gabolaurav123/Kiryus-Web` y el servicio de Seenode está activo. El 3 de octubre de 2026 se autorizó conectar `https://www.comunidadkiryus.org/` a ese servicio. El registro siguiente conserva la primera entrega; la migración del dominio se documenta en la etapa 2 y requiere comprobar DNS y HTTPS después de aplicarla.
 
-## Registro de la entrega
+## Registro de la primera entrega
 
 Completar únicamente con información comprobada:
 
@@ -15,7 +15,7 @@ Completar únicamente con información comprobada:
 | URL HTTPS de vista previa | https://kiryus-web.seenode.app |
 | Build y runtime del servicio | Logs de Seenode confirmaron Build successful y Deployment successful; puerto 3000 |
 | Revisión funcional y visual de la URL pública | Diez páginas, redirecciones, 404, canonical HTTPS y noindex verificados; CTA, validación, revisión, copia y menú móvil probados. Ver `qa.md`. |
-| Cambio de dominio definitivo | Fuera de la etapa de vista previa; pendiente de una instrucción específica |
+| Cambio de dominio definitivo | Autorizado el 3 de octubre de 2026; ver etapa 2 |
 
 No sustituir estos pendientes por una URL de ejemplo ni interpretar un build local como un despliegue público.
 
@@ -52,6 +52,7 @@ El bloqueo de robots no protege el acceso. Si el contenido de una revisión debe
 | `/nosotros` | `/nosotros` | Conservada |
 | `/involucrate` | `/involucrate` | Conservada; nuevo recorrido de consulta |
 | `/blog` | `/blog` | Conservada; sin publicaciones de ejemplo |
+| `/eventos` | `/evento` | Redirección permanente al apartado actual del festival |
 | `/kiryus-argentina` | `/aldeas/argentina` | Redirección permanente configurada |
 | `/kiryus-colombia` | `/aldeas/colombia` | Redirección permanente configurada |
 | `/kiryus-españa` | `/legado/espana` | Redirección permanente al legado; comprobar URL codificada con `%C3%B1` |
@@ -59,11 +60,13 @@ El bloqueo de robots no protege el acceso. Si el contenido de una revisión debe
 | `/aldeas/espana` | `/legado/espana` | Redirección permanente; España dejó de figurar como aldea actual por confirmación del usuario |
 | Sin equivalente principal previo | `/aldeas`, `/contacto`, `/privacidad` | Rutas nuevas de la entrega |
 
-Las redirecciones están en `next.config.ts`; comprobar su comportamiento HTTP al desplegar. Las rutas históricas de Tienda, Donaciones y Eventos no forman parte de esta primera versión. Inventariar tráfico, enlaces externos y contenido útil de esas secciones antes de decidir su retirada, conservación o destino. No publicar programación antigua como próxima ni usar una redirección general al inicio para ocultar páginas ausentes.
+Las redirecciones están en `next.config.ts`; comprobar su comportamiento HTTP al desplegar. Tienda, Donaciones, grupos de jardinería y fichas históricas `/event-details/...` no tienen equivalente en la nueva web. No redirigir eventos de 2024–2025 al festival de 2026 ni usar una redirección general al inicio para ocultar páginas ausentes. La antigua ruta genérica `/eventos` sí conduce al apartado vigente `/evento`.
 
 ## Etapa 2: traslado al dominio definitivo
 
-Realizar esta etapa cuando exista una instrucción específica para migrar el sitio público. Antes de cambiar DNS, conservar una referencia de los registros actuales y del sitio original, revisar las rutas históricas y definir quién mantiene el dominio y el servicio.
+Autorizada por el usuario el 3 de octubre de 2026. Conservar `www.comunidadkiryus.org` como dirección principal y Wix como administrador DNS; los registros exactos mostrados por Seenode y las variables del build se documentan en `deployment.md`. La autorización no implica transferir el registro, cancelar Wix ni contratar recursos adicionales. Verificar dominio y TLS después del cambio, sin confundir los valores preparados con una propagación terminada.
+
+Antes de cambiar DNS, conservar una referencia de los registros actuales y del sitio original y revisar las rutas históricas. El dominio y sus DNS continúan administrados en Wix; Seenode aloja la nueva web.
 
 1. Configurar el dominio en Seenode y comprobar los requisitos que muestra su panel. Preparar la nueva versión con `NEXT_PUBLIC_SITE_URL` igual al dominio HTTPS definitivo.
 2. Cambiar `SITE_INDEXABLE=true` y reconstruir el commit aprobado. Revisar canonical, robots, sitemap y metadatos sociales del build destinado a producción.

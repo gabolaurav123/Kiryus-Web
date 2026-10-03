@@ -1,8 +1,21 @@
 import assert from "node:assert/strict";
 import { spawn } from "node:child_process";
+import { get } from "node:http";
 
 const port = 3101;
 const base = `http://127.0.0.1:${port}`;
+const indexable = process.env.SITE_INDEXABLE === "true";
+const publicOrigin = new URL(process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000").origin;
+function requestWithHost(path, host) {
+  return new Promise((resolve, reject) => {
+    const request = get(base + path, { headers: { Host: host } }, (response) => {
+      response.resume();
+      resolve({ status: response.statusCode, location: response.headers.location });
+    });
+    request.on("error", reject);
+    request.setTimeout(10_000, () => request.destroy(new Error("Timeout comprobando el dominio")));
+  });
+}
 const server = spawn(
   process.execPath,
   [
@@ -71,12 +84,16 @@ try {
     titles.add(title);
     assert.match(
       html,
-      /name="robots" content="noindex, nofollow"/,
-      `${route}: preview no indexable`,
+      indexable ? /name="robots" content="index, follow"/ : /name="robots" content="noindex, nofollow"/,
+      `${route}: indexación del entorno configurado`,
     );
-    assert.match(html, /rel="canonical"/, `${route}: canonical`);
+    const canonical = html.match(/<link rel="canonical" href="([^"]+)"/)?.[1];
+    assert.ok(canonical, `${route}: canonical`);
+    assert.equal(new URL(canonical).origin, publicOrigin, `${route}: dominio canónico`);
+    assert.equal(new URL(canonical).pathname, route, `${route}: ruta canónica`);
   }
   for (const [from, to] of [
+    ["/eventos", "/evento"],
     ["/kiryus-argentina", "/aldeas/argentina"],
     ["/kiryus-colombia", "/aldeas/colombia"],
     ["/aldeas/espana", "/legado/espana"],
@@ -87,6 +104,13 @@ try {
     assert.equal(response.status, 308, from);
     assert.equal(response.headers.get("location"), to, from);
     assert.equal((await fetch(base + to)).status, 200, to);
+  }
+  if (indexable && publicOrigin === "https://www.comunidadkiryus.org") {
+    const apexResponse = await requestWithHost("/evento?source=domain-check", "comunidadkiryus.org");
+    assert.equal(apexResponse.status, 308, "apex redirige al dominio principal");
+    assert.equal(apexResponse.location, `${publicOrigin}/evento?source=domain-check`, "redirección conserva ruta y consulta");
+    const canonicalResponse = await requestWithHost("/evento", "www.comunidadkiryus.org");
+    assert.equal(canonicalResponse.status, 200, "dominio principal sin bucle de redirección");
   }
   const adminResponse = await fetch(base + "/admin", { redirect: "manual" });
   assert.equal(adminResponse.status, 307, "/admin: requiere sesión");
@@ -111,12 +135,20 @@ try {
   ]) {
     assert.equal((await fetch(base + route)).status, 404, route);
   }
-  assert.match(
-    await (await fetch(base + "/robots.txt")).text(),
-    /Disallow: \//,
-  );
+  const robots = await (await fetch(base + "/robots.txt")).text();
   const sitemap = await (await fetch(base + "/sitemap.xml")).text();
-  assert.ok(!sitemap.includes("<loc>"), "sitemap de preview vacío");
+  if (indexable) {
+    assert.match(robots, /Allow: \//, "robots de producción permite rastreo");
+    assert.ok(robots.includes(`Sitemap: ${publicOrigin}/sitemap.xml`), "sitemap canónico en robots");
+    const urls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => new URL(match[1]));
+    assert.ok(urls.length >= routes.length, "sitemap de producción contiene las páginas públicas");
+    assert.ok(urls.every((url) => url.origin === publicOrigin), "sitemap sin dominios de preview");
+    assert.ok(urls.every((url) => !url.pathname.startsWith("/admin") && !url.pathname.includes("borrador")), "sitemap excluye administración y borradores");
+    for (const route of routes) assert.ok(urls.some((url) => url.pathname === route), `${route}: incluida en sitemap`);
+  } else {
+    assert.match(robots, /Disallow: \//, "robots de preview bloquea rastreo");
+    assert.ok(!sitemap.includes("<loc>"), "sitemap de preview vacío");
+  }
   for (const asset of [
     "/favicon.png",
     "/images/kiryus-logo.webp",
@@ -124,11 +156,12 @@ try {
     "/images/evento/marite.webp",
     "/images/evento/carlos-sat-nam.webp",
     "/images/evento/alma-qhana.webp",
+    "/images/evento/marisa-antonieta-cardozo-arce.webp",
   ]) {
     assert.equal((await fetch(base + asset)).status, 200, asset);
   }
   console.log(
-    `Rutas: ${routes.length} páginas con HTML, títulos, H1 y SEO; 5 redirecciones; acceso administrativo protegido; 4 respuestas 404; robots, sitemap y recursos aprobados.`,
+    `Rutas: ${routes.length} páginas con HTML, títulos, H1 y SEO; 6 redirecciones; acceso administrativo protegido; 4 respuestas 404; robots, sitemap y recursos aprobados.`,
   );
 } finally {
   server.kill("SIGTERM");

@@ -5,6 +5,19 @@ const config: NextConfig = {
   images: { formats: ["image/avif", "image/webp"], qualities: [75, 85], minimumCacheTTL: 86400 },
   async redirects() {
     return [
+      ...(process.env.SITE_INDEXABLE === "true" && process.env.NEXT_PUBLIC_SITE_URL === "https://www.comunidadkiryus.org"
+        ? [{
+            source: "/:path*",
+            has: [{ type: "host" as const, value: "comunidadkiryus.org" }],
+            destination: "https://www.comunidadkiryus.org/:path*",
+            permanent: true,
+          }]
+        : []),
+      {
+        source: "/eventos",
+        destination: "/evento",
+        permanent: true,
+      },
       {
         source: "/kiryus-argentina",
         destination: "/aldeas/argentina",

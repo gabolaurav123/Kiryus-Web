@@ -42,9 +42,13 @@ Abrir los logs de build y runtime, esperar el estado activo y comprobar la URL. 
 
 ## Variables y producción
 
+El 3 de octubre de 2026 el usuario autorizó conectar el dominio de Wix a Seenode. La dirección principal de producción es `https://www.comunidadkiryus.org`: configurar `NEXT_PUBLIC_SITE_URL` con esa URL y `SITE_INDEXABLE=true`, y reconstruir. Las comprobaciones `test:routes` validan ahora tanto producción como vista previa según estas dos variables. En producción, el dominio raíz redirige permanentemente a `www`, conservando ruta y parámetros; el enlace técnico de Seenode continúa disponible.
+
+El panel de Seenode ofrece explícitamente estas dos opciones DNS para el servicio `975066`: `A` raíz a `94.237.83.139` y `CNAME www` a `up-de-fra1-k8s-1.apps.run-on-seenode.com`. La dirección A procede del panel; no se deduce resolviendo el CNAME. Mantener Wix como administrador del dominio y DNS (`ns0.wixdns.net` y `ns1.wixdns.net`), reemplazar únicamente los registros web y verificar HTTPS para ambos nombres. No cancelar el dominio ni cambiar sus servidores de nombres. La configuración deseada no acredita por sí sola propagación o certificados: comprobar ambos en cada traslado.
+
 Las variables están disponibles en build y ejecución. **Apply changes** en Seenode reinicia la imagen existente sin reconstruir Git. Al cambiar `NEXT_PUBLIC_SITE_URL`, cualquier `NEXT_PUBLIC_*` o un valor utilizado para generar páginas durante el build, realizar un nuevo despliegue del commit revisado. Next.js incorpora las variables públicas al código generado.
 
-Una migración al dominio definitivo requiere una instrucción específica para ese entorno. Cuando se autorice:
+La migración al dominio definitivo autorizada el 3 de octubre de 2026 requiere:
 
 1. Configurar `NEXT_PUBLIC_SITE_URL` con el dominio HTTPS definitivo y revisar canonical y metadatos sociales.
 2. Configurar `SITE_INDEXABLE=true` y reconstruir. Revisar `robots.txt`, `sitemap.xml` y las etiquetas robots.
@@ -59,7 +63,7 @@ El filesystem del servicio es efímero. El contenido del sitio vive en Git. El C
 El 1 de octubre de 2026 se verificó en el diálogo de Seenode el volumen mínimo de **5 GB por US$2,50/mes**. Unido a Basic, el total de Kiryus sería **US$6,50/mes**, con una sola réplica. El límite anterior era US$4/mes: no contratar el volumen hasta recibir la ampliación del límite. Su aprobación y creación se registrarán por separado.
 
 1. Adjuntar el volumen de 5 GB a `/data`. Su creación provoca una interrupción breve.
-2. Configurar `CRM_DATA_DIR=/data/kiryus-crm`, `CRM_ADMIN_EMAIL` con el correo responsable y `CRM_ADMIN_PASSWORD_HASH` generado localmente con `node scripts/hash-crm-password.mjs`. El responsable conserva su contraseña; nunca subirla a Git. Mantener `NEXT_PUBLIC_SITE_URL=https://kiryus-web.seenode.app` y una réplica.
+2. Configurar `CRM_DATA_DIR=/data/kiryus-crm`, `CRM_ADMIN_EMAIL` con el correo responsable y `CRM_ADMIN_PASSWORD_HASH` generado localmente con `node scripts/hash-crm-password.mjs`. El responsable conserva su contraseña; nunca subirla a Git. Mantener `NEXT_PUBLIC_SITE_URL` igual al dominio principal del entorno (`https://www.comunidadkiryus.org` en producción) y una réplica.
 3. Aplicar y desplegar el commit revisado. El formulario y Privacidad son dinámicos y describen la recepción solo cuando están presentes la ruta persistente y las credenciales válidas. Si falta configuración, continúa el flujo de WhatsApp.
 4. Verificar login, consulta consentida, listado, notas, estados, CSV y cierre de sesión con datos ficticios. Reiniciar y comprobar que la consulta sigue presente. Eliminar solo los datos de esa verificación identificados como desechables.
 5. Mantener backups restringidos y probar restauraciones según [crm.md](crm.md). No hay backup externo automático contratado.
