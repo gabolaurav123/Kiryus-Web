@@ -19,3 +19,9 @@ Tipos, ESLint, 30 pruebas, build de producción, 14 rutas públicas y comprobaci
 La revisión inicial de navegador pasó de 13.335 a menos de 5.500 píxeles de altura en escritorio y de 19.123 a menos de 6.800 en móvil de 390 píxeles, con el programa cerrado. La revisión detectó y corrigió el contraste de títulos sobre verde y el espacio de los saltos de sección. Las mediciones describen el contenido inicialmente visible, no la longitud al abrir todos los detalles.
 
 La compra se deriva a Fanz. No se efectuaron pedidos ni pagos como parte de esta revisión. Publicar requiere desplegar el commit revisado en el servicio existente `975066`; no se contratan recursos adicionales.
+
+## Actualización de condiciones comerciales
+
+La organización aclaró posteriormente que solo VIP incluye el traslado ida y vuelta entre San Miguel de Tucumán y Aldea Kiryus. Para General continúa como extra de $25.000 ARS por persona. Los seis talleres especiales permanecen incluidos en VIP y se informan por separado a $35.000 ARS cada uno, con cupos e inscripción a consultar. No se inventa inventario para activar ventas de talleres.
+
+La reserva de $20.000 ARS se identifica como pago parcial y no como entrada completa. Se conservan las condiciones pendientes de confirmación, aplicación al valor final, saldo y cancelaciones. Los importes de General, VIP y vouchers no cambian. La actualización comprende tarjetas, detalles, estadía, extras y preguntas frecuentes (ahora 16 preguntas y ocho condiciones).

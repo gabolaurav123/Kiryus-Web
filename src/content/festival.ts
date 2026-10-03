@@ -440,6 +440,7 @@ export const festivalGeneralIncludes = [
 
 export const festivalVipIncludes = [
   "Todo lo incluido en la entrada general.",
+  "Traslado ida y vuelta entre San Miguel de Tucumán y Aldea Kiryus.",
   "Inmersión en hielo.",
   "Neurofitness Active® · Desactivación de creencias limitantes.",
   "Constelaciones Neuroarquetípicas · Relación con el dinero.",
@@ -454,9 +455,9 @@ export const festivalPurchaseConditions: {
   description: string;
 }[] = [
   {
-    title: "Reserva de $20.000 ARS",
+    title: "Reserva de $20.000 ARS · Pago parcial",
     description:
-      "Podés comenzar tu inscripción con una reserva. Las condiciones de confirmación y su aplicación al valor de la entrada se anunciarán próximamente.",
+      "La reserva de $20.000 ARS es un pago parcial, no una entrada completa. Las condiciones de confirmación y su aplicación al valor de la entrada se anunciarán próximamente.",
   },
   {
     title: "Pago del saldo",
@@ -484,9 +485,14 @@ export const festivalPurchaseConditions: {
       "La participación es voluntaria y supervisada. Antes de realizarla se comunicarán las indicaciones y condiciones de seguridad. La organización podrá limitar la participación cuando existan condiciones que hagan desaconsejable la experiencia.",
   },
   {
+    title: "Talleres especiales por separado",
+    description:
+      "Los seis talleres especiales ya están incluidos en VIP. Con entrada General podés adquirirlos por separado por $35.000 ARS cada uno. Consultá previamente con la organización los cupos, la inscripción y las condiciones de participación; comprar un taller no equivale a comprar una entrada completa al festival.",
+  },
+  {
     title: "Programación y experiencia VIP",
     description:
-      "VIP incluye la programación general y las experiencias especiales indicadas en esta página. La grilla publicada todavía no es definitiva: los nuevos músicos, artistas, ponentes, facilitadores y expositores confirmados se incorporarán progresivamente.",
+      "VIP incluye la programación general, las seis experiencias especiales, el Pasaporte hacia la Nueva Humanidad y el traslado ida y vuelta entre San Miguel de Tucumán y Aldea Kiryus. La grilla publicada todavía no es definitiva: los nuevos músicos, artistas, ponentes, facilitadores y expositores confirmados se incorporarán progresivamente.",
   },
 ];
 
@@ -497,7 +503,7 @@ export const festivalTickets: FestivalTicket[] = [
     price: 133000,
     badge: "General",
     description:
-      "Tres días, dos noches de alojamiento compartido o espacio para tu carpa, ceremonias, música, meditación, convivencia y actividades colectivas.",
+      "Tres días, dos noches de alojamiento compartido o espacio para tu carpa, ceremonias, música, meditación, convivencia y actividades colectivas. El traslado es un extra de $25.000 ARS por persona. Los talleres especiales se pueden adquirir por separado por $35.000 ARS cada uno, previa consulta de cupos e inscripción.",
   },
   {
     id: "vip",
@@ -505,14 +511,14 @@ export const festivalTickets: FestivalTicket[] = [
     price: 369000,
     badge: "VIP",
     description:
-      "Todo lo incluido en General, más seis talleres y experiencias especiales y el Pasaporte hacia la Nueva Humanidad.",
+      "Todo lo incluido en General, más seis talleres y experiencias especiales, el Pasaporte hacia la Nueva Humanidad y el traslado ida y vuelta entre San Miguel de Tucumán y Aldea Kiryus.",
   },
   {
     id: "reserva",
-    name: "Reserva",
+    name: "Reserva · Pago parcial",
     price: 20000,
     description:
-      "Comenzá tu inscripción con una reserva de $20.000 ARS. Las condiciones de confirmación, pago del saldo y cancelaciones se anunciarán próximamente.",
+      "La reserva de $20.000 ARS es un pago parcial, no una entrada completa. Las condiciones de confirmación, aplicación al valor final, pago del saldo, cambios, cancelaciones y devoluciones se anunciarán próximamente.",
   },
   {
     id: "voucher-general",
@@ -536,15 +542,15 @@ export const festivalExtras: FestivalExtra[] = [
   {
     id: "traslado",
     title: "Traslado ida y vuelta",
-    priceLabel: "$25.000 ARS por persona",
+    priceLabel: "General: $25.000 ARS por persona · Incluido en VIP",
     description:
-      "San Miguel de Tucumán ↔ Aldea Kiryus. Si no tenés movilidad propia, podés reservar un lugar en el transporte organizado por el festival.",
+      "San Miguel de Tucumán ↔ Aldea Kiryus, ida y vuelta. El traslado está incluido en VIP; con entrada General podés contratarlo por separado por $25.000 ARS por persona. Coordiná tu lugar previamente con la organización.",
     details: [
       "Ida hasta la puerta de Aldea Kiryus y regreso a San Miguel de Tucumán al finalizar el festival el domingo.",
       "Encuentro previsto en Parque 9 de Julio, en la zona cercana a la Terminal de Ómnibus.",
       "Reserva previa directamente con la organización.",
-      "Los horarios exactos y el punto de encuentro se informarán a quienes contraten el traslado.",
-      "Servicio extra: no está incluido en la entrada.",
+      "Los horarios exactos y el punto de encuentro se informarán a quienes coordinen el traslado.",
+      "Incluido en VIP; servicio extra para quienes tengan entrada General.",
     ],
   },
   {
@@ -624,22 +630,27 @@ export const festivalFaqs: { question: string; answer: string }[] = [
   {
     question: "¿Qué incluye la entrada General?",
     answer:
-      "Incluye los tres días del festival, dos noches en carpa comunitaria compartida o espacio para tu propia carpa, la Ceremonia de Salida del Sol, Yoga Nidra, Baño de Gong, música, fogatas, fiesta, actividades colectivas, meditación, integración, acceso al mercado y experiencia Kiryus. Las comidas, el transporte, los talleres especiales VIP, la carpa individual privada y el colchón inflable no están incluidos.",
+      "Incluye los tres días del festival, dos noches en carpa comunitaria compartida o espacio para tu propia carpa, la Ceremonia de Salida del Sol, Yoga Nidra, Baño de Gong, música, fogatas, fiesta, actividades colectivas, meditación, integración, acceso al mercado y experiencia Kiryus. Las comidas, el traslado, los talleres especiales, la carpa individual privada y el colchón inflable no están incluidos. El traslado cuesta $25.000 ARS por persona; cada taller especial, $35.000 ARS, previa consulta de cupos e inscripción.",
   },
   {
     question: "¿Qué suma la entrada VIP?",
     answer:
-      "Incluye todo lo de General, más acceso a seis experiencias especiales: inmersión en hielo, Neurofitness Active®, Constelaciones Neuroarquetípicas, cosmética natural, bioconstrucción y Mural TuConexión 2026. También incluye el Pasaporte hacia la Nueva Humanidad. Las comidas, el transporte, la carpa individual privada y el colchón inflable siguen siendo extras.",
+      "Incluye todo lo de General, más acceso a seis experiencias especiales: inmersión en hielo, Neurofitness Active®, Constelaciones Neuroarquetípicas, cosmética natural, bioconstrucción y Mural TuConexión 2026. También incluye el Pasaporte hacia la Nueva Humanidad y el traslado ida y vuelta entre San Miguel de Tucumán y Aldea Kiryus. Las comidas, la carpa individual privada y el colchón inflable siguen siendo extras.",
   },
   {
     question: "¿Puedo reservar y cuándo tengo que completar el pago?",
     answer:
-      "Podés comenzar tu inscripción con una reserva de $20.000 ARS. Sus condiciones de confirmación, la aplicación al valor final de la entrada, el plazo para pagar el saldo y las políticas de cambios, cancelaciones y devoluciones se anunciarán próximamente. Los medios de pago disponibles se muestran en la plataforma al momento de comprar.",
+      "La reserva de $20.000 ARS es un pago parcial, no una entrada completa. Las condiciones de confirmación, su aplicación al valor final, el plazo para pagar el saldo y las políticas de cambios, cancelaciones y devoluciones se anunciarán próximamente. Los medios de pago disponibles se muestran en la plataforma al momento de comprar.",
+  },
+  {
+    question: "¿Cómo compro un taller especial si tengo entrada General?",
+    answer:
+      "Cada uno de los seis talleres especiales cuesta $35.000 ARS por separado. Consultá previamente con la organización los cupos disponibles y cómo inscribirte. La compra de un taller no equivale a una entrada completa al festival. En VIP, los seis talleres ya están incluidos.",
   },
   {
     question: "¿Puedo participar de todos los talleres?",
     answer:
-      "Hay propuestas en simultáneo para que armes tu recorrido. Meditación y presencia está incluida en General; los seis talleres especiales forman parte de VIP. Algunas experiencias tienen cupos limitados y podrán requerir inscripción previa. La organización confirmará la distribución por bloques y los horarios definitivos, por lo que el acceso VIP no implica poder realizar todas las propuestas al mismo tiempo.",
+      "Hay propuestas en simultáneo para que armes tu recorrido. Meditación y presencia está incluida en General; los seis talleres especiales están incluidos en VIP y pueden adquirirse por separado por $35.000 ARS cada uno con entrada General, previa consulta de cupos e inscripción. La organización confirmará la distribución por bloques y los horarios definitivos, por lo que el acceso VIP no implica poder realizar todas las propuestas al mismo tiempo.",
   },
   {
     question: "¿Necesito experiencia previa?",
@@ -664,7 +675,7 @@ export const festivalFaqs: { question: string; answer: string }[] = [
   {
     question: "¿Cómo reservo el traslado desde San Miguel de Tucumán?",
     answer:
-      "El traslado organizado de ida y vuelta cuesta $25.000 ARS por persona y requiere reserva previa con la organización. El encuentro previsto es en Parque 9 de Julio, en la zona cercana a la Terminal de Ómnibus. Los horarios y el punto exacto se comunicarán a quienes contraten el servicio. Es un extra y no está incluido en la entrada.",
+      "El traslado organizado de ida y vuelta está incluido en VIP. Con entrada General cuesta $25.000 ARS por persona. En ambos casos, coordiná tu lugar previamente con la organización. El encuentro previsto es en Parque 9 de Julio, en la zona cercana a la Terminal de Ómnibus. Los horarios y el punto exacto se comunicarán a quienes utilicen el servicio.",
   },
   {
     question: "¿Dónde consulto alimentación, accesibilidad o necesidades particulares?",
