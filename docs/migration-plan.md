@@ -66,6 +66,16 @@ Las redirecciones están en `next.config.ts`; comprobar su comportamiento HTTP a
 
 Autorizada por el usuario el 3 de octubre de 2026. Conservar `www.comunidadkiryus.org` como dirección principal y Wix como administrador DNS; los registros exactos mostrados por Seenode y las variables del build se documentan en `deployment.md`. La autorización no implica transferir el registro, cancelar Wix ni contratar recursos adicionales. Verificar dominio y TLS después del cambio, sin confundir los valores preparados con una propagación terminada.
 
+### Registro del cambio — 3 de octubre de 2026
+
+- Publicado en Seenode `975066` el commit `87caf3f6071edf411797b2d38c6fee273f11ca06`, con [CI aprobada](https://github.com/gabolaurav123/Kiryus-Web/actions/runs/37144170993). Un primer intento remoto falló antes del build; el segundo compiló y arrancó correctamente.
+- Variables verificadas: `NEXT_PUBLIC_SITE_URL=https://www.comunidadkiryus.org` y `SITE_INDEXABLE=true`. Plan Basic y recursos existentes conservados.
+- Wix guarda un único `A` raíz a `94.237.83.139` y `CNAME www` a `up-de-fra1-k8s-1.apps.run-on-seenode.com`, TTL de una hora. Ambos servidores autoritativos publican estos valores. Los NS de Wix y el resto de registros se conservaron.
+- Seenode verificó ambos nombres y mostró certificados Let's Encrypt activos; `www.comunidadkiryus.org` quedó como dominio predeterminado.
+- A las 18:35 UTC se comprobó HTTPS en el destino nuevo sin omitir validación de certificados: robots permite rastreo y anuncia el sitemap de `www`; el dominio raíz responde `308` a `www` conservando ruta y parámetros. La comprobación del build público contiene las 14 rutas del sitemap, canonical de producción y la ficha de Marisa en `/evento`.
+- La comprobación directa del destino con `curl --resolve` distingue TLS del servidor de la caché DNS local. A las 18:34 UTC Cloudflare ya veía el nuevo destino de `www`, mientras Google todavía devolvía el CNAME anterior con TTL restante; no se afirma que todas las cachés mundiales hayan terminado de propagarse.
+- Respaldos DNS anterior/posterior y auditorías de despliegue se conservaron fuera del repositorio en `../../work/`.
+
 Antes de cambiar DNS, conservar una referencia de los registros actuales y del sitio original y revisar las rutas históricas. El dominio y sus DNS continúan administrados en Wix; Seenode aloja la nueva web.
 
 1. Configurar el dominio en Seenode y comprobar los requisitos que muestra su panel. Preparar la nueva versión con `NEXT_PUBLIC_SITE_URL` igual al dominio HTTPS definitivo.
