@@ -4,6 +4,7 @@ Importado el 3 de octubre de 2026. Fotografías y dosier facilitados por la orga
 
 | Archivo público | Procedencia | Dimensiones | Exportación |
 | --- | --- | --- | --- |
+| `/images/evento/marisa-antonieta-cardozo-arce.webp` | Retrato PNG aportado por el usuario el 3 de octubre de 2026 | 607 × 786 | WebP, calidad 90 |
 | `/images/evento/marite.webp` | Retrato adjunto de Marité, JPEG | 1598 × 1600 | WebP, calidad 85 |
 | `/images/evento/carlos-sat-nam.webp` | Fotografía adjunta de Carlos, PNG | 1200 × 1600 | WebP, calidad 85 |
 | `/images/evento/alma-qhana.webp` | Fotografía original incrustada en página 12 del dosier del dúo | 2450 × 1634 | WebP, calidad 85 |
@@ -14,6 +15,7 @@ La portada reutiliza `comunidad-amanecer-restaurada.webp`, cuya procedencia y re
 
 ## Biografías y redes
 
+- Marisa Antonieta Cardozo Arce: nombre, tres cargos y prioridad de aparición aportados por el usuario el 3 de octubre de 2026. No se asignan redes, actividad ni horario sin información confirmada.
 - Marité: biografía actual enviada en la conversación y dosier, páginas 2–4.
 - Carlos Sat Nam: `Bio corta 2024 W.docx` y dosier, páginas 2–4. Se omiten antigüedades relativas de la biografía de 2024 para no actualizarlas arbitrariamente.
 - Instagram de Marité, Carlos y Alma Qhana: enlaces indicados en los carteles del dosier, páginas 8 y 12.

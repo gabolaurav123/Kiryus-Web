@@ -37,7 +37,7 @@ export default function FestivalPage() {
     location: { "@type": "Place", name: "Aldea Kiryus", address: { "@type": "PostalAddress", addressLocality: "Burruyacú", addressRegion: "Tucumán", addressCountry: "AR" } },
     organizer: { "@type": "Organization", name: "Comunidad Kiryus", url: siteConfig.url },
     offers: festivalTickets.filter(({ id }) => id !== "reserva").map(({ name, price }) => ({ "@type": "Offer", name, price, priceCurrency: "ARS", url: festival.ticketUrl })),
-    performer: festivalPresenters.map(({ name, instagramUrl }) => ({ "@type": "Person", name, sameAs: instagramUrl })),
+    performer: festivalPresenters.map(({ name, instagramUrl }) => ({ "@type": "Person", name, ...(instagramUrl ? { sameAs: instagramUrl } : {}) })),
     maximumAttendeeCapacity: 120,
   };
   return <div className={styles.page} data-festival-page>
@@ -62,7 +62,7 @@ export default function FestivalPage() {
       <div className={styles.heroFacts}><span><Tent size={19} aria-hidden="true" />3 días · 2 noches</span><span><Check size={19} aria-hidden="true" />Camping incluido</span><span><Users size={19} aria-hidden="true" />Cupo: 120 personas</span></div>
     </div></section>
 
-    <nav className={styles.sectionNav} aria-label="Secciones del evento"><div className={styles.wrap}><a href="#entradas">Entradas</a><a href="#programa">Programa</a><a href="#protagonistas">Artistas</a><a href="#preparar">Tu estadía</a><a href="#informacion">Dudas</a></div></nav>
+    <nav className={styles.sectionNav} aria-label="Secciones del evento"><div className={styles.wrap}><a href="#entradas">Entradas</a><a href="#programa">Programa</a><a href="#protagonistas">Expositores</a><a href="#preparar">Tu estadía</a><a href="#informacion">Dudas</a></div></nav>
 
     <section id="entradas" className={`${styles.ticketsSection} ${styles.wrap}`} aria-labelledby="tickets-title">
       <div className={styles.sectionHeading}><div><p className={styles.kicker}>01 / ELEGÍ CÓMO VIVIRLO</p><h2 id="tickets-title">Tu entrada,<br /><em>tu experiencia.</em></h2></div><p>Ambas opciones incluyen los 3 días y 2 noches de camping. Valores en pesos argentinos.</p></div>
@@ -90,9 +90,25 @@ export default function FestivalPage() {
       <details className={styles.disclosure}><summary><span><strong>Mucho más que talleres</strong><small>Mercado, arte, música, naturaleza y comunidad</small></span><ChevronDown size={21} aria-hidden="true" /></summary><div className={styles.disclosureBody}><p>{festival.description} No necesitás pertenecer a Kiryus, saber meditar ni conocer a nadie antes de llegar.</p><p>El Mercado Autosostenible reúne emprendimientos, productos y proyectos para conocer, comprar, intercambiar contactos y crear alianzas. Habrá propuestas gastronómicas para adquirir alimentos y bebidas.</p><div className={styles.tags}>{festivalAlwaysOn.map((item) => <span key={item}>{item}</span>)}</div></div></details>
       <p className={styles.programNote}>{festival.programNote}</p>
 
-      <div id="protagonistas" className={styles.people}><div className={styles.peopleHeading}><h3>Voces que nos acompañan</h3><p>Primeros artistas confirmados. Seguiremos anunciando la grilla.</p></div>
-        <div className={styles.peopleGrid}>{festivalPresenters.map((presenter) => <article key={presenter.id} className={styles.person}><div className={styles.portrait}><Photo image={presenter.image} sizes="120px" /></div><div><p>{presenter.offering}</p><h4>{presenter.name}</h4><small>{presenter.time}</small></div></article>)}<article className={styles.person}><div className={styles.portrait}><Photo image={duoImage} sizes="120px" /></div><div><p>Concierto meditativo</p><h4>Alma Qhana</h4><small>Sábado · Por la noche</small></div></article></div>
-        <details className={styles.disclosure}><summary><span><strong>Conocé a Marité, Carlos y Alma Qhana</strong><small>Biografías, música y redes</small></span><ChevronDown size={21} aria-hidden="true" /></summary><div className={`${styles.disclosureBody} ${styles.bioGrid}`}>{festivalPresenters.map((presenter) => <article key={presenter.id}><h3>{presenter.name}</h3><p className={styles.bioRole}>{presenter.role}</p>{presenter.fullBio.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}<a className={styles.social} href={presenter.instagramUrl} target="_blank" rel="noopener noreferrer"><SocialIcon network="instagram" size={18} />Instagram de {presenter.name}<ArrowUpRight size={16} aria-hidden="true" /></a></article>)}<article><h3>{festivalDuo.name}</h3><p className={styles.bioRole}>{festivalDuo.subtitle}</p><p>{festivalDuo.description}</p>{festivalDuo.detail.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}<p>El horario individual del concierto se anunciará con la grilla artística.</p><a className={styles.social} href={festivalDuo.instagramUrl} target="_blank" rel="noopener noreferrer"><SocialIcon network="instagram" size={18} />Instagram de Alma Qhana<ArrowUpRight size={16} aria-hidden="true" /></a><a className={styles.social} href={festivalDuo.spotifyUrl} target="_blank" rel="noopener noreferrer"><Music2 size={18} aria-hidden="true" />Escuchá a Carlos en Spotify<ArrowUpRight size={16} aria-hidden="true" /></a></article></div></details>
+      <div id="protagonistas" className={styles.people}><div className={styles.peopleHeading}><h3>Expositores y artistas</h3><p>Primeras participaciones confirmadas. Seguiremos anunciando la grilla.</p></div>
+        <div className={styles.peopleGrid}>
+          {festivalPresenters.map((presenter) => <article key={presenter.id} className={styles.person}>
+            <div className={styles.portrait}><Photo image={presenter.image} sizes="120px" /></div>
+            <div><p>{presenter.offering ?? presenter.role}</p><h4>{presenter.name}</h4><small>{presenter.time ?? presenter.shortBio}</small></div>
+          </article>)}
+          <article className={styles.person}><div className={styles.portrait}><Photo image={duoImage} sizes="120px" /></div><div><p>Concierto meditativo</p><h4>Alma Qhana</h4><small>Sábado · Por la noche</small></div></article>
+        </div>
+        <details className={styles.disclosure}>
+          <summary><span><strong>Conocé a quienes nos acompañan</strong><small>Biografías, música y redes</small></span><ChevronDown size={21} aria-hidden="true" /></summary>
+          <div className={`${styles.disclosureBody} ${styles.bioGrid}`}>
+            {festivalPresenters.map((presenter) => <article key={presenter.id}>
+              <h3>{presenter.name}</h3><p className={styles.bioRole}>{presenter.role}</p>
+              {presenter.fullBio.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+              {presenter.instagramUrl && <a className={styles.social} href={presenter.instagramUrl} target="_blank" rel="noopener noreferrer"><SocialIcon network="instagram" size={18} />Instagram de {presenter.name}<ArrowUpRight size={16} aria-hidden="true" /></a>}
+            </article>)}
+            <article><h3>{festivalDuo.name}</h3><p className={styles.bioRole}>{festivalDuo.subtitle}</p><p>{festivalDuo.description}</p>{festivalDuo.detail.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}<p>El horario individual del concierto se anunciará con la grilla artística.</p><a className={styles.social} href={festivalDuo.instagramUrl} target="_blank" rel="noopener noreferrer"><SocialIcon network="instagram" size={18} />Instagram de Alma Qhana<ArrowUpRight size={16} aria-hidden="true" /></a><a className={styles.social} href={festivalDuo.spotifyUrl} target="_blank" rel="noopener noreferrer"><Music2 size={18} aria-hidden="true" />Escuchá a Carlos en Spotify<ArrowUpRight size={16} aria-hidden="true" /></a></article>
+          </div>
+        </details>
       </div>
     </div></section>
 

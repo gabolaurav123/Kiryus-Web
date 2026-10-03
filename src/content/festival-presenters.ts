@@ -1,9 +1,9 @@
 export type FestivalPresenter = {
-  id: "marite" | "carlos";
+  id: "marisa" | "marite" | "carlos";
   name: string;
   role: string;
-  offering: string;
-  time: string;
+  offering?: string;
+  time?: string;
   shortBio: string;
   fullBio: string[];
   image: {
@@ -13,13 +13,31 @@ export type FestivalPresenter = {
     height: number;
     position: string;
   };
-  instagramUrl: string;
+  instagramUrl?: string;
 };
 
+// Marisa: nombre, cargos y retrato aportados por la organización el 3/10/2026.
 // Biografías: texto de Marité aportado por la organización, biografía corta
 // de Carlos y dossier Alma Qhana (págs. 2–4). Instagram: cartel de la pág. 8.
 // Las antigüedades aproximadas de la biografía de 2024 no se actualizan a 2026.
 export const festivalPresenters: FestivalPresenter[] = [
+  {
+    id: "marisa",
+    name: "Marisa Antonieta Cardozo Arce",
+    role: "CEO y directora",
+    shortBio:
+      "CEO del Gimnasio del Cerebro, directora de la Fundación de la Nueva Humanidad y CEO del proyecto Ecoaldeas Kiryus.",
+    fullBio: [
+      "Marisa Antonieta Cardozo Arce es CEO del Gimnasio del Cerebro, directora de la Fundación de la Nueva Humanidad y CEO del proyecto Ecoaldeas Kiryus.",
+    ],
+    image: {
+      src: "/images/evento/marisa-antonieta-cardozo-arce.webp",
+      alt: "Retrato de Marisa Antonieta Cardozo Arce",
+      width: 607,
+      height: 786,
+      position: "50% 15%",
+    },
+  },
   {
     id: "marite",
     name: "Marité Zalazar",
