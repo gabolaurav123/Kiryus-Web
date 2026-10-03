@@ -17,6 +17,7 @@
 - Yoga Nidra guiado por Marité; Baño de Gong guiado por Carlos Sat Nam; concierto meditativo de Alma Qhana, integrado por ambos. La hora del concierto del dúo no se inventa: forma parte de la noche del sábado, con el escenario a partir de las 20:30.
 - Siete talleres con sus objetivos, actividades, duración informada y participación práctica.
 - Tarifas en pesos argentinos: general $133.000, VIP $369.000, reserva $20.000, voucher general 5 × 4 $532.000 y voucher VIP 5 × 4 $1.476.000.
+- La organización confirmó conservar el 10% adicional de servicio de Fanz para compras online. Las cifras anteriores se identifican como valores base; se muestra el aviso del cargo y se remite al desglose del checkout. No se atribuye ese recargo al traslado contratado por consulta directa.
 - Traslado de ida y vuelta San Miguel de Tucumán–Aldea Kiryus por $25.000 ARS por persona; carpa individual y colchón inflable con precio y disponibilidad a consultar.
 - Cupo previsto del festival: 120 personas. No se anuncia la cantidad de entradas restantes.
 - General incluye acceso durante los tres días y dos noches de alojamiento en carpas comunitarias compartidas, una para mujeres y otra para hombres, o espacio para instalar una carpa propia. Cada persona lleva sus elementos personales de descanso.
@@ -35,7 +36,7 @@
 6. **Inclusiones y exclusiones.** Se publica la comparación confirmada de General y VIP. La presencia de propuestas gastronómicas no equivale a comidas incluidas. Alojamiento comunitario y alquiler de carpa privada son conceptos distintos. No se promete asistencia efectiva a todos los talleres simultáneos ni cupos garantizados para cada experiencia.
 7. **Artistas y horarios nocturnos.** La grilla completa está pendiente de anuncio. No se inventan participantes ni horas para Alma Qhana, fogatas o la fiesta.
 8. **Aforo y talleres.** La ampliación confirma un cupo previsto de 120 personas. No se presenta como disponibilidad actual de entradas, inventario restante o cupo garantizado para cada taller.
-9. **Traslado.** El lugar orientativo de encuentro es Parque 9 de Julio, en la zona cercana a la Terminal de Ómnibus de San Miguel de Tucumán. Punto exacto y horarios quedan a confirmar para quienes reserven. No se publica una coordenada o salida garantizada.
+9. **Traslado.** El lugar orientativo de encuentro es Parque 9 de Julio, en la zona cercana a la Terminal de Ómnibus de San Miguel de Tucumán. Punto exacto y horarios quedan a confirmar para quienes reserven. No se publica una coordenada o salida garantizada. No hay cantidad de plazas confirmada en el material: el usuario indicó mantener consulta y reserva con la organización, sin inventar stock para vender un complemento.
 10. **Accesibilidad, alimentación y edades.** Las condiciones de participación de menores se anunciarán próximamente. Las opciones gastronómicas y los apoyos de accesibilidad deben confirmarse con la organización, sin prometer servicios no confirmados.
 11. **Medios de pago.** Se indica que los medios disponibles y sus condiciones se muestran al momento de comprar en la plataforma. No se inventan transferencias, tarjetas aceptadas, cuotas o costos financieros.
 12. **Pasaporte hacia la Nueva Humanidad.** Está incluido en VIP según la ampliación. No se inventa su formato físico/digital, contenido o mecanismo de entrega.
