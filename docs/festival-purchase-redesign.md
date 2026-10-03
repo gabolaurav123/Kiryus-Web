@@ -25,3 +25,9 @@ La compra se deriva a Fanz. No se efectuaron pedidos ni pagos como parte de esta
 La organización aclaró posteriormente que solo VIP incluye el traslado ida y vuelta entre San Miguel de Tucumán y Aldea Kiryus. Para General continúa como extra de $25.000 ARS por persona. Los seis talleres especiales permanecen incluidos en VIP y se informan por separado a $35.000 ARS cada uno, con cupos e inscripción a consultar. No se inventa inventario para activar ventas de talleres.
 
 La reserva de $20.000 ARS se identifica como pago parcial y no como entrada completa. Se conservan las condiciones pendientes de confirmación, aplicación al valor final, saldo y cancelaciones. Los importes de General, VIP y vouchers no cambian. La actualización comprende tarjetas, detalles, estadía, extras y preguntas frecuentes (ahora 16 preguntas y ocho condiciones).
+
+## Selección del 5×4 en Fanz
+
+Las tarifas grupales 5×4 se presentan por separado de las individuales dentro de General y VIP. Cada tarifa grupal exige seleccionar al menos cinco entradas y aplica la promoción nativa de Fanz; comparte el inventario de su modalidad. Para cinco personas, los valores base son $532.000 en General y $1.476.000 en VIP. Los cargos existentes del proveedor se conservan. La página Kiryus indica ahora elegir expresamente la tarifa grupal y cinco entradas, válidas para los tres días del festival. No se usan Combos ni Ofertas, destinados a combinar eventos diferentes.
+
+La actualización de este texto pasó ESLint y build de producción. La revisión de Fanz comprobó cantidades de cinco y seis sin realizar pedidos ni pagos.
