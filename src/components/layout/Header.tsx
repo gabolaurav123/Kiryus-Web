@@ -24,10 +24,12 @@ const exploreLinks: Destination[] = [
   { href: "/regeneracion", label: "Regeneración" },
   { href: "/blog", label: "Blog" },
   { href: "/contacto", label: "Contacto" },
+  { href: "/involucrate", label: "Participar" },
 ];
 const desktopCommunityLinks: Destination[] = [
   ...communityLinks,
   { href: "/contacto", label: "Contacto", detail: "Empecemos una conversación" },
+  { href: "/involucrate", label: "Participar", detail: "Encuentra tu forma de acercarte" },
 ];
 
 function Dropdown({ label, items, id, pathname }: { label: string; items: Destination[]; id: string; pathname: string }) {
@@ -141,13 +143,14 @@ export function Header() {
           <Link className={styles.navLink} href="/blog" aria-current={pathname === "/blog" ? "page" : pathname.startsWith("/blog/") ? "location" : undefined}>Blog</Link>
         </nav>
         <div className={styles.headerActions}>
-          <Link className={styles.participate} href="/involucrate" aria-current={pathname === "/involucrate" ? "page" : undefined}>Participar<ArrowUpRight size={17} aria-hidden="true" /></Link>
+          <Link className={`${styles.participate} ${styles.eventCta}`} href="/evento" aria-current={pathname === "/evento" ? "page" : undefined}><span className={styles.eventDot} aria-hidden="true" />Evento<ArrowUpRight size={17} aria-hidden="true" /></Link>
           <button ref={menuButton} className={styles.menuToggle} type="button" aria-label="Abrir menú" aria-expanded={menuOpen} aria-controls="mobile-navigation" onClick={() => setMenuOpen(true)}><Menu size={23} aria-hidden="true" /></button>
         </div>
       </div>
       <noscript>
         <nav className={styles.fallbackNav} aria-label="Explorar Kiryus sin JavaScript">
           {[
+            { href: "/evento", label: "Evento TuConexión 2026" },
             { href: "/aldeas", label: "Aldeas" },
             { href: "/vida-en-comunidad", label: "Vida en comunidad" },
             { href: "/regeneracion", label: "Regeneración" },
@@ -173,7 +176,7 @@ export function Header() {
               {group.items.map((item) => <Link href={item.href} key={item.href} aria-current={pathname === item.href ? "page" : undefined} onClick={closeMobile}>{item.label}<ArrowUpRight size={15} aria-hidden="true" /></Link>)}
             </div>)}
           </nav>
-          <div className={styles.mobileBottom}><Link className={styles.mobileCta} href="/involucrate" onClick={closeMobile}>Encuentra tu forma de participar<ArrowUpRight size={19} aria-hidden="true" /></Link><p>Dos territorios. Muchas formas de encontrarnos.</p></div>
+          <div className={styles.mobileBottom}><Link className={styles.mobileCta} href="/evento" onClick={closeMobile}><span><span className={styles.eventDot} aria-hidden="true" />Ver evento TuConexión 2026</span><ArrowUpRight size={19} aria-hidden="true" /></Link><p>13, 14 y 15 de noviembre · Tucumán</p></div>
         </div>
       </dialog>
     </header>

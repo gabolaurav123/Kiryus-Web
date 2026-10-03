@@ -6,6 +6,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   if (!siteConfig.indexable) return [];
   const pages = [
     "/",
+    "/evento",
     "/nosotros",
     "/red",
     "/regeneracion",

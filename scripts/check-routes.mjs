@@ -40,6 +40,7 @@ try {
   assert.ok(ready, `El servidor no arrancó: ${output}`);
   const routes = [
     "/",
+    "/evento",
     "/nosotros",
     "/red",
     "/regeneracion",
@@ -120,6 +121,9 @@ try {
     "/favicon.png",
     "/images/kiryus-logo.webp",
     "/images/social-cover.jpg",
+    "/images/evento/marite.webp",
+    "/images/evento/carlos-sat-nam.webp",
+    "/images/evento/alma-qhana.webp",
   ]) {
     assert.equal((await fetch(base + asset)).status, 200, asset);
   }

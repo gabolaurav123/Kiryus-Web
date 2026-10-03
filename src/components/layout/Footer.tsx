@@ -23,6 +23,7 @@ export function Footer() {
           </div>
           <nav className={styles.footerGroup} aria-label="Explorar la comunidad">
             <h2>Explorar</h2>
+            <Link href="/evento" className={styles.footerEvent}><span className={styles.eventDot} aria-hidden="true" />Evento TuConexión 2026</Link>
             <Link href="/vida-en-comunidad">Vida en comunidad</Link>
             <Link href="/nosotros">Nuestra historia</Link>
             <Link href="/regeneracion">Regeneración</Link>

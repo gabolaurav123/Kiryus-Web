@@ -1,0 +1,69 @@
+.dialog {
+  width: min(850px, calc(100% - 40px));
+  max-width: none;
+  max-height: calc(100dvh - 40px);
+  margin: auto;
+  padding: 0;
+  border: 1px solid #e2e6d7;
+  border-radius: 22px;
+  background: #f5f4ec;
+  color: #102d24;
+  overflow: auto;
+  overscroll-behavior: contain;
+  box-shadow: 0 30px 110px #071b1466;
+}
+.dialog:not([open]) { display: none; }
+.dialog::backdrop { background: #071b14a6; backdrop-filter: blur(7px); }
+.surface { display: grid; grid-template-columns: .85fr 1.15fr; }
+.dialog[open] .surface { animation: present .4s cubic-bezier(.22, 1, .36, 1) both; }
+@keyframes present { from { opacity: .5; transform: translateY(9px); } to { opacity: 1; transform: none; } }
+.poster { position: relative; overflow: hidden; isolation: isolate; display: flex; flex-direction: column; justify-content: space-between; padding: 34px 30px; min-height: 535px; color: #ebd393; background: #102d24; background-image: linear-gradient(#e7ce8a08 1px, transparent 1px), linear-gradient(90deg, #e7ce8a08 1px, transparent 1px); background-size: 34px 34px; }
+.posterLabel { font-size: 10px; letter-spacing: .17em; font-weight: 650; }
+.posterTitle { position: relative; z-index: 1; margin-top: 62px; font: 600 clamp(32px, 4.2vw, 43px)/1.08 var(--sans); letter-spacing: -.045em; }
+.posterTitle em { font: 480 1.07em/1.1 var(--serif); }
+.waves { position: absolute; inset: 130px -15px auto; width: calc(100% + 30px); height: 300px; opacity: .35; }
+.posterFooter { display: flex; justify-content: space-between; align-items: flex-end; gap: 15px; margin-top: auto; padding-top: 170px; }
+.posterFooter span { font-size: 11px; letter-spacing: .08em; }
+.posterFooter strong { font-size: 31px; line-height: 1; font-weight: 550; letter-spacing: -.055em; }
+.copy { position: relative; padding: 43px 40px 31px; }
+.close { position: absolute; top: 14px; right: 14px; display: grid; place-items: center; width: 38px; height: 38px; padding: 0; border: 1px solid #d3d9ca; border-radius: 50%; background: transparent; color: #102d24; }
+.close:hover { background: #e4eadb; }
+.eyebrow { display: flex; align-items: center; gap: 9px; font-size: 11px; font-weight: 750; letter-spacing: .17em; }
+.eyebrow span { height: 6px; width: 6px; border-radius: 50%; background: #357255; }
+.copy h2 { margin-top: 19px; font: 750 clamp(31px, 4vw, 39px)/1.04 var(--sans); letter-spacing: -.055em; color: #102d24; }
+.copy h2 span { color: #357255; }
+.edition { margin-top: 15px; font-size: 12px; font-weight: 650; line-height: 1.6; }
+.details { display: grid; gap: 11px; margin-top: 23px; padding-top: 20px; border-top: 1px solid #d2d9c9; }
+.details p { display: flex; align-items: flex-start; gap: 10px; font-size: 12px; line-height: 1.6; }
+.details svg { margin-top: 2px; color: #357255; }
+.description { margin-top: 19px; font-size: 13px; line-height: 1.7; color: #526457; }
+.cta { display: flex; align-items: center; justify-content: space-between; gap: 24px; width: 100%; min-height: 49px; margin-top: 24px; padding: 12px 17px; border: 1px solid #102d24; border-radius: 10px; background: #102d24; color: #f5f4ec; font-size: 13px; font-weight: 750; }
+.cta:hover { background: #244d39; }
+.continue { display: block; margin: 12px auto 0; padding: 6px; min-height: 34px; border: 0; background: transparent; color: #526457; font-size: 11px; text-decoration: underline; text-underline-offset: 4px; }
+.dialog :focus-visible { outline: 3px solid #357255; outline-offset: 4px; }
+.cta:focus-visible { outline-color: #357255; }
+@media (max-width: 620px) {
+  .dialog { width: calc(100% - 28px); max-height: calc(100dvh - 28px); border-radius: 18px; }
+  .surface { grid-template-columns: 1fr; }
+  .poster { min-height: 0; padding: 21px 25px; }
+  .posterLabel { font-size: 9px; }
+  .posterTitle { margin-top: 23px; font-size: 28px; }
+  .waves { top: -30px; left: 80px; opacity: .22; }
+  .posterFooter { position: absolute; right: 23px; bottom: 22px; padding: 0; flex-direction: column; align-items: flex-end; gap: 6px; }
+  .posterFooter span { font-size: 9px; }
+  .posterFooter strong { font-size: 27px; }
+  .copy { padding: 25px 25px 21px; }
+  .copy h2 { font-size: 32px; line-height: 1.04; margin-top: 15px; }
+  .close { top: 11px; right: 11px; width: 35px; height: 35px; }
+  .edition { font-size: 11px; margin-top: 12px; }
+  .details { gap: 8px; margin-top: 16px; padding-top: 15px; }
+  .description { margin-top: 15px; font-size: 12px; }
+  .cta { margin-top: 18px; }
+  .continue { margin-top: 8px; }
+}
+@media (max-height: 700px) and (min-width: 621px) {
+  .poster { min-height: 490px; }
+  .copy { padding-top: 34px; padding-bottom: 24px; }
+  .copy h2 { font-size: 34px; }
+}
+@media (prefers-reduced-motion: reduce) { .dialog a, .dialog button { transition: none; } .dialog[open] .surface { animation: none; } }

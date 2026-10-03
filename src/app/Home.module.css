@@ -162,3 +162,10 @@
   .cardBottom { padding-top:24px; }
 }
 @media(prefers-reduced-motion:reduce) { .atmosphere img,.village>img,.photoCard>img,.colorCard,.heroStory,.circleArrow { transform:none!important; } }
+.eventBanner { display:flex; justify-content:space-between; align-items:center; gap:20px; padding:16px max(30px, calc((100vw - 1200px) / 2)); background:#dbe5c3; color:#132f25; }
+.eventBanner > span:first-child { display:flex; flex-wrap:wrap; align-items:center; gap:6px 24px; }
+.eventBanner strong { font-size:11px; letter-spacing:.1em; }
+.eventBanner > span:first-child > span { font-size:11px; }
+.eventBanner > span:last-child { display:flex; align-items:center; gap:12px; white-space:nowrap; font-size:12px; font-weight:800; }
+.eventBanner:hover { background:#cfdeb0; }
+@media(max-width:700px) { .eventBanner { padding:15px 20px; } .eventBanner strong { font-size:9px; } .eventBanner > span:first-child > span { font-size:9px; line-height:1.6; } .eventBanner > span:last-child { font-size:10px; gap:5px; } }

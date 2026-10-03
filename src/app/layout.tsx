@@ -6,6 +6,7 @@ import "./refresh.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { FloatingWhatsApp } from "@/components/layout/FloatingWhatsApp";
+import { EventAnnouncement } from "@/components/events/EventAnnouncement";
 import { siteConfig } from "@/lib/config";
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -47,6 +48,7 @@ export default function RootLayout({
         </main>
         <Footer />
         <FloatingWhatsApp />
+        <EventAnnouncement />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
