@@ -13,6 +13,7 @@ export function FloatingWhatsApp() {
     <a
       href={directWhatsapp}
       className={styles.button}
+      data-event={pathname === "/evento" || undefined}
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Hablar con Kiryus por WhatsApp (se abre en otra pestaña)"

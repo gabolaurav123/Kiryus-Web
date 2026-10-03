@@ -89,3 +89,7 @@
     transform: none;
   }
 }
+
+.button[data-event] {
+  bottom: calc(118px + env(safe-area-inset-bottom, 0px));
+}

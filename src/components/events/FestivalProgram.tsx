@@ -4,7 +4,7 @@ import styles from "./FestivalProgram.module.css";
 
 export function FestivalProgram() {
   return <div className={styles.program}>
-    {festivalDays.map((day, index) => <details key={day.id} name="festival-day" className={styles.day} open={index === 0}>
+    {festivalDays.map((day, index) => <details key={day.id} name="festival-day" className={styles.day}>
       <summary>
         <span className={styles.date}>{13 + index}<small>NOV</small></span>
         <span className={styles.dayTitle}><span>{day.day}</span><strong>{day.verb}</strong><small>{day.summary}</small></span>

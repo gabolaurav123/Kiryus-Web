@@ -1,32 +1,32 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowDown, ArrowUpRight, CalendarDays, Check, ChevronDown, Clock3, Flame, MapPin, Moon, Music2, Sparkles, Sun, Tent, Ticket, Users, Bus, Bed, ShoppingBag } from "lucide-react";
+import { ArrowDown, ArrowUpRight, Check, ChevronDown, MapPin, Music2, Tent, Ticket, Users } from "lucide-react";
 import { Photo } from "@/components/ui/Photo";
 import { SocialIcon } from "@/components/ui/SocialIcon";
-import { Reveal } from "@/components/motion/Reveal";
 import { FestivalProgram } from "@/components/events/FestivalProgram";
-import { festival, festivalAlwaysOn, festivalDays, festivalExtras, festivalFaqs, festivalGeneralIncludes, festivalPackingList, festivalPurchaseConditions, festivalTickets, festivalVipIncludes, festivalWorkshops } from "@/content/festival";
+import { FestivalBookingBar } from "@/components/events/FestivalBookingBar";
+import { festival, festivalAlwaysOn, festivalExtras, festivalFaqs, festivalGeneralIncludes, festivalPackingList, festivalPurchaseConditions, festivalTickets, festivalVipIncludes, festivalWorkshops } from "@/content/festival";
 import { festivalDuo, festivalPresenters } from "@/content/festival-presenters";
 import { enhancedDawn } from "@/content/enhanced-images";
 import { pageMetadata } from "@/lib/metadata";
 import { siteConfig } from "@/lib/config";
 import styles from "./Evento.module.css";
 
-const description = "Viví TuConexión 2026: 13, 14 y 15 de noviembre en Aldea Kiryus, Burruyacú, Tucumán. Programa, talleres, música, alojamiento y entradas General y VIP.";
-const baseMetadata = pageMetadata("Festival TuConexión 2026 · Evento", description, "/evento");
+const description = "Viví TuConexión 2026 del 13 al 15 de noviembre en Aldea Kiryus, Tucumán. Elegí General o VIP, conocé el programa y adquirí tu entrada.";
+const baseMetadata = pageMetadata("Festival TuConexión 2026 · Entradas y programa", description, "/evento");
 export const metadata: Metadata = { ...baseMetadata, openGraph: { ...baseMetadata.openGraph, locale: "es_AR" } };
 const formatPrice = (price: number) => `$${new Intl.NumberFormat("es-AR").format(price)}`;
 const inquiry = `https://wa.me/${siteConfig.whatsapp}?text=${encodeURIComponent("Hola, Comunidad Kiryus. Quiero consultar sobre TuConexión 2026, entradas y servicios opcionales.")}`;
-const dayIcons = [Users, Sun, Sparkles];
-const extraIcons = [Bus, Tent, Bed];
-const highlights = [
-  { Icon: Sun, label: "Recibir el amanecer", description: "Una ceremonia antes de que salga el sol. Respirar, caminar y comenzar juntos." },
-  { Icon: Users, label: "Pasar del yo al nosotros", description: "Escucha, cooperación y pequeñas aldeas para experimentar otra manera de convivir." },
-  { Icon: Flame, label: "Celebrar bajo las estrellas", description: "Música, fogatas, conversaciones y una noche para bailar y encontrarnos." },
-];
+const duoImage = { src: "/images/evento/alma-qhana.webp", alt: "Marité y Carlos Sat Nam en un concierto de Alma Qhana", width: 2450, height: 1634, position: "50% 80%" };
 
-function BuyButton({ label = "Adquirir", secondary = false, className = "", context }: { label?: string; secondary?: boolean; className?: string; context?: string }) {
-  return <a href={festival.ticketUrl} target="_blank" rel="noopener noreferrer" className={`${styles.button} ${secondary ? styles.buttonOutline : ""} ${className}`} aria-label={context ? `${label} · ${context} (abre la plataforma de entradas)` : `${label} (abre la plataforma de entradas)`}>{label}<ArrowUpRight size={19} aria-hidden="true" /></a>;
+function BuyButton({ label = "Adquirir entrada", context, secondary = false }: { label?: string; context?: string; secondary?: boolean }) {
+  return <a href={festival.ticketUrl} target="_blank" rel="noopener noreferrer" className={`${styles.button} ${secondary ? styles.buttonOutline : ""}`} aria-label={`${label}${context ? ` · ${context}` : ""} (abre Fanz en otra pestaña)`}>{label}<ArrowUpRight size={20} aria-hidden="true" /></a>;
+}
+
+function faqCategory(question: string) {
+  if (/entrada|VIP|reservar y/.test(question)) return "compra";
+  if (/dónde|comidas|traslado|carpa|colchón|alimentación/i.test(question)) return "viaje";
+  return "participar";
 }
 
 export default function FestivalPage() {
@@ -40,107 +40,76 @@ export default function FestivalPage() {
     performer: festivalPresenters.map(({ name, instagramUrl }) => ({ "@type": "Person", name, sameAs: instagramUrl })),
     maximumAttendeeCapacity: 120,
   };
-  return <div className={styles.page}>
-    <section className={styles.hero} aria-labelledby="festival-title">
-      <div className={styles.wrap}>
-        <div className={styles.heroTop}><Link href="/">Comunidad Kiryus <span>/</span> Argentina</Link><span>CUARTA EDICIÓN · 120 PERSONAS</span></div>
-        <div className={styles.heroGrid}>
-          <div className={styles.heroCopy}>
-            <p className={styles.eventWord}>EVENTO<span className={styles.eventDot} /></p>
-            <h1 id="festival-title">Festival<br /><span>TuConexión</span><small>2026</small></h1>
-            <p className={styles.heroTheme}>Nueva <em>Humanidad.</em></p>
-            <p className={styles.heroMotto}>{festival.motto}</p>
-            <div className={styles.heroDetails}><p><CalendarDays size={18} aria-hidden="true" /><strong>13, 14 y 15 de noviembre</strong></p><p><MapPin size={18} aria-hidden="true" />Aldea Kiryus · Burruyacú · Tucumán</p></div>
-            <div className={styles.heroActions}><BuyButton context="Festival TuConexión 2026" /><a href="#programa" className={styles.heroProgram}>Explorar el programa<ArrowDown size={17} aria-hidden="true" /></a></div>
-            <p className={styles.heroPrice}>General <strong>$133.000</strong><span>·</span>VIP <strong>$369.000</strong><small>Valores en ARS · Reserva desde $20.000</small></p>
-          </div>
-          <div className={styles.heroVisual}>
-            <Photo image={enhancedDawn} priority quality={85} sizes="(max-width: 760px) 100vw, 45vw" />
-            <div className={styles.heroPhotoShade} />
-            <div className={styles.visualTop}><span><span /> NOS ENCONTRAMOS EN KIRYUS</span><span>01 — 03</span></div>
-            <div className={styles.orbit} aria-hidden="true"><div /><div /><div /><span>YO<br />OTRO<br /><em>NOSOTROS</em></span></div>
-            <div className={styles.visualBottom}><p>Tres días para vivir<br /><em>otra manera de estar juntos.</em></p><span>13 / 14 / 15<br /><strong>NOVIEMBRE</strong></span></div>
-          </div>
+  return <div className={styles.page} data-festival-page>
+    <section className={styles.hero} aria-labelledby="festival-title"><div className={styles.wrap}>
+      <div className={styles.heroTop}><Link href="/">Comunidad Kiryus / Argentina</Link><span>EVENTO · CUARTA EDICIÓN</span></div>
+      <div className={styles.heroGrid}>
+        <div className={styles.heroCopy}>
+          <p className={styles.kicker}>13 · 14 · 15 NOVIEMBRE 2026</p>
+          <h1 id="festival-title">Festival<br /><em>TuConexión</em><span>2026</span></h1>
+          <p className={styles.heroLead}>Tres días para encontrarnos en la naturaleza y vivir otra manera de estar juntos.</p>
+          <p className={styles.location}><MapPin size={18} aria-hidden="true" />Aldea Kiryus · Burruyacú · Tucumán</p>
+          <div className={styles.heroActions}><BuyButton /><a href="#entradas" className={styles.textLink}>Ver precios y opciones<ArrowDown size={17} aria-hidden="true" /></a></div>
+          <p className={styles.buyHint}>La compra se realiza en Fanz. Allí elegís General, VIP o Reserva.</p>
+          <p className={styles.heroPrices}>General <strong>$133.000</strong><span>·</span>VIP <strong>$369.000</strong><small>ARS por persona</small></p>
         </div>
-        <div className={styles.heroFoot}><span><Tent size={17} aria-hidden="true" /> 3 días · 2 noches en la naturaleza</span><span><Users size={17} aria-hidden="true" /> Abierto a quienes quieran vivir la experiencia</span><a href="#entradas">Reservá tu lugar<ArrowUpRight size={16} aria-hidden="true" /></a></div>
+        <div className={styles.heroVisual}>
+          <Photo image={enhancedDawn} priority quality={85} sizes="(max-width: 760px) 100vw, 45vw" />
+          <div className={styles.photoShade} /><span className={styles.photoLabel}>NUEVA HUMANIDAD</span>
+          <p className={styles.photoCaption}>Todos unidos<br /><em>por un mismo propósito.</em></p><span className={styles.edition}>04<small>EDICIÓN</small></span>
+        </div>
       </div>
+      <div className={styles.heroFacts}><span><Tent size={19} aria-hidden="true" />3 días · 2 noches</span><span><Check size={19} aria-hidden="true" />Camping incluido</span><span><Users size={19} aria-hidden="true" />Cupo: 120 personas</span></div>
+    </div></section>
+
+    <nav className={styles.sectionNav} aria-label="Secciones del evento"><div className={styles.wrap}><a href="#entradas">Entradas</a><a href="#programa">Programa</a><a href="#protagonistas">Artistas</a><a href="#preparar">Tu estadía</a><a href="#informacion">Dudas</a></div></nav>
+
+    <section id="entradas" className={`${styles.ticketsSection} ${styles.wrap}`} aria-labelledby="tickets-title">
+      <div className={styles.sectionHeading}><div><p className={styles.kicker}>01 / ELEGÍ CÓMO VIVIRLO</p><h2 id="tickets-title">Tu entrada,<br /><em>tu experiencia.</em></h2></div><p>Ambas opciones incluyen los 3 días y 2 noches de camping. Valores en pesos argentinos.</p></div>
+      <div className={styles.ticketGrid}>{festivalTickets.filter(({ id }) => id === "general" || id === "vip").map((ticket) => {
+        const vip = ticket.id === "vip";
+        return <article key={ticket.id} className={`${styles.ticket} ${vip ? styles.vip : ""}`}>
+          <div className={styles.ticketTop}><h3>{vip ? "VIP" : "General"}</h3><span>{vip ? "SUMÁ LOS TALLERES" : "VIVÍ EL ENCUENTRO"}</span></div>
+          <p className={styles.price}>{formatPrice(ticket.price)}<small>ARS / persona</small></p>
+          <p className={styles.ticketCopy}>{vip ? "Todo General, seis experiencias especiales y Pasaporte hacia la Nueva Humanidad." : "Ceremonias, música, meditación y convivencia durante los tres días."}</p>
+          <ul className={styles.quickIncludes}>{(vip ? ["Todo lo incluido en General", "6 experiencias especiales con cupos", "Pasaporte hacia la Nueva Humanidad"] : ["Yoga Nidra, gong y ceremonia del sol", "Conciertos, fogatas y celebración", "Meditación y actividades de comunidad"]).map((item) => <li key={item}><Check size={17} aria-hidden="true" />{item}</li>)}</ul>
+          <BuyButton label={`Adquirir ${vip ? "VIP" : "General"}`} />
+          <details className={styles.ticketDetails}><summary>Ver todo lo que incluye<ChevronDown size={18} aria-hidden="true" /></summary><ul>{(vip ? festivalVipIncludes : festivalGeneralIncludes).map((item) => <li key={item}>{item}</li>)}</ul>{vip && <p>Las propuestas pueden coincidir en horario. La organización confirmará los turnos y la inscripción a cada experiencia.</p>}</details>
+        </article>;
+      })}</div>
+      <div className={styles.purchaseFacts}><p><Check size={19} aria-hidden="true" /><span><strong>Alojamiento incluido.</strong> Carpas comunitarias para mujeres y para hombres, o espacio para tu propia carpa. Traé tus elementos para dormir.</span></p><p><span className={styles.extraMark} aria-hidden="true">+</span><span><strong>Se abonan aparte:</strong> comidas, transporte, carpa individual privada y colchón inflable.</span></p></div>
+      <div className={styles.reserve}><div><p className={styles.kicker}>TAMBIÉN PODÉS COMENZAR CON UNA RESERVA</p><h3>$20.000 <small>ARS</small></h3><p>Confirmación, aplicación al valor final, plazo del saldo y cancelaciones: condiciones próximamente.</p></div><BuyButton label="Adquirir reserva" /></div>
+      <details className={styles.groupOffer}><summary><Users size={23} aria-hidden="true" /><span><strong>Vienen 5. Pagan 4.</strong><small>General $532.000 · VIP $1.476.000 ARS por grupo</small></span><ChevronDown size={21} aria-hidden="true" /></summary><div className={styles.disclosureBody}><p>En Fanz, seleccioná cinco entradas de la misma modalidad para aplicar el 5×4.</p><div className={styles.vouchers}>{festivalTickets.filter(({ id }) => id.startsWith("voucher")).map((ticket) => <article key={ticket.id}><h3>{ticket.name}</h3><p>{ticket.description}</p><BuyButton label="Adquirir 5×4" context={ticket.name} secondary /></article>)}</div></div></details>
+      <p className={styles.checkoutNote}><Ticket size={18} aria-hidden="true" /><span>Los botones abren Fanz: elegí tu modalidad y cantidad, revisá el pedido y completá la compra. <a href="#informacion">Consultá las condiciones antes de pagar.</a></span></p>
     </section>
 
-    <nav className={styles.sectionNav} aria-label="Secciones del evento"><div className={styles.wrap}><a href="#experiencia">La experiencia</a><a href="#programa">Programa</a><a href="#talleres">Talleres</a><a href="#protagonistas">Protagonistas</a><a href="#entradas">Entradas</a><a href="#preparar">Tu estadía</a><a href="#informacion">Antes de comprar</a></div></nav>
-
-    <section id="experiencia" className={`${styles.section} ${styles.wrap}`} aria-labelledby="experience-title">
-      <Reveal className={styles.intro}><div><p className={styles.kicker}>01 / La experiencia</p><h2 id="experience-title">La nueva humanidad<br /><em>se vive juntos.</em></h2></div><div><p>{festival.description}</p><p>No necesitás pertenecer a Kiryus, saber meditar ni conocer a nadie antes de llegar. Vení con curiosidad y ganas de participar desde el cuidado.</p><span className={styles.intent}>YO <ArrowUpRight size={16} aria-hidden="true" /> AL OTRO <ArrowUpRight size={16} aria-hidden="true" /> AL NOSOTROS</span></div></Reveal>
-      <div className={styles.highlightGrid}>{highlights.map(({ Icon, label, description: text }, index) => <Reveal key={label} delay={index * .07} className={styles.highlight}><Icon size={29} strokeWidth={1.3} aria-hidden="true" /><h3>{label}</h3><p>{text}</p><span>0{index + 1}</span></Reveal>)}</div>
-      <div className={styles.alwaysOn} aria-label="Durante todo el festival">{festivalAlwaysOn.map((item) => <span key={item}>{item}</span>)}</div>
-    </section>
-
-    <section id="programa" className={styles.programSection} aria-labelledby="program-title"><div className={styles.wrap}>
-      <Reveal className={styles.sectionHeading}><div><p className={styles.kicker}>02 / Tu recorrido</p><h2 id="program-title">Cada día,<br /><em>un nuevo encuentro.</em></h2></div><p>Del primer abrazo a la última semilla. Abrí cada día y descubrí el programa completo.</p></Reveal>
-      <div className={styles.dayPreview}>{festivalDays.map((day, index) => { const Icon = dayIcons[index]; return <div key={day.id}><Icon size={21} strokeWidth={1.5} aria-hidden="true" /><p>{day.day} {13 + index}</p><strong>{day.verb}</strong><small>{index === 0 ? "Llegada desde las 14:00" : index === 1 ? "Un día entero para explorar" : "Cierre a las 17:00"}</small></div>; })}</div>
+    <section id="programa" className={styles.experienceSection} aria-labelledby="program-title"><div className={styles.wrap}>
+      <div className={styles.sectionHeading}><div><p className={styles.kicker}>02 / TRES DÍAS, UN ENCUENTRO</p><h2 id="program-title">Conectar. Experimentar.<br /><em>Integrar.</em></h2></div><p>Abrí cada día para ver sus horarios. Elegí tu recorrido y dejá espacio para lo inesperado.</p></div>
       <FestivalProgram />
-      <p className={styles.programNote}>{festival.programNote} La grilla completa de artistas y facilitadores se anunciará progresivamente.</p>
+      <details id="talleres" className={styles.disclosure}><summary><span><strong>Talleres & experiencias</strong><small>6 propuestas especiales VIP · Meditación incluida en General</small></span><ChevronDown size={21} aria-hidden="true" /></summary><div className={styles.disclosureBody}><div className={styles.workshops}>{festivalWorkshops.map((workshop) => <details key={workshop.id} className={styles.workshop}><summary><span><strong>{workshop.title}</strong><small>{workshop.modality === "vip" ? "VIP" : "GENERAL"} · {workshop.duration}</small></span><ChevronDown size={19} aria-hidden="true" /></summary><div><h3>{workshop.subtitle}</h3><p>{workshop.description}</p><ul>{workshop.activities.map((item) => <li key={item}>{item}</li>)}</ul>{workshop.note && <p className={styles.note}>{workshop.note}</p>}</div></details>)}</div><p className={styles.note}>Comprender → experimentar → integrar → llevar a la vida. Algunas experiencias tienen cupos limitados y pueden requerir inscripción previa.</p></div></details>
+      <details className={styles.disclosure}><summary><span><strong>Mucho más que talleres</strong><small>Mercado, arte, música, naturaleza y comunidad</small></span><ChevronDown size={21} aria-hidden="true" /></summary><div className={styles.disclosureBody}><p>{festival.description} No necesitás pertenecer a Kiryus, saber meditar ni conocer a nadie antes de llegar.</p><p>El Mercado Autosostenible reúne emprendimientos, productos y proyectos para conocer, comprar, intercambiar contactos y crear alianzas. Habrá propuestas gastronómicas para adquirir alimentos y bebidas.</p><div className={styles.tags}>{festivalAlwaysOn.map((item) => <span key={item}>{item}</span>)}</div></div></details>
+      <p className={styles.programNote}>{festival.programNote}</p>
+
+      <div id="protagonistas" className={styles.people}><div className={styles.peopleHeading}><h3>Voces que nos acompañan</h3><p>Primeros artistas confirmados. Seguiremos anunciando la grilla.</p></div>
+        <div className={styles.peopleGrid}>{festivalPresenters.map((presenter) => <article key={presenter.id} className={styles.person}><div className={styles.portrait}><Photo image={presenter.image} sizes="120px" /></div><div><p>{presenter.offering}</p><h4>{presenter.name}</h4><small>{presenter.time}</small></div></article>)}<article className={styles.person}><div className={styles.portrait}><Photo image={duoImage} sizes="120px" /></div><div><p>Concierto meditativo</p><h4>Alma Qhana</h4><small>Sábado · Por la noche</small></div></article></div>
+        <details className={styles.disclosure}><summary><span><strong>Conocé a Marité, Carlos y Alma Qhana</strong><small>Biografías, música y redes</small></span><ChevronDown size={21} aria-hidden="true" /></summary><div className={`${styles.disclosureBody} ${styles.bioGrid}`}>{festivalPresenters.map((presenter) => <article key={presenter.id}><h3>{presenter.name}</h3><p className={styles.bioRole}>{presenter.role}</p>{presenter.fullBio.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}<a className={styles.social} href={presenter.instagramUrl} target="_blank" rel="noopener noreferrer"><SocialIcon network="instagram" size={18} />Instagram de {presenter.name}<ArrowUpRight size={16} aria-hidden="true" /></a></article>)}<article><h3>{festivalDuo.name}</h3><p className={styles.bioRole}>{festivalDuo.subtitle}</p><p>{festivalDuo.description}</p>{festivalDuo.detail.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}<p>El horario individual del concierto se anunciará con la grilla artística.</p><a className={styles.social} href={festivalDuo.instagramUrl} target="_blank" rel="noopener noreferrer"><SocialIcon network="instagram" size={18} />Instagram de Alma Qhana<ArrowUpRight size={16} aria-hidden="true" /></a><a className={styles.social} href={festivalDuo.spotifyUrl} target="_blank" rel="noopener noreferrer"><Music2 size={18} aria-hidden="true" />Escuchá a Carlos en Spotify<ArrowUpRight size={16} aria-hidden="true" /></a></article></div></details>
+      </div>
     </div></section>
 
-    <section id="talleres" className={`${styles.section} ${styles.wrap}`} aria-labelledby="workshops-title">
-      <Reveal className={styles.sectionHeading}><div><p className={styles.kicker}>03 / Aprender haciendo</p><h2 id="workshops-title">No solo escucharlo.<br /><em>Experimentarlo.</em></h2></div><p>Elegí tu recorrido entre propuestas en simultáneo. Las seis experiencias especiales pertenecen a VIP; meditación y presencia forman parte de General.</p></Reveal>
-      <div className={styles.workshops}>{festivalWorkshops.map((workshop, index) => <details key={workshop.id} className={styles.workshop}>
-        <summary><span className={styles.workshopNumber}>0{index + 1}</span><span className={styles.workshopTitle}><strong>{workshop.title}</strong><span>{workshop.subtitle}</span></span><span className={styles.workshopMeta}><span>{workshop.modality === "vip" ? "VIP" : "GENERAL"}</span><small><Clock3 size={12} aria-hidden="true" />{workshop.duration}</small></span><ChevronDown className={styles.chevron} size={20} aria-hidden="true" /></summary>
-        <div className={styles.workshopBody}><p>{workshop.description}</p><ul>{workshop.activities.map((item) => <li key={item}><Check size={15} aria-hidden="true" />{item}</li>)}</ul>{workshop.note && <p className={styles.smallNote}>{workshop.note}</p>}</div>
-      </details>)}</div>
-      <div className={styles.workshopJourney}><span>COMPRENDER</span><ArrowUpRight size={17} aria-hidden="true" /><span>EXPERIMENTAR</span><ArrowUpRight size={17} aria-hidden="true" /><span>INTEGRAR</span><ArrowUpRight size={17} aria-hidden="true" /><span>LLEVAR A LA VIDA</span></div>
-      <p className={styles.smallNote}>Cupos limitados según cada propuesta. La organización confirmará la inscripción y la distribución horaria de los talleres de 2 horas y de bioconstrucción, de 3 horas.</p>
+    <section id="preparar" className={`${styles.staySection} ${styles.wrap}`} aria-labelledby="stay-title">
+      <div className={styles.sectionHeading}><div><p className={styles.kicker}>03 / ORGANIZÁ TU VIAJE</p><h2 id="stay-title">Lo esencial<br /><em>para venir.</em></h2></div><p>Llegada: viernes de 14:00 a 16:00.<br />Cierre: domingo a las 17:00.<br />Aldea Kiryus · Burruyacú · Tucumán.</p></div>
+      <div className={styles.stayFacts}><article><Tent size={26} aria-hidden="true" /><h3>Tu lugar para dormir</h3><p>Dos noches en carpa comunitaria o espacio para tu propia carpa, incluidos en ambas entradas.</p></article><article><MapPin size={26} aria-hidden="true" /><h3>Traslado opcional · $25.000</h3><p>Ida y vuelta desde San Miguel de Tucumán, por persona. Consultá y reservá con la organización.</p></article></div>
+      <details id="extras" className={styles.disclosure}><summary><span><strong>Cómo llegar y extras opcionales</strong><small>Transporte, carpa individual y colchón inflable</small></span><ChevronDown size={21} aria-hidden="true" /></summary><div className={styles.disclosureBody}><div className={styles.extraGrid}>{festivalExtras.map((extra) => <article key={extra.id}><h3>{extra.title}</h3><strong>{extra.priceLabel}</strong><p>{extra.description}</p><ul>{extra.details.map((item) => <li key={item}>{item}</li>)}</ul></article>)}</div><p>La información específica de acceso se comunicará a los participantes confirmados. Consultá previamente cualquier necesidad de accesibilidad.</p><a className={styles.textLink} href={inquiry} target="_blank" rel="noopener noreferrer">Consultar extras por WhatsApp<ArrowUpRight size={17} aria-hidden="true" /></a><Link className={styles.textLink} href="/aldeas/argentina">Conocer Aldea Kiryus Argentina<ArrowUpRight size={17} aria-hidden="true" /></Link></div></details>
+      <details className={styles.disclosure}><summary><span><strong>Qué traer y dónde comer</strong><small>Tu equipaje y las opciones gastronómicas</small></span><ChevronDown size={21} aria-hidden="true" /></summary><div className={styles.disclosureBody}><p><strong>Las comidas se abonan aparte.</strong> Habrá propuestas gastronómicas durante el festival. Consultá previamente opciones de alimentación particulares.</p><ul className={styles.packing}>{festivalPackingList.map((item) => <li key={item}>{item}</li>)}</ul></div></details>
     </section>
 
-    <section id="protagonistas" className={styles.peopleSection} aria-labelledby="people-title"><div className={styles.wrap}>
-      <Reveal className={styles.sectionHeading}><div><p className={styles.kicker}>04 / Personas que nos acompañan</p><h2 id="people-title">Voces, presencia<br /><em>y caminos compartidos.</em></h2></div><p>Conocé a los primeros facilitadores confirmados. Seguiremos incorporando músicos, artistas, ponentes y expositores.</p></Reveal>
-      <div className={styles.peopleGrid}>{festivalPresenters.map((person) => <Reveal key={person.id} className={styles.person}>
-        <div className={styles.portrait}><Photo image={person.image} quality={85} sizes="(max-width: 700px) 100vw, 45vw" /><span>{person.time}</span></div>
-        <div className={styles.personBody}><p className={styles.kicker}>{person.offering}</p><h3>{person.name}</h3><p className={styles.personRole}>{person.role}</p><p>{person.shortBio}</p><details className={styles.biography}><summary>Conocé su trayectoria<ChevronDown size={16} aria-hidden="true" /></summary><div>{person.fullBio.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}</div></details><a href={person.instagramUrl} target="_blank" rel="noopener noreferrer" className={styles.social}><SocialIcon network="instagram" size={17} />Instagram de {person.name}<ArrowUpRight size={15} aria-hidden="true" /></a></div>
-      </Reveal>)}</div>
+    <section id="informacion" className={styles.infoSection} aria-labelledby="info-title"><div className={styles.wrap}>
+      <div className={styles.sectionHeading}><div><p className={styles.kicker}>04 / ANTES DE COMPRAR</p><h2 id="info-title">Tus dudas,<br /><em>resueltas.</em></h2></div><p>Consultá lo que necesitás saber para elegir tu entrada y preparar el viaje.</p></div>
+      <details className={`${styles.disclosure} ${styles.conditions}`}><summary><span><strong>Información importante antes de comprar</strong><small>Reserva, saldo, cancelaciones, menores y condiciones</small></span><ChevronDown size={21} aria-hidden="true" /></summary><div className={`${styles.disclosureBody} ${styles.answers}`}>{festivalPurchaseConditions.map((condition) => <article key={condition.title}><h3>{condition.title}</h3><p>{condition.description}</p></article>)}</div></details>
+      {[{ id: "compra", title: "Entradas y reservas", summary: "Qué incluye cada modalidad y cómo comprar" }, { id: "viaje", title: "Viaje, alojamiento y comidas", summary: "Llegada, camping, alquileres y necesidades particulares" }, { id: "participar", title: "Participar del festival", summary: "Experiencia previa, cupos, talleres y artistas" }].map((group) => <details key={group.id} className={styles.disclosure}><summary><span><strong>{group.title}</strong><small>{group.summary}</small></span><ChevronDown size={21} aria-hidden="true" /></summary><div className={`${styles.disclosureBody} ${styles.answers}`}>{festivalFaqs.filter(({ question }) => faqCategory(question) === group.id).map((faq) => <article key={faq.question}><h3>{faq.question}</h3><p>{faq.answer}</p></article>)}</div></details>)}
+      <div className={styles.finalCall}><div><p className={styles.kicker}>NO VENGAS SOLO A IMAGINARLO. VENÍ A VIVIRLO.</p><h3>Nos encontramos en Kiryus.</h3><p>13, 14 y 15 de noviembre · Tucumán</p></div><div><BuyButton /><a className={styles.textLink} href={inquiry} target="_blank" rel="noopener noreferrer">Consultar por WhatsApp<ArrowUpRight size={17} aria-hidden="true" /></a></div></div>
     </div></section>
-
-    <section className={styles.night} aria-labelledby="night-title"><div className={styles.wrap}>
-      <div className={styles.nightTop}><p className={styles.kicker}><Moon size={16} aria-hidden="true" /> Sábado / Noche TuConexión</p><span>ESCENARIO DESDE LAS 20:30</span></div>
-      <div className={styles.nightGrid}><Reveal className={styles.duoPhoto}><Photo image={{ src: "/images/evento/alma-qhana.webp", alt: "Marité Zalazar y Carlos Sat Nam, Alma Qhana, compartiendo voz, guitarra y percusión en un concierto", width: 2450, height: 1634, position: "50% 50%" }} quality={85} sizes="(max-width: 760px) 100vw, 55vw" /><span><Music2 size={15} aria-hidden="true" /> MARITÉ & CARLOS SAT NAM</span></Reveal><Reveal className={styles.nightCopy}><p className={styles.kicker}>Concierto meditativo</p><h2 id="night-title">Alma <em>Qhana.</em></h2><p>{festivalDuo.description}</p><p className={styles.nightWords}>Mantras · Shabds · Voz · Música · Presencia</p><details className={styles.duoDetails}><summary>La propuesta del dúo<ChevronDown size={17} aria-hidden="true" /></summary><div>{festivalDuo.detail.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}</div></details><div className={styles.duoLinks}><a href={festivalDuo.instagramUrl} target="_blank" rel="noopener noreferrer"><SocialIcon network="instagram" size={17} />Alma Qhana<ArrowUpRight size={15} aria-hidden="true" /></a><a href={festivalDuo.spotifyUrl} target="_blank" rel="noopener noreferrer">Escuchá a Carlos<ArrowUpRight size={15} aria-hidden="true" /></a></div><small>El horario individual del concierto se anunciará con la grilla artística.</small></Reveal></div>
-      <div className={styles.nightFeatures}><div><Flame size={22} aria-hidden="true" /><h3>Fogatas de la Nueva Humanidad</h3><p>Historias, canciones y conversaciones bajo el mismo cielo.</p></div><div><Music2 size={22} aria-hidden="true" /><h3>Gran Fiesta TuConexión</h3><p>Baile, arte, movimiento y la alegría de disfrutar juntos.</p></div><div><Sparkles size={22} aria-hidden="true" /><h3>Más artistas por anunciar</h3><p>Los próximos nombres confirmados aparecerán en esta página.</p></div></div>
-    </div></section>
-
-    <section className={`${styles.section} ${styles.wrap} ${styles.market}`} aria-labelledby="market-title"><div><p className={styles.kicker}>Un espacio para descubrir</p><h2 id="market-title">Mercado<br /><em>Autosostenible.</em></h2></div><div><ShoppingBag size={31} strokeWidth={1.4} aria-hidden="true" /><p>Emprendimientos, productores, creadores y proyectos. Productos, servicios, gastronomía e ideas para conocer, intercambiar y crear alianzas.</p><small>Los emprendimientos y expositores participantes se anunciarán próximamente. Los alimentos y bebidas se adquieren por separado.</small></div></section>
-
-    <section id="entradas" className={styles.ticketsSection} aria-labelledby="tickets-title"><div className={styles.wrap}>
-      <Reveal className={styles.sectionHeading}><div><p className={styles.kicker}>05 / Elegí tu experiencia</p><h2 id="tickets-title">Tu lugar en<br /><em>TuConexión.</em></h2></div><p>Los tres días y una opción de alojamiento están incluidos. Elegí General o sumá las experiencias especiales con VIP. Todos los valores están expresados en ARS.</p></Reveal>
-      <div className={styles.ticketGrid}>{festivalTickets.filter(({ id }) => ["general", "vip"].includes(id)).map((ticket) => <Reveal key={ticket.id} className={`${styles.ticket} ${ticket.id === "vip" ? styles.vip : ""}`}>
-        <div className={styles.ticketTop}><span>{ticket.id === "vip" ? "LA EXPERIENCIA MÁS COMPLETA" : "TRES DÍAS PARA ENCONTRARNOS"}</span>{ticket.id === "vip" ? <Sparkles size={23} aria-hidden="true" /> : <Ticket size={23} aria-hidden="true" />}</div><h3>{ticket.name}</h3><p className={styles.price}>{formatPrice(ticket.price)}<small>ARS / persona</small></p><p className={styles.ticketDescription}>{ticket.description}</p>
-        <details className={styles.ticketIncludes} open><summary>{ticket.id === "vip" ? "General + experiencias especiales" : "Qué incluye General"}<ChevronDown size={16} aria-hidden="true" /></summary><ul>{(ticket.id === "vip" ? festivalVipIncludes : festivalGeneralIncludes).map((item) => <li key={item}><Check size={15} aria-hidden="true" /><span>{item}</span></li>)}</ul></details><BuyButton context={ticket.name} />
-      </Reveal>)}</div>
-      <div className={styles.notIncluded}><strong>En ninguna entrada están incluidos:</strong><span>Comidas · Transporte · Carpa individual privada · Colchón inflable</span></div>
-      <div className={styles.groupHeading}><Users size={21} aria-hidden="true" /><div><h3>Vienen 5. Pagan 4.</h3><p>Compartí la experiencia con tu grupo.</p></div></div>
-      <div className={styles.voucherGrid}>{festivalTickets.filter(({ id }) => id.startsWith("voucher")).map((ticket) => <div key={ticket.id} className={styles.voucher}><div><p>{ticket.name}</p><strong>{formatPrice(ticket.price)} <small>ARS / 5 personas</small></strong><span>Ahorro total: {ticket.id === "voucher-general" ? "$133.000" : "$369.000"} ARS</span></div><BuyButton secondary context={ticket.name} /></div>)}</div>
-      <div className={styles.reserve}><div><p>Reservá tu lugar con</p><strong>$20.000 <small>ARS</small></strong></div><p>Las condiciones de reserva, la fecha límite para completar el saldo y la política de cancelación y devolución serán informadas próximamente por la organización.</p><BuyButton context="Reserva de $20.000 ARS" /></div>
-      <a href="#informacion" className={styles.conditionsLink}>Leé la información importante antes de comprar<ArrowDown size={16} aria-hidden="true" /></a>
-    </div></section>
-
-    <section id="extras" className={`${styles.section} ${styles.wrap}`} aria-labelledby="extras-title">
-      <Reveal className={styles.sectionHeading}><div><p className={styles.kicker}>06 / Extras opcionales</p><h2 id="extras-title">Llegar y quedarte,<br /><em>a tu manera.</em></h2></div><p>Estos servicios tienen costo adicional y no están incluidos en General ni en VIP. Se solicitan con anticipación directamente a la organización.</p></Reveal>
-      <div className={styles.extraGrid}>{festivalExtras.map((extra, index) => { const Icon = extraIcons[index]; return <div key={extra.id} className={styles.extra}><Icon size={29} strokeWidth={1.4} aria-hidden="true" /><h3>{extra.title}</h3><p className={styles.extraPrice}>{extra.priceLabel}</p><p>{extra.description}</p><details><summary>Detalles del servicio<ChevronDown size={16} aria-hidden="true" /></summary><ul>{extra.details.map((item) => <li key={item}>{item}</li>)}</ul></details><a href={inquiry} target="_blank" rel="noopener noreferrer">Consultar y reservar<ArrowUpRight size={16} aria-hidden="true" /></a></div>; })}</div>
-    </section>
-
-    <section id="preparar" className={styles.staySection} aria-labelledby="stay-title"><div className={styles.wrap}>
-      <Reveal className={styles.sectionHeading}><div><p className={styles.kicker}>07 / Prepará tu estadía</p><h2 id="stay-title">Dos noches.<br /><em>La misma tierra.</em></h2></div><p>La aldea también es parte de la experiencia. Llegamos el viernes desde las 14:00 y nos despedimos el domingo a las 17:00.</p></Reveal>
-      <div className={styles.stayGrid}><div className={styles.sleep}><Tent size={34} strokeWidth={1.4} aria-hidden="true" /><h3>Tenés dónde dormir.</h3><p>Tu entrada incluye alojamiento en las carpas comunitarias de Kiryus: una compartida para mujeres y otra para hombres.</p><p>También podés traer tu propia carpa e instalarla en el sector habilitado, sin costo adicional. No necesitás tener carpa propia para participar.</p><div className={styles.food}><strong>¿Y la comida?</strong><p>No está incluida en ninguna entrada. Habrá propuestas gastronómicas para adquirir tus alimentos y bebidas.</p></div></div><div className={styles.packing}><p className={styles.kicker}>Qué traer</p><h3>Un equipaje simple.<br />Ganas de compartir.</h3><ul>{festivalPackingList.map((item) => <li key={item}><Check size={16} aria-hidden="true" />{item}</li>)}</ul><small>Los elementos personales para dormir los trae cada participante, también si utiliza las carpas comunitarias.</small></div></div>
-      <div className={styles.arrival}><MapPin size={25} aria-hidden="true" /><div><h3>Aldea Kiryus · Burruyacú · Tucumán, Argentina</h3><p>La información específica de acceso se comunicará a las personas confirmadas. Para el traslado organizado, el punto previsto es Parque 9 de Julio, cerca de la Terminal de San Miguel de Tucumán; los detalles se confirmarán con la reserva.</p><Link href="/aldeas/argentina">Conocé la aldea<ArrowUpRight size={16} aria-hidden="true" /></Link></div></div>
-    </div></section>
-
-    <section className={`${styles.section} ${styles.wrap}`} aria-labelledby="faq-title"><div className={styles.faqGrid}><div><p className={styles.kicker}>08 / Resolvé tus dudas</p><h2 id="faq-title">Antes de<br /><em>hacer la mochila.</em></h2><p className={styles.faqIntro}>Si tenés una necesidad particular, escribinos para confirmar los detalles antes de reservar.</p><a href={inquiry} target="_blank" rel="noopener noreferrer" className={styles.social}><SocialIcon network="whatsapp" size={18} />Hablá con Kiryus<ArrowUpRight size={16} aria-hidden="true" /></a></div><div className={styles.faqs}>{festivalFaqs.map(({ question, answer }) => <details key={question}><summary>{question}<ChevronDown size={17} aria-hidden="true" /></summary><p>{answer}</p></details>)}</div></div></section>
-
-    <section id="informacion" className={styles.purchaseSection} aria-labelledby="purchase-title"><div className={styles.wrap}>
-      <Reveal className={styles.sectionHeading}><div><p className={styles.kicker}>09 / Antes de reservar</p><h2 id="purchase-title">Información importante<br /><em>antes de comprar.</em></h2></div><p>Queremos que tengas la información necesaria antes de reservar tu lugar. Verificá la modalidad elegida y los servicios adicionales que necesitás.</p></Reveal>
-      <div className={styles.includeSummary}><div><span><Check size={19} aria-hidden="true" /> TU ENTRADA SÍ INCLUYE</span><p>Los 3 días del festival, alojamiento en carpa comunitaria o espacio para instalar tu propia carpa, y la programación correspondiente a la modalidad adquirida.</p></div><div><span>TU ENTRADA NO INCLUYE</span><p>Comidas, transporte, carpa individual privada ni colchón inflable. Son servicios que se adquieren o consultan por separado.</p></div></div>
-      <div className={styles.purchaseConditions}>{festivalPurchaseConditions.map(({ title, description: text }) => <div key={title}><h3>{title}</h3><p>{text}</p></div>)}</div>
-      <details className={styles.priceSummary}><summary>Ver todos los valores actuales<ChevronDown size={19} aria-hidden="true" /></summary><div>{festivalTickets.map((ticket) => <p key={ticket.id}><span>{ticket.name}</span><strong>{formatPrice(ticket.price)} ARS</strong></p>)}<p><span>Transporte ida y vuelta / persona</span><strong>$25.000 ARS</strong></p><p><span>Carpa individual privada</span><strong>Consultar</strong></p><p><span>Colchón inflable</span><strong>Consultar</strong></p></div></details>
-    </div></section>
-
-    <section className={styles.final} aria-labelledby="final-title"><div className={styles.finalRings} aria-hidden="true" /><div className={styles.wrap}><p className={styles.kicker}>13 · 14 · 15 de noviembre / Cupo limitado: 120 personas</p><h2 id="final-title">No vengas a imaginarla.<br /><em>Vení a vivirla.</em></h2><p>Nueva Humanidad · Todos unidos por un mismo propósito.</p><BuyButton context="Festival TuConexión 2026" /><span className={styles.finalLocation}>Aldea Kiryus · Burruyacú · Tucumán</span><small>Reserva: $20.000 ARS. Revisá las condiciones informadas por la organización antes de pagar.</small></div></section>
+    <FestivalBookingBar />
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(eventSchema).replace(/</g, "\\u003c") }} />
   </div>;
 }
