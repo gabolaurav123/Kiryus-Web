@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { villages } from "@/content/villages";
+import { herbalBook } from "@/content/botiquin-herbal";
 import { directWhatsapp, siteConfig } from "@/lib/config";
 import { SocialIcon } from "@/components/ui/SocialIcon";
 import styles from "./Navigation.module.css";
@@ -29,6 +30,7 @@ export function Footer() {
             <Link href="/regeneracion">Regeneración</Link>
             <Link href="/red">La red</Link>
             <Link href="/blog">Blog</Link>
+            <Link href={herbalBook.sectionHref}>E-book · Botiquín Herbal</Link>
           </nav>
           <nav className={styles.footerGroup} aria-label="Aldeas y legado">
             <h2>Nuestras aldeas</h2>

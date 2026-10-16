@@ -6,6 +6,7 @@ import { ResponsiveHeroPhoto } from "@/components/ui/ResponsiveHeroPhoto";
 import { Reveal } from "@/components/motion/Reveal";
 import { HeroAtmosphere } from "@/components/motion/AmbientMotion";
 import { Closing } from "@/components/sections/Closing";
+import { HerbalBook } from "@/components/sections/HerbalBook";
 import { getImage } from "@/content/images";
 import { enhancedDawn, enhancedLandscape } from "@/content/enhanced-images";
 import { villages } from "@/content/villages";
@@ -38,6 +39,7 @@ export default function Home() {
       </div>
     </section>
     <nav id="explorar" className={`container ${styles.pathNav}`} aria-label="Encuentra lo que buscas en Kiryus">{paths.map(({ href, label, detail, Icon }, index) => (<Link key={href} href={href}><Icon size={21} strokeWidth={1.6} aria-hidden="true" /><div><span>{label}</span><small>{detail}</small></div><span className={styles.pathNumber}>0{index + 1}</span><ArrowUpRight className={styles.pathArrow} size={18} aria-hidden="true" /></Link>))}</nav>
+    <HerbalBook />
     <section className={`container ${styles.territories}`} aria-labelledby="territories-title">
       <Reveal className={styles.sectionHeading}><div><p className="eyebrow">Los lugares que nos reúnen</p><h2 id="territories-title">Dos paisajes.<br /><em>Una vida en común.</em></h2></div><div className={styles.sectionIntro}><p>Cada aldea tiene su ritmo y su manera de cuidar la tierra. Elige un territorio y conoce lo que está creciendo allí.</p><Link href="/red" className="text-link">Cómo se conecta la red <ArrowUpRight size={18} aria-hidden="true" /></Link></div></Reveal>
       <div className={styles.villageGrid}>{villages.map((village, index) => (<Reveal key={village.slug} delay={index * 0.1}><Link href={`/aldeas/${village.slug}`} className={styles.village}><Photo image={village.image} sizes="(max-width: 700px) 100vw, 50vw" /><div className={styles.villageShade} /><span className={styles.villageStatus}><span />{village.status}</span><div className={styles.villageCopy}><p><MapPin size={15} aria-hidden="true" />{village.location}</p><h3>{village.country}</h3><span>{village.focus}</span></div><span className={styles.circleArrow}><ArrowUpRight size={26} aria-hidden="true" /></span></Link></Reveal>))}</div>

@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState, type KeyboardEvent } from "react";
 import { ArrowUpRight, ChevronDown, Menu, X } from "lucide-react";
 import { festival } from "@/content/festival";
+import { herbalBook } from "@/content/botiquin-herbal";
 import styles from "./Navigation.module.css";
 
 type Destination = { href: string; label: string; detail?: string };
@@ -22,6 +23,7 @@ const communityLinks: Destination[] = [
 ];
 const exploreLinks: Destination[] = [
   { href: "/", label: "Inicio" },
+  { href: herbalBook.sectionHref, label: "E-book · Botiquín Herbal" },
   { href: "/regeneracion", label: "Regeneración" },
   { href: "/blog", label: "Blog" },
   { href: "/contacto", label: "Contacto" },
@@ -142,6 +144,7 @@ export function Header() {
           <Dropdown label="Comunidad" items={desktopCommunityLinks} id="community-menu" pathname={pathname} />
           <Link className={styles.navLink} href="/regeneracion" aria-current={pathname === "/regeneracion" ? "page" : undefined}>Regeneración</Link>
           <Link className={styles.navLink} href="/blog" aria-current={pathname === "/blog" ? "page" : pathname.startsWith("/blog/") ? "location" : undefined}>Blog</Link>
+          <Link className={styles.navLink} href={herbalBook.sectionHref}>E-book</Link>
         </nav>
         <div className={styles.headerActions}>
           <Link className={`${styles.participate} ${styles.eventCta}`} href="/evento" aria-current={pathname === "/evento" ? "page" : undefined}><span className={styles.eventDot} aria-hidden="true" />Evento<ArrowUpRight size={17} aria-hidden="true" /></Link>
@@ -152,6 +155,7 @@ export function Header() {
         <nav className={styles.fallbackNav} aria-label="Explorar Kiryus sin JavaScript">
           {[
             { href: "/evento", label: "Evento TuConexión 2026" },
+            { href: herbalBook.sectionHref, label: "E-book · Botiquín Herbal" },
             { href: "/aldeas", label: "Aldeas" },
             { href: "/vida-en-comunidad", label: "Vida en comunidad" },
             { href: "/regeneracion", label: "Regeneración" },
