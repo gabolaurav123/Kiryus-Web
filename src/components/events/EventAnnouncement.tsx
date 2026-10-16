@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useId, useRef } from "react";
 import { ArrowUpRight, CalendarDays, MapPin, X } from "lucide-react";
+import { festival } from "@/content/festival";
 import styles from "./EventAnnouncement.module.css";
 
 function excludedPath(pathname: string) {
@@ -108,7 +109,7 @@ export function EventAnnouncement() {
               {[0, 18, 36, 54, 72, 90, 108].map((offset) => <path key={offset} d={`M-30 ${140 + offset}C58 ${-60 + offset} 143 ${360 + offset} 232 ${120 + offset}S359 ${-10 + offset} 380 ${150 + offset}`} />)}
             </g>
           </svg>
-          <div className={styles.posterFooter}><span>13 / 14 / 15 NOV</span><strong>2026</strong></div>
+          <div className={styles.posterFooter}><span>{festival.posterDateLabel}</span><strong>2026</strong></div>
         </div>
         <div className={styles.copy}>
           <button type="button" className={styles.close} aria-label="Cerrar anuncio del evento" onClick={dismiss}><X size={22} aria-hidden="true" /></button>
@@ -116,10 +117,10 @@ export function EventAnnouncement() {
           <h2 id={`${id}-title`}>Festival<br /><span>TuConexión</span><br />2026</h2>
           <p className={styles.edition}>Cuarta edición · Nueva Humanidad</p>
           <div className={styles.details}>
-            <p><CalendarDays size={18} aria-hidden="true" /><span>13, 14 y 15 de noviembre de 2026</span></p>
+            <p><CalendarDays size={18} aria-hidden="true" /><span>{festival.dateLabel}</span></p>
             <p><MapPin size={18} aria-hidden="true" /><span>Aldea Kiryus · Burruyacú, Tucumán</span></p>
           </div>
-          <p id={`${id}-description`} className={styles.description}>Tres días en la naturaleza para encontrarnos, aprender y compartir arte, música y vida en comunidad.</p>
+          <p id={`${id}-description`} className={styles.description}>Dos días y una noche para compartir naturaleza, música, arte y comunidad. Todas las experiencias y comidas previstas están incluidas.</p>
           <Link ref={eventLink} className={styles.cta} href="/evento" onClick={() => { dismissed.current = true; closeDialog(false); }}>Ver evento<ArrowUpRight size={20} aria-hidden="true" /></Link>
           <button type="button" className={styles.continue} onClick={dismiss}>Seguir explorando Kiryus</button>
         </div>

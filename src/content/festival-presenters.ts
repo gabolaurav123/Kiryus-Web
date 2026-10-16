@@ -42,10 +42,10 @@ export const festivalPresenters: FestivalPresenter[] = [
     id: "marite",
     name: "Marité Zalazar",
     role: "Movimiento, conciencia y bienestar",
-    offering: "Yoga Nidra",
-    time: "Viernes · 18:30",
+    offering: "Alma Qhana · Voz y percusión",
+    time: "Sábado · 21:30",
     shortBio:
-      "Su recorrido une danza, yoga, tai chi y biodanza con prácticas de bienestar. En Yoga Nidra propone una pausa de relajación, calma y presencia.",
+      "Su recorrido une danza, yoga, tai chi y biodanza con prácticas de bienestar. En Alma Qhana comparte voz y percusión junto a Carlos Sat Nam.",
     fullBio: [
       "El camino personal de Marité siempre ha estado vinculado al trabajo con el cuerpo y la conciencia, a través de disciplinas como la danza, el yoga, el tai chi y la biodanza. En ese recorrido incorporó distintas herramientas que hoy forman parte de su práctica.",
       "Su formación en terapias holísticas acompaña su trabajo con el masaje, la reflexología y el reiki. También integra el yoga nidra como una práctica de relajación y descanso.",
@@ -65,7 +65,7 @@ export const festivalPresenters: FestivalPresenter[] = [
     name: "Carlos Sat Nam",
     role: "Música, yoga y sonido",
     offering: "Baño de gong",
-    time: "Viernes · 21:00",
+    time: "Domingo · 10:00",
     shortBio:
       "Músico y practicante de yoga, Carlos comparte clases, talleres y conciertos. Su recorrido integra Kundalini Yoga, gong y Nāda Yoga.",
     fullBio: [
@@ -87,6 +87,7 @@ export const festivalPresenters: FestivalPresenter[] = [
 export type FestivalDuo = {
   name: "Alma Qhana";
   subtitle: string;
+  time: string;
   description: string;
   detail: string[];
   instagramUrl: string;
@@ -95,16 +96,17 @@ export type FestivalDuo = {
 
 // Dossier, págs. 2, 9, 10 y 12: origen, propuesta, instrumentos y enlaces.
 // El álbum enlazado es de Carlos Sat Nam; no se presenta como disco del dúo.
-// El inicio del escenario del sábado no es un horario individual del concierto.
+// Programa de la organización del 16/10/2026: concierto el sábado a las 21:30.
 export const festivalDuo: FestivalDuo = {
   name: "Alma Qhana",
   subtitle: "Carlos Sat Nam y Marité Zalazar · Concierto de mantras",
+  time: "Sábado · 21:30",
   description:
     "Alma Qhana nació en Salta, Argentina, del encuentro de Carlos y Marité a través del canto. Su propuesta reúne mantras, shabds y canto compartido con voces, guitarra y percusión.",
   detail: [
     "El nombre Alma Qhana se presenta en su dossier como «Claridad del Alma». El dúo invita a abrir un espacio de escucha y presencia a través del sonido, la música y la voz.",
     "Carlos aporta la voz y la guitarra; Marité, la voz y la percusión. Juntos proponen un encuentro de canto y meditación.",
-    "Alma Qhana participa en el escenario del sábado, cuya programación comienza a las 20:30.",
+    "Alma Qhana comparte su concierto meditativo el sábado 14 de noviembre a las 21:30.",
   ],
   instagramUrl: "https://www.instagram.com/alma.qhana/",
   spotifyUrl: "https://open.spotify.com/album/7myr2AiH8Fbt1mfBEuxj4R",

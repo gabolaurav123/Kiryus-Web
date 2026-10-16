@@ -1,36 +1,30 @@
 export type FestivalDay = {
-  id: "viernes" | "sabado" | "domingo";
+  id: "sabado" | "domingo";
   day: string;
+  number: number;
   date: string;
+  isoDate: string;
   verb: string;
   summary: string;
-  items: {
-    time: string;
-    title: string;
-    description: string;
-    highlights?: string[];
-  }[];
+  items: { time: string; title: string; description: string }[];
 };
-
 export type FestivalWorkshop = {
   id: string;
   title: string;
   subtitle: string;
-  duration: string;
-  modality?: "general" | "vip";
+  time: string;
   description: string;
-  activities: string[];
   note?: string;
 };
-
 export type FestivalTicket = {
-  id: string;
+  id: "camping" | "habitacion";
   name: string;
   price: number;
-  badge?: string;
   description: string;
+  includes: string[];
+  notIncluded: string[];
+  note: string;
 };
-
 export type FestivalExtra = {
   id: string;
   title: string;
@@ -38,653 +32,160 @@ export type FestivalExtra = {
   description: string;
   details: string[];
 };
+export type FestivalFaq = {
+  category: "compra" | "viaje" | "participar";
+  question: string;
+  answer: string;
+};
 
+// Propuesta y programa facilitados por la organización el 16/10/2026.
+// Sustituyen íntegramente las modalidades y el programa anteriores.
 export const festival = {
   title: "Festival TuConexión 2026",
   edition: "Cuarta edición",
   theme: "Nueva Humanidad",
   motto: "Todos unidos por un mismo propósito",
-  dateLabel: "13 · 14 · 15 de noviembre de 2026",
-  stayLabel: "3 días · 2 noches",
-  capacity: 120,
+  dateLabel: "14 y 15 de noviembre de 2026",
+  shortDateLabel: "14 y 15 de noviembre",
+  compactDateLabel: "14–15 nov",
+  posterDateLabel: "14 / 15 NOV",
+  stayLabel: "2 días · 1 noche",
+  startDate: "2026-11-14T09:00:00-03:00",
+  endDate: "2026-11-15T17:00:00-03:00",
   location: "Aldea Kiryus · Burruyacú · Tucumán",
-  ticketUrl:
-    "https://comunidadkiryus.fanzsites.com/event/163160-festival-tuconexion-2026?themePreview=12310",
-  description:
-    "Tres días en plena naturaleza para encontrarnos, aprender haciendo y compartir arte, música, convivencia y celebración. Una invitación a experimentar otra manera de estar juntos.",
-  invitation: "No vengas solamente a escuchar hablar de una Nueva Humanidad. Vení a vivirla.",
-  programNote:
-    "Programa previsto por la organización. Las duraciones de los talleres son orientativas; la distribución por bloques, los horarios definitivos y los cupos se confirmarán antes del festival.",
+  ticketUrl: "https://comunidadkiryus.fanzsites.com/event/163160-festival-tuconexion-2026?themePreview=12310",
+  description: "Dos días y una noche para compartir naturaleza, movimiento, música, arte y comunidad. Un recorrido para soltar, encontrarnos y crear juntos.",
+  invitation: "No vengas solamente a escuchar hablar de una Nueva Humanidad. Vení a experimentarla.",
+  programNote: "Todas las experiencias forman parte del mismo recorrido y están incluidas en ambas modalidades. La inmersión en hielo es voluntaria y supervisada.",
 } as const;
 
 export const festivalDays: FestivalDay[] = [
   {
-    id: "viernes",
-    day: "Viernes",
-    date: "13 de noviembre",
-    verb: "Conectar",
-    summary: "De desconocidos a comunidad. La experiencia comienza desde que llegás.",
+    id: "sabado", day: "Sábado", number: 14, date: "14 de noviembre", isoDate: "2026-11-14",
+    verb: "Soltar para encontrarnos",
+    summary: "Naturaleza, experiencias, movimiento y una noche para compartir.",
     items: [
-      {
-        time: "14:00–16:00",
-        title: "Llegada a Kiryus",
-        description:
-          "Acreditación, instalación del camping y reconocimiento del predio. Una bienvenida con música, primeros encuentros y la apertura del Mercado Autosostenible.",
-        highlights: ["Acreditación", "Camping", "Bienvenida", "Mercado Autosostenible"],
-      },
-      {
-        time: "16:00",
-        title: "Apertura oficial",
-        description:
-          "Comienza la cuarta edición de TuConexión. Compartimos el propósito Nueva Humanidad y los acuerdos para convivir y cuidar la aldea, la naturaleza y a quienes nos acompañan.",
-      },
-      {
-        time: "16:30",
-        title: "120 personas · Un mismo propósito",
-        description:
-          "Movimiento, juego, miradas y conversaciones para empezar a encontrarnos. Uno de los grandes protagonistas del festival es la persona que todavía no conociste.",
-        highlights: ["Movimiento", "Juego", "Encuentros", "Conversaciones"],
-      },
-      {
-        time: "17:30",
-        title: "Tiempo TuConexión",
-        description:
-          "Merienda, naturaleza, arte, mercado, descanso y conversaciones. Tiempo para recorrer, conocer y simplemente estar.",
-      },
-      {
-        time: "18:30",
-        title: "Yoga Nidra · Marité",
-        description:
-          "Una experiencia guiada de relajación profunda y descanso consciente. Un momento para detener el ritmo exterior, relajar el cuerpo y entrar en quietud.",
-      },
-      {
-        time: "19:30",
-        title: "Cena + encuentro",
-        description:
-          "Gastronomía, mesas compartidas, mercado y conversaciones para seguir conociéndonos.",
-      },
-      {
-        time: "21:00",
-        title: "Baño de Gong · Carlos Sat Nam",
-        description:
-          "Una inmersión sonora a través de la vibración del gong. Un espacio para detenernos, escuchar y entrar en presencia.",
-      },
-      {
-        time: "22:00",
-        title: "Silencio bajo las estrellas",
-        description:
-          "Meditación, naturaleza y quietud para integrar lo vivido durante el primer día.",
-      },
-      {
-        time: "22:30",
-        title: "Descanso",
-        description:
-          "La primera noche termina temprano. El sábado nos encontramos antes de que salga el sol.",
-      },
+      { time: "09:00", title: "Llegada a Kiryus", description: "Recepción y acreditación. Tiempo para instalar tu carpa o recibir la habitación compartida, conocer el predio y bajar el ritmo." },
+      { time: "10:00", title: "Apertura · Un mismo propósito", description: "Un gran círculo para compartir el propósito del encuentro y los acuerdos de respeto, escucha, presencia, cuidado, responsabilidad y servicio." },
+      { time: "10:45", title: "Conexión con la naturaleza", description: "Caminar, respirar, observar y compartir momentos de silencio. Una experiencia para bajar el ritmo y volver al presente." },
+      { time: "12:00", title: "Experiencia de hielo", description: "Preparación, respiración y conexión corporal antes de una inmersión voluntaria y supervisada. Un espacio para observar nuestra respuesta al desafío, respetando las condiciones de seguridad." },
+      { time: "13:30", title: "Almuerzo incluido", description: "Compartimos la mesa y dejamos tiempo para conversar, descansar y encontrarnos." },
+      { time: "15:30", title: "Neuroconstelaciones Holográficas", description: "Una experiencia grupal de exploración personal para observar representaciones, patrones y dinámicas en nuestra manera de relacionarnos." },
+      { time: "17:30", title: "Pausa", description: "Merienda, naturaleza, descanso, conversaciones y tiempo libre." },
+      { time: "18:30", title: "Neurodanza · Del yo al nosotros", description: "Música, cuerpo, juego y expresión para encontrarnos con nosotros, con el otro y con el grupo. No necesitás saber bailar." },
+      { time: "20:00", title: "Cena incluida", description: "Compartimos la mesa antes de comenzar la experiencia de la noche." },
+      { time: "21:30", title: "Alma Qhana · Concierto meditativo", description: "Marité y Carlos Sat Nam comparten voz, mantras, shabds y cantos medicina. Un encuentro musical de escucha, presencia y conexión." },
+      { time: "22:30", title: "Fogata · Lo que dejo, lo que elijo", description: "Música, palabras, conversaciones y silencios alrededor del fuego. Una invitación a preguntarnos qué dejamos atrás y qué elegimos construir." },
+      { time: "23:30", title: "Descanso en Kiryus", description: "Después del primer día, dejamos espacio para descansar e integrar lo vivido." },
     ],
   },
   {
-    id: "sabado",
-    day: "Sábado",
-    date: "14 de noviembre",
-    verb: "Experimentar",
-    summary: "Del yo al nosotros. Aprender haciendo, cooperar y celebrar juntos.",
+    id: "domingo", day: "Domingo", number: 15, date: "15 de noviembre", isoDate: "2026-11-15",
+    verb: "Integrar, crear y dejar huella",
+    summary: "Recibir el amanecer, crear una obra común y elegir qué llevar a la vida.",
     items: [
-      {
-        time: "05:15",
-        title: "Despertar",
-        description: "Comenzamos suavemente nuestro segundo día, antes del amanecer.",
-      },
-      {
-        time: "05:45",
-        title: "Ceremonia de salida del sol",
-        description:
-          "Caminamos juntos en silencio, respiramos y recibimos el nacimiento de un nuevo día. Que nazca dentro de nosotros aquello que queremos ver nacer en el mundo.",
-      },
-      {
-        time: "07:00–09:00",
-        title: "Desayuno + descanso",
-        description:
-          "Desayunar, dormir, caminar, conversar o estar en la naturaleza. Cada persona elige cómo continuar su mañana.",
-      },
-      {
-        time: "09:00",
-        title: "Despertar consciente",
-        description:
-          "Una propuesta opcional de meditación, movimiento, tai chi y naturaleza para activar el cuerpo antes de las experiencias.",
-      },
-      {
-        time: "10:00–12:30",
-        title: "Talleres & experiencias · Bloque I",
-        description:
-          "Propuestas en simultáneo para construir tu propio recorrido. La organización confirmará la distribución de los talleres y la inscripción de las experiencias con cupos limitados.",
-        highlights: [
-          "Inmersión en hielo",
-          "Desactivación de creencias limitantes",
-          "Constelaciones Neuroarquetípicas",
-          "Cosmética natural",
-          "Bioconstrucción",
-          "Arte colectivo",
-          "Meditación & presencia",
-        ],
-      },
-      {
-        time: "12:30–15:00",
-        title: "Tiempo para vivir",
-        description:
-          "Almuerzo, siesta, naturaleza, mercado, arte, música y descanso. Dejamos espacio para esos encuentros que suceden entre una actividad y la siguiente.",
-        highlights: ["Una conversación", "Una persona", "Una historia", "Un encuentro"],
-      },
-      {
-        time: "15:00–16:30",
-        title: "Talleres & experiencias · Bloque II",
-        description:
-          "Un segundo turno para explorar otras propuestas. La distribución y duración efectiva de cada experiencia se confirmarán con la organización.",
-      },
-      {
-        time: "16:30",
-        title: "Merienda + descanso",
-        description: "Una pausa antes de volver a encontrarnos en las experiencias colectivas.",
-      },
-      {
-        time: "17:00",
-        title: "El otro también soy yo",
-        description:
-          "Una gran experiencia colectiva de escucha, comunicación, confianza, reconocimiento, límites, cooperación y presencia. Aprender a relacionarnos también forma parte de construir una humanidad diferente.",
-      },
-      {
-        time: "18:15",
-        title: "Ensayo de la Nueva Humanidad",
-        description:
-          "Creamos pequeñas aldeas con desafíos, necesidades, recursos y decisiones. Tendremos que comunicarnos, negociar, compartir y resolver juntos, para pasar del yo al nosotros.",
-        highlights: ["Crear pequeñas aldeas", "Compartir recursos", "Tomar decisiones", "Cooperar"],
-      },
-      {
-        time: "19:30",
-        title: "Cena + descanso",
-        description: "Cuando cae la noche, TuConexión cambia de energía.",
-      },
-      {
-        time: "20:30",
-        title: "Escenario TuConexión · Música en vivo",
-        description:
-          "El escenario recibe a músicos y artistas invitados. Una noche de música meditativa, mantras, canciones, ritmo, arte y movimiento. La grilla artística completa se anunciará próximamente.",
-      },
-      {
-        time: "Sábado a la noche",
-        title: "Alma Qhana · Concierto meditativo",
-        description:
-          "Marité y Carlos Sat Nam comparten mantras, shabds y cantos medicina. Una experiencia musical para encontrarnos con el presente a través del sonido y la voz. Horario específico a confirmar dentro de la programación nocturna.",
-        highlights: ["Mantras", "Shabds", "Cantos medicina", "Voz y presencia"],
-      },
-      {
-        time: "Durante la noche",
-        title: "Fogatas de la Nueva Humanidad",
-        description:
-          "El fuego se convierte en un escenario más íntimo. Historias, música, conversaciones, risas y silencios compartidos bajo el mismo cielo.",
-      },
-      {
-        time: "Durante la noche",
-        title: "Gran fiesta TuConexión",
-        description:
-          "El escenario se transforma en una celebración de música, baile, arte y alegría. Una noche para soltar, disfrutar y aprender también a celebrar juntos.",
-      },
-    ],
-  },
-  {
-    id: "domingo",
-    day: "Domingo",
-    date: "15 de noviembre",
-    verb: "Integrar",
-    summary: "De la experiencia a la vida. Llevar a casa aquello que elegimos cultivar.",
-    items: [
-      {
-        time: "08:30–10:00",
-        title: "Desayuno lento",
-        description:
-          "Después de la celebración del sábado comenzamos más tarde. Café, naturaleza, música, mercado y conversaciones, sin prisa.",
-      },
-      {
-        time: "10:00",
-        title: "Experiencia Kiryus · La aldea desde adentro",
-        description:
-          "Recorremos Kiryus para conocer cómo se piensa una ecoaldea y los desafíos reales de construir comunidad. ¿Cómo sería vivir en una comunidad de la Nueva Humanidad?",
-        highlights: [
-          "Naturaleza y agua",
-          "Alimento y vivienda",
-          "Energía y sustentabilidad",
-          "Comunidad, servicio y convivencia",
-        ],
-      },
-      {
-        time: "11:00",
-        title: "Círculos de integración · ¿Qué descubrí?",
-        description:
-          "Nos reunimos en pequeños grupos para compartir qué descubrimos de nosotros y del otro, qué nos sorprendió o incomodó, qué aprendimos de convivir y qué queremos llevar a nuestra vida.",
-      },
-      {
-        time: "12:00",
-        title: "Arte + juego · La humanidad que elegimos",
-        description:
-          "Teatro, música, movimiento, humor e improvisación. Una creación colectiva para expresar jugando lo que estos tres días nos hicieron pensar y sentir: la humanidad que dejamos y la que elegimos.",
-      },
-      {
-        time: "13:00–14:30",
-        title: "Almuerzo + Mercado Autosostenible",
-        description:
-          "Un último gran momento para comer, recorrer stands, conocer emprendimientos y proyectos, intercambiar contactos, comprar, conversar y crear alianzas.",
-      },
-      {
-        time: "14:30",
-        title: "Gran círculo · 120 voces, un mismo propósito",
-        description:
-          "Volvemos a reunirnos. Cada grupo aporta una palabra, una reflexión o un aprendizaje para construir simbólicamente el Manifiesto TuConexión 2026.",
-      },
-      {
-        time: "15:30",
-        title: "Ceremonia de la semilla",
-        description:
-          "Una semilla, una intención y una pregunta: ¿qué elegís cultivar a partir de ahora? Un símbolo para llevarte y recordar que la experiencia continúa cuando volvemos a casa.",
-      },
-      {
-        time: "16:00–17:00",
-        title: "Gran cierre TuConexión 2026",
-        description:
-          "Música, integración, celebración, agradecimientos, foto oficial y abrazos. Llegamos como desconocidos y compartimos otra manera de estar juntos; ahora comienza la tarea de llevarla a nuestra vida.",
-      },
-      {
-        time: "17:00",
-        title: "Fin del festival",
-        description: "El final de TuConexión 2026. Y quizás, el comienzo de algo mucho más grande.",
-      },
+      { time: "06:00", title: "Despertar", description: "Nos preparamos para recibir juntos un nuevo día." },
+      { time: "06:30", title: "Ceremonia Kiryus · Salida del Sol", description: "Caminamos antes del amanecer, respiramos y esperamos en silencio la llegada del nuevo día." },
+      { time: "07:30", title: "Yoga · Cuerpo, respiración y presencia", description: "Una práctica accesible de movimiento consciente, respiración y presencia para integrar lo vivido. No necesitás experiencia previa." },
+      { time: "08:30", title: "Desayuno incluido", description: "Tiempo para recuperar energía, conversar y disfrutar de la mañana en Kiryus." },
+      { time: "10:00", title: "Baño de Gong · Carlos Sat Nam", description: "Una inmersión sonora guiada por Carlos Sat Nam. Nos recostamos, escuchamos y compartimos un espacio de quietud antes de la etapa colectiva del día." },
+      { time: "11:15", title: "El otro también soy yo", description: "Una experiencia colectiva de escucha, cooperación, diferencias y decisiones compartidas. Exploramos cómo construir juntos cuando no pensamos igual." },
+      { time: "12:30", title: "Almuerzo comunitario incluido", description: "Compartimos la mesa, descansamos y nos preparamos para crear una huella de esta edición." },
+      { time: "14:00", title: "Mural de la Nueva Humanidad", description: "Creamos una obra colectiva con la guía de un artista tucumano especializado en muralismo, cuyo nombre se anunciará próximamente. No necesitás saber pintar: el mural quedará en Kiryus como memoria del encuentro." },
+      { time: "15:30", title: "Ceremonia de la Semilla", description: "Elegimos una intención, un valor, una conducta o una acción concreta para cultivar al volver a nuestra vida. Una semilla como símbolo de compromiso." },
+      { time: "16:15", title: "Gran círculo de cierre", description: "Nos reunimos frente al mural para compartir una palabra por persona y una fotografía colectiva. ¿Con qué nos vamos de TuConexión?" },
+      { time: "17:00", title: "Finalización de TuConexión 2026", description: "La experiencia termina y comienza el compromiso de llevar lo vivido a nuestra vida." },
     ],
   },
 ];
 
 export const festivalWorkshops: FestivalWorkshop[] = [
-  {
-    id: "inmersion-en-hielo",
-    title: "Inmersión en hielo",
-    subtitle: "Soltar cargas y límites mentales",
-    duration: "2 horas · duración orientativa",
-    modality: "vip",
-    description:
-      "Un encuentro consciente con el frío para observar las cargas que venís sosteniendo y los límites que tu mente fue construyendo. Antes de la inmersión habrá preparación, respiración y conexión corporal; cada participante podrá identificar simbólicamente aquello que elige dejar atrás.",
-    activities: [
-      "Preparación y respiración guiada.",
-      "Identificación de cargas y límites mentales.",
-      "Conexión cuerpo–mente.",
-      "Inmersión consciente y voluntaria.",
-      "Momento simbólico de soltar.",
-      "Recuperación e integración.",
-    ],
-    note:
-      "No es una competencia ni una prueba de resistencia. La inmersión será voluntaria, progresiva y supervisada, respetando las condiciones de seguridad de cada participante.",
-  },
-  {
-    id: "creencias-limitantes",
-    title: "Desactivación de creencias limitantes",
-    subtitle: "Dejá de repetir aquello que ya no querés para tu vida",
-    duration: "2 horas · duración orientativa",
-    modality: "vip",
-    description:
-      "Una experiencia de Neurofitness Active® para observar las creencias y los patrones aprendidos que pueden condicionar nuestras decisiones. Exploramos aquello que queremos cambiar y seguimos repitiendo, para ensayar respuestas diferentes.",
-    activities: [
-      "Identificación de un patrón repetitivo.",
-      "Reconocimiento de la creencia que puede sostenerlo.",
-      "Observación de pensamientos, emociones y conductas automáticas.",
-      "Exploración de nuevas alternativas.",
-      "Entrenamiento de una respuesta diferente.",
-    ],
-  },
-  {
-    id: "constelaciones-neuroarquetipicas",
-    title: "Constelaciones Neuroarquetípicas",
-    subtitle: "Explorá tu relación con el dinero",
-    duration: "2 horas · duración orientativa",
-    modality: "vip",
-    description:
-      "El dinero puede representar seguridad, merecimiento, poder, miedo, pertenencia o libertad. A través de una experiencia grupal y representativa observaremos esa relación desde otra perspectiva, explorando los patrones que aparecen al recibir, generar, conservar o compartir recursos.",
-    activities: [
-      "Qué representa el dinero para cada persona.",
-      "Desde qué lugar nos relacionamos con él.",
-      "Patrones aprendidos alrededor de abundancia y escasez.",
-      "Merecimiento y capacidad de recibir.",
-      "Arquetipos vinculados al dinero.",
-      "Nuevas formas posibles de relacionarnos con los recursos.",
-    ],
-  },
-  {
-    id: "cosmetica-natural",
-    title: "Cosmética natural",
-    subtitle: "Siempre bella · Siempre natural",
-    duration: "2 horas · duración orientativa",
-    modality: "vip",
-    description:
-      "Un taller práctico para acercarnos de forma consciente al cuidado de la piel y a los productos que usamos cada día. Conoceremos ingredientes naturales y sus posibilidades en rutinas sencillas de autocuidado. Sobre todo, vamos a aprender haciendo.",
-    activities: [
-      "Ingredientes naturales para el cuidado de la piel.",
-      "Usos y propiedades cosméticas.",
-      "Rutinas sencillas de cuidado.",
-      "Elaboración de una preparación práctica.",
-      "Belleza, autocuidado y consumo consciente.",
-    ],
-  },
-  {
-    id: "bioconstruccion",
-    title: "Bioconstrucción",
-    subtitle: "De la tierra a una pared",
-    duration: "3 horas · duración orientativa",
-    modality: "vip",
-    description:
-      "Vamos a construir. Trabajaremos con materiales y mezclas para realizar, entre todos, un modelo práctico de panel de pared. Una experiencia colaborativa para comprender cómo se combinan los recursos de la bioconstrucción y preguntarnos cómo queremos habitar la Tierra.",
-    activities: [
-      "Introducción práctica a la bioconstrucción.",
-      "Reconocimiento de materiales.",
-      "Preparación de materiales y mezclas.",
-      "Comprensión de la estructura de un panel.",
-      "Armado del modelo.",
-      "Aplicación práctica de los materiales.",
-      "Trabajo colaborativo.",
-      "Construcción del panel entre todos.",
-    ],
-    note: "Su distribución horaria se confirmará con la organización.",
-  },
-  {
-    id: "arte-colectivo",
-    title: "Arte colectivo",
-    subtitle: "El mural TuConexión 2026",
-    duration: "2 horas · duración orientativa",
-    modality: "vip",
-    description:
-      "Una pared, muchas manos y una historia compartida. Crearemos el mural oficial de esta cuarta edición: cada persona podrá dejar una forma, palabra, símbolo, huella o fragmento de color. No necesitás ser artista. La obra quedará en Aldea Kiryus como memoria del encuentro.",
-    activities: [
-      "Creación individual y colectiva.",
-      "Color y expresión.",
-      "Símbolos de la Nueva Humanidad.",
-      "Cooperación.",
-      "Intervención del mural.",
-      "Construcción de una memoria común.",
-    ],
-  },
-  {
-    id: "meditacion-presencia",
-    title: "Meditación & presencia",
-    subtitle: "Volver al silencio",
-    duration: "2 horas · duración orientativa",
-    modality: "general",
-    description:
-      "Una invitación a bajar el volumen de afuera y escuchar lo que sucede adentro. Respiración, atención corporal, naturaleza, silencio y meditación para detenernos y estar presentes. No necesitás experiencia previa.",
-    activities: [
-      "Respiración y atención corporal.",
-      "Contacto con la naturaleza.",
-      "Espacios de silencio.",
-      "Meditación y presencia.",
-    ],
-  },
+  { id: "naturaleza", title: "Conexión con la naturaleza", subtitle: "Volver a sentir", time: "Sábado · 10:45", description: "Caminar, respirar, observar y hacer silencio para volver al presente en el entorno natural de Kiryus." },
+  { id: "hielo", title: "Experiencia de hielo", subtitle: "Observar nuestra respuesta al desafío", time: "Sábado · 12:00", description: "Preparación y conexión corporal antes de una inmersión voluntaria y supervisada, sin competir ni demostrar resistencia.", note: "Respetá las indicaciones de seguridad. Si tenés una condición de salud relevante para una exposición intensa al frío, informala y consultá previamente con un profesional de salud." },
+  { id: "neuroconstelaciones", title: "Neuroconstelaciones Holográficas", subtitle: "Lo que traigo a mis relaciones", time: "Sábado · 15:30", description: "Exploración grupal de representaciones, patrones y dinámicas en nuestra forma de relacionarnos, desde la observación y la integración." },
+  { id: "neurodanza", title: "Neurodanza", subtitle: "Del yo al nosotros", time: "Sábado · 18:30", description: "Música, cuerpo, juego y expresión para pasar del encuentro personal al encuentro con otros. No necesitás saber bailar." },
+  { id: "yoga", title: "Yoga", subtitle: "Cuerpo, respiración y presencia", time: "Domingo · 07:30", description: "Movimiento consciente y respiración en una práctica accesible, sin experiencia previa." },
+  { id: "gong", title: "Baño de Gong", subtitle: "Del ruido al silencio", time: "Domingo · 10:00", description: "Carlos Sat Nam guía una experiencia de inmersión sonora, escucha y quietud." },
+  { id: "mural", title: "Mural de la Nueva Humanidad", subtitle: "Muchas manos · Una sola obra", time: "Domingo · 14:00", description: "Creamos juntos una obra que permanecerá en Kiryus, con la guía de un artista tucumano especializado en muralismo. No necesitás saber pintar.", note: "El nombre del artista invitado se anunciará próximamente." },
 ];
 
-export const festivalGeneralIncludes = [
-  "Acceso a los tres días de TuConexión.",
-  "Dos noches en carpa comunitaria compartida para mujeres o para hombres, o espacio para instalar tu propia carpa.",
-  "Ceremonia Kiryus de Salida del Sol.",
-  "Yoga Nidra con Marité.",
-  "Baño de Gong con Carlos Sat Nam.",
-  "Programación musical general, músicos y artistas invitados.",
-  "Fogatas y Gran Fiesta TuConexión.",
-  "Actividades colectivas y dinámicas de conexión y convivencia.",
-  "Acceso al Mercado Autosostenible.",
-  "Espacios de naturaleza, meditación e integración.",
-  "Recorrido y experiencia por Aldea Kiryus.",
-];
-
-export const festivalVipIncludes = [
-  "Todo lo incluido en la entrada general.",
-  "Traslado ida y vuelta entre San Miguel de Tucumán y Aldea Kiryus.",
-  "Inmersión en hielo.",
-  "Neurofitness Active® · Desactivación de creencias limitantes.",
-  "Constelaciones Neuroarquetípicas · Relación con el dinero.",
-  "Cosmética natural · Siempre bella, siempre natural.",
-  "Bioconstrucción · Construcción práctica de un panel de pared.",
-  "Arte colectivo · Mural TuConexión 2026.",
-  "Pasaporte hacia la Nueva Humanidad.",
-];
-
-export const festivalPurchaseConditions: {
-  title: string;
-  description: string;
-}[] = [
-  {
-    title: "Reserva de $20.000 ARS · Pago parcial",
-    description:
-      "La reserva de $20.000 ARS es un pago parcial, no una entrada completa. Las condiciones de confirmación y su aplicación al valor de la entrada se anunciarán próximamente.",
-  },
-  {
-    title: "Pago del saldo",
-    description:
-      "El plazo para completar el pago de la entrada se anunciará próximamente.",
-  },
-  {
-    title: "Cambios y cancelaciones",
-    description:
-      "Las condiciones de cambios, cancelaciones y devoluciones de entradas, reservas y vouchers se anunciarán próximamente.",
-  },
-  {
-    title: "Medios de pago",
-    description:
-      "Los medios de pago disponibles y sus condiciones se muestran en la plataforma al momento de comprar.",
-  },
-  {
-    title: "Participación de menores",
-    description:
-      "Las condiciones de ingreso y participación de menores de edad se anunciarán próximamente.",
-  },
-  {
-    title: "Inmersión en hielo",
-    description:
-      "La participación es voluntaria y supervisada. Antes de realizarla se comunicarán las indicaciones y condiciones de seguridad. La organización podrá limitar la participación cuando existan condiciones que hagan desaconsejable la experiencia.",
-  },
-  {
-    title: "Talleres especiales por separado",
-    description:
-      "Los seis talleres especiales ya están incluidos en VIP. Con entrada General podés adquirirlos por separado por $35.000 ARS cada uno. Consultá previamente con la organización los cupos, la inscripción y las condiciones de participación; comprar un taller no equivale a comprar una entrada completa al festival.",
-  },
-  {
-    title: "Programación y experiencia VIP",
-    description:
-      "VIP incluye la programación general, las seis experiencias especiales, el Pasaporte hacia la Nueva Humanidad y el traslado ida y vuelta entre San Miguel de Tucumán y Aldea Kiryus. La grilla publicada todavía no es definitiva: los nuevos músicos, artistas, ponentes, facilitadores y expositores confirmados se incorporarán progresivamente.",
-  },
+export const festivalIncludes = [
+  "Los dos días completos y una noche en Kiryus, según la modalidad elegida.",
+  "Todas las experiencias del programa y las comidas previstas durante el encuentro.",
+  "Conexión con la naturaleza, hielo, Neuroconstelaciones Holográficas, Neurodanza y yoga.",
+  "Baño de Gong con Carlos Sat Nam y concierto meditativo de Alma Qhana.",
+  "Fogata y Ceremonia Kiryus de Salida del Sol.",
+  "Experiencia colectiva «El otro también soy yo».",
+  "Creación del Mural de la Nueva Humanidad con un artista especializado.",
+  "Ceremonia de la Semilla, apertura y gran círculo de cierre.",
+  "Espacios de descanso, integración y encuentro.",
 ];
 
 export const festivalTickets: FestivalTicket[] = [
   {
-    id: "general",
-    name: "Entrada general",
-    price: 133000,
-    badge: "General",
-    description:
-      "Tres días, dos noches de alojamiento compartido o espacio para tu carpa, ceremonias, música, meditación, convivencia y actividades colectivas. El traslado es un extra de $25.000 ARS por persona. Los talleres especiales se pueden adquirir por separado por $35.000 ARS cada uno, previa consulta de cupos e inscripción.",
+    id: "camping", name: "Camping", price: 135000,
+    description: "Festival completo, comidas y espacio para instalar tu propia carpa.",
+    includes: ["Festival completo del sábado y domingo.", "Todas las experiencias del programa.", "Todas las comidas previstas durante el encuentro.", "Espacio en Kiryus para instalar tu propia carpa y pasar una noche."],
+    notIncluded: ["Carpa.", "Equipo de camping y ropa de cama.", "Transporte."],
+    note: "Traé tu propia carpa y todo lo necesario para acampar.",
   },
   {
-    id: "vip",
-    name: "Entrada VIP",
-    price: 369000,
-    badge: "VIP",
-    description:
-      "Todo lo incluido en General, más seis talleres y experiencias especiales, el Pasaporte hacia la Nueva Humanidad y el traslado ida y vuelta entre San Miguel de Tucumán y Aldea Kiryus.",
-  },
-  {
-    id: "reserva",
-    name: "Reserva · Pago parcial",
-    price: 20000,
-    description:
-      "La reserva de $20.000 ARS es un pago parcial, no una entrada completa. Las condiciones de confirmación, aplicación al valor final, pago del saldo, cambios, cancelaciones y devoluciones se anunciarán próximamente.",
-  },
-  {
-    id: "voucher-general",
-    name: "Voucher 5 × 4 · General",
-    price: 532000,
-    badge: "Para venir en grupo",
-    description:
-      "Cinco personas participan con modalidad General al valor de cuatro entradas. Ahorro total del grupo: $133.000 ARS.",
-  },
-  {
-    id: "voucher-vip",
-    name: "Voucher 5 × 4 · VIP",
-    price: 1476000,
-    badge: "Para venir en grupo",
-    description:
-      "Cinco personas participan con modalidad VIP al valor de cuatro entradas. Ahorro total del grupo: $369.000 ARS.",
+    id: "habitacion", name: "Habitación compartida", price: 180000,
+    description: "El mismo festival y comidas, con una noche en habitación comunitaria compartida.",
+    includes: ["Festival completo del sábado y domingo.", "Todas las experiencias del programa.", "Todas las comidas previstas durante el encuentro.", "Una noche de alojamiento en habitación comunitaria compartida."],
+    notIncluded: ["Transporte."],
+    note: "Las habitaciones no son privadas y están sujetas a disponibilidad.",
   },
 ];
 
 export const festivalExtras: FestivalExtra[] = [
   {
-    id: "traslado",
-    title: "Traslado ida y vuelta",
-    priceLabel: "General: $25.000 ARS por persona · Incluido en VIP",
-    description:
-      "San Miguel de Tucumán ↔ Aldea Kiryus, ida y vuelta. El traslado está incluido en VIP; con entrada General podés contratarlo por separado por $25.000 ARS por persona. Coordiná tu lugar previamente con la organización.",
-    details: [
-      "Ida hasta la puerta de Aldea Kiryus y regreso a San Miguel de Tucumán al finalizar el festival el domingo.",
-      "Encuentro previsto en Parque 9 de Julio, en la zona cercana a la Terminal de Ómnibus.",
-      "Reserva previa directamente con la organización.",
-      "Los horarios exactos y el punto de encuentro se informarán a quienes coordinen el traslado.",
-      "Incluido en VIP; servicio extra para quienes tengan entrada General.",
-    ],
-  },
-  {
-    id: "carpa",
-    title: "Alquiler de carpa individual",
-    priceLabel: "Consultá precio y disponibilidad",
-    description:
-      "Si preferís privacidad y no tenés carpa propia, podés solicitar una carpa individual. Es una alternativa opcional a las carpas comunitarias incluidas en tu entrada.",
-    details: [
-      "Servicio opcional con reserva previa.",
-      "Unidades limitadas: solicitá disponibilidad con anticipación.",
-      "Precio y condiciones a confirmar directamente con la organización.",
-      "Servicio extra: no está incluido en la entrada.",
-    ],
-  },
-  {
-    id: "colchon",
-    title: "Alquiler de colchón inflable",
-    priceLabel: "Consultá precio y disponibilidad",
-    description:
-      "Podés solicitar un colchón inflable para hacer más cómoda tu estadía de camping durante el festival.",
-    details: [
-      "Servicio opcional con reserva previa.",
-      "Unidades limitadas: solicitá disponibilidad con anticipación.",
-      "Precio y disponibilidad a confirmar con la organización para las dos noches del festival.",
-      "Servicio extra: no está incluido en la entrada.",
-    ],
+    id: "traslado", title: "Transporte opcional · Ida y vuelta", priceLabel: "$25.000 ARS por persona",
+    description: "San Miguel de Tucumán ↔ Aldea Kiryus. No está incluido en ninguna modalidad.",
+    details: ["Servicio adicional con reserva previa directamente con la organización.", "El horario y punto exacto de salida y regreso se comunicarán a quienes contraten el servicio."],
   },
 ];
 
 export const festivalPackingList = [
-  "Bolsa de dormir o ropa de cama y almohada, también si utilizás las carpas comunitarias.",
-  "Tu carpa, si preferís instalarla en el sector habilitado.",
-  "Abrigo para la noche, ropa cómoda y una muda adicional.",
-  "Calzado adecuado para caminar por el predio.",
-  "Toalla y elementos de higiene personal.",
-  "Botella reutilizable para agua.",
-  "Colchoneta o manta para las propuestas de descanso y meditación.",
-  "Linterna, protección solar y repelente.",
-  "Traje de baño y ropa seca para cambiarte, si participás de la inmersión en hielo.",
+  "Tu propia carpa y equipo completo de camping.",
+  "Bolsa de dormir o ropa de cama, almohada y colchón, aislante o colchoneta si lo necesitás.",
+  "Toalla, ropa cómoda, abrigo para la noche y la mañana, y calzado adecuado.",
+  "Elementos de higiene y aseo personal.",
+  "Protector solar, repelente o protección para mosquitos y linterna.",
+  "Botella reutilizable.",
+  "Traje de baño, toalla y muda seca para después del hielo.",
+  "Medicación personal habitual, si corresponde.",
+];
+export const festivalRoomPackingList = [
+  "Ropa cómoda, abrigo, calzado cómodo y toalla.",
+  "Elementos de higiene personal, protector solar y repelente.",
+  "Botella reutilizable, traje de baño y muda seca.",
+  "Medicación personal habitual, si corresponde.",
+  "La organización te informará si necesitás algún elemento adicional de ropa de cama.",
+];
+export const festivalAlwaysOn = ["Naturaleza", "Movimiento", "Música", "Silencio", "Arte colectivo", "Fuego", "Comidas compartidas", "Comunidad"];
+
+export const festivalPurchaseConditions = [
+  { title: "La misma experiencia para todos", description: "Las dos modalidades incluyen el programa completo y las comidas previstas. Solo cambia dónde dormís: tu propia carpa o una habitación compartida." },
+  { title: "Habitación compartida", description: "El alojamiento es comunitario, no privado, y está sujeto a disponibilidad. La organización informará si necesitás llevar algún elemento adicional de ropa de cama." },
+  { title: "Comidas y necesidades alimentarias", description: "Las comidas previstas están incluidas. Informá previamente alergias, intolerancias o necesidades específicas para consultar qué alternativas pueden contemplarse." },
+  { title: "Transporte adicional", description: "El traslado de ida y vuelta cuesta $25.000 ARS por persona y no está incluido en ninguna modalidad. Requiere reserva previa con la organización." },
+  { title: "Experiencia de hielo", description: "La inmersión es voluntaria y supervisada, con preparación previa e indicaciones de seguridad. Si tenés una condición de salud relevante para una exposición intensa al frío, informala y consultá previamente con un profesional de salud." },
+  { title: "Compra y consultas", description: "La adquisición se realiza en Fanz. Revisá las condiciones de compra y consultá con la organización cualquier necesidad particular antes de pagar." },
 ];
 
-export const festivalAlwaysOn = [
-  "Música en vivo y artistas invitados",
-  "Naturaleza y espacios de silencio",
-  "Arte y creación colectiva",
-  "Meditación y experiencias",
-  "Talleres para aprender haciendo",
-  "Fogatas, baile y celebración",
-  "Dinámicas de conexión",
-  "Mercado Autosostenible",
-  "Gastronomía",
-  "Convivencia y comunidad",
-];
-
-export const festivalFaqs: { question: string; answer: string }[] = [
-  {
-    question: "¿Tengo que pertenecer a Kiryus o tener experiencia previa?",
-    answer:
-      "No. TuConexión es un encuentro abierto: no necesitás pertenecer a Kiryus, tener entrenamiento previo, saber meditar ni haber vivido en comunidad. Te invitamos a descubrir, compartir y participar desde el cuidado. Las condiciones de participación de menores se anunciarán próximamente.",
-  },
-  {
-    question: "¿Cuándo y dónde es TuConexión 2026?",
-    answer:
-      "Son tres días y dos noches, del viernes 13 al domingo 15 de noviembre de 2026, en Aldea Kiryus, Burruyacú, Tucumán, Argentina. La llegada está prevista el viernes entre las 14:00 y las 16:00; el festival termina el domingo a las 17:00. La información específica de acceso se comunicará a los participantes confirmados.",
-  },
-  {
-    question: "¿Cuántas personas participarán?",
-    answer:
-      "El cupo previsto del festival es de 120 personas. Las experiencias especiales pueden tener cupos propios y requerir inscripción previa.",
-  },
-  {
-    question: "¿Cómo adquiero mi entrada?",
-    answer:
-      "Elegí el botón Adquirir para ir a la plataforma oficial del festival. Allí podés revisar las modalidades disponibles y sus condiciones antes de completar la compra. Todos los valores mostrados en esta página están expresados en pesos argentinos (ARS).",
-  },
-  {
-    question: "¿Qué incluye la entrada General?",
-    answer:
-      "Incluye los tres días del festival, dos noches en carpa comunitaria compartida o espacio para tu propia carpa, la Ceremonia de Salida del Sol, Yoga Nidra, Baño de Gong, música, fogatas, fiesta, actividades colectivas, meditación, integración, acceso al mercado y experiencia Kiryus. Las comidas, el traslado, los talleres especiales, la carpa individual privada y el colchón inflable no están incluidos. El traslado cuesta $25.000 ARS por persona; cada taller especial, $35.000 ARS, previa consulta de cupos e inscripción.",
-  },
-  {
-    question: "¿Qué suma la entrada VIP?",
-    answer:
-      "Incluye todo lo de General, más acceso a seis experiencias especiales: inmersión en hielo, Neurofitness Active®, Constelaciones Neuroarquetípicas, cosmética natural, bioconstrucción y Mural TuConexión 2026. También incluye el Pasaporte hacia la Nueva Humanidad y el traslado ida y vuelta entre San Miguel de Tucumán y Aldea Kiryus. Las comidas, la carpa individual privada y el colchón inflable siguen siendo extras.",
-  },
-  {
-    question: "¿Puedo reservar y cuándo tengo que completar el pago?",
-    answer:
-      "La reserva de $20.000 ARS es un pago parcial, no una entrada completa. Las condiciones de confirmación, su aplicación al valor final, el plazo para pagar el saldo y las políticas de cambios, cancelaciones y devoluciones se anunciarán próximamente. Los medios de pago disponibles se muestran en la plataforma al momento de comprar.",
-  },
-  {
-    question: "¿Cómo compro un taller especial si tengo entrada General?",
-    answer:
-      "Cada uno de los seis talleres especiales cuesta $35.000 ARS por separado. Consultá previamente con la organización los cupos disponibles y cómo inscribirte. La compra de un taller no equivale a una entrada completa al festival. En VIP, los seis talleres ya están incluidos.",
-  },
-  {
-    question: "¿Puedo participar de todos los talleres?",
-    answer:
-      "Hay propuestas en simultáneo para que armes tu recorrido. Meditación y presencia está incluida en General; los seis talleres especiales están incluidos en VIP y pueden adquirirse por separado por $35.000 ARS cada uno con entrada General, previa consulta de cupos e inscripción. La organización confirmará la distribución por bloques y los horarios definitivos, por lo que el acceso VIP no implica poder realizar todas las propuestas al mismo tiempo.",
-  },
-  {
-    question: "¿Necesito experiencia previa?",
-    answer:
-      "Arte colectivo y meditación están pensados para participar sin experiencia previa. Para otras propuestas, consultá a la organización sus condiciones de participación. La inmersión en hielo es voluntaria, progresiva y supervisada; no es una competencia.",
-  },
-  {
-    question: "¿Dónde voy a dormir? ¿Necesito carpa propia?",
-    answer:
-      "Tu entrada incluye alojamiento para las dos noches en las grandes carpas comunitarias de Kiryus: una compartida para mujeres y otra para hombres. También podés llevar tu propia carpa e instalarla en el sector habilitado; el espacio está incluido. Cada participante debe traer sus elementos personales para dormir, como bolsa de dormir o ropa de cama y almohada.",
-  },
-  {
-    question: "¿Puedo alquilar una carpa o un colchón?",
-    answer:
-      "Sí. Si preferís privacidad y no tenés carpa, podés consultar por una carpa individual. También podés solicitar un colchón inflable. Son extras opcionales con unidades limitadas y reserva previa; consultá precio y disponibilidad directamente con la organización.",
-  },
-  {
-    question: "¿Las comidas están incluidas?",
-    answer:
-      "No. Durante el festival habrá propuestas gastronómicas donde cada participante podrá comprar sus alimentos según sus preferencias. Las opciones y horarios se comunicarán cuando estén confirmados.",
-  },
-  {
-    question: "¿Cómo reservo el traslado desde San Miguel de Tucumán?",
-    answer:
-      "El traslado organizado de ida y vuelta está incluido en VIP. Con entrada General cuesta $25.000 ARS por persona. En ambos casos, coordiná tu lugar previamente con la organización. El encuentro previsto es en Parque 9 de Julio, en la zona cercana a la Terminal de Ómnibus. Los horarios y el punto exacto se comunicarán a quienes utilicen el servicio.",
-  },
-  {
-    question: "¿Dónde consulto alimentación, accesibilidad o necesidades particulares?",
-    answer:
-      "Escribí a la organización antes de reservar para consultar opciones de alimentación, condiciones del predio, desplazamientos, accesibilidad y cualquier necesidad particular. Las opciones y apoyos disponibles deben confirmarse para tu caso.",
-  },
-  {
-    question: "¿Está confirmada toda la programación musical?",
-    answer:
-      "Alma Qhana, el dúo de Marité y Carlos Sat Nam, participará con un concierto meditativo durante la noche del sábado. La grilla completa de músicos y artistas invitados se anunciará próximamente, junto con sus horarios específicos.",
-  },
+export const festivalFaqs: FestivalFaq[] = [
+  { category: "viaje", question: "¿Cuándo y dónde es TuConexión 2026?", answer: "El sábado 14 y domingo 15 de noviembre de 2026, en Aldea Kiryus, Burruyacú, Tucumán. Comienza el sábado a las 09:00 y termina el domingo a las 17:00: dos días y una noche." },
+  { category: "participar", question: "¿Hay actividades el viernes?", answer: "No. Esta edición comienza el sábado 14 de noviembre por la mañana." },
+  { category: "compra", question: "¿Qué diferencia hay entre las entradas?", answer: "Las actividades y las comidas son las mismas. Camping cuesta $135.000 ARS por persona e incluye el espacio para tu propia carpa. Habitación compartida cuesta $180.000 ARS por persona e incluye una noche en alojamiento comunitario, sujeto a disponibilidad." },
+  { category: "compra", question: "¿Tengo que pagar experiencias por separado?", answer: "No. Ambas modalidades incluyen todas las experiencias del programa: naturaleza, hielo, Neuroconstelaciones Holográficas, Neurodanza, yoga, gong, concierto de Alma Qhana, fogata, ceremonias, actividad colectiva y mural." },
+  { category: "viaje", question: "¿Kiryus me da la carpa o el equipo de camping?", answer: "No. Si elegís Camping, tenés que llevar tu propia carpa, equipo y elementos para dormir. Kiryus pone el espacio para instalarte durante la noche del festival." },
+  { category: "viaje", question: "¿Las habitaciones son privadas?", answer: "No, son comunitarias y compartidas, sujetas a disponibilidad. No necesitás carpa; la organización te informará si debés llevar algún elemento adicional de ropa de cama." },
+  { category: "viaje", question: "¿Las comidas están incluidas?", answer: "Sí, las comidas previstas durante el encuentro están incluidas en ambas modalidades. Si tenés alergias, intolerancias o necesidades alimentarias específicas, informalas previamente para consultar las alternativas con la organización." },
+  { category: "viaje", question: "¿El transporte está incluido?", answer: "No está incluido en ninguna modalidad. Podés contratar ida y vuelta entre San Miguel de Tucumán y Aldea Kiryus por $25.000 ARS adicionales por persona, con reserva previa. Horarios y punto exacto se comunicarán a quienes contraten el servicio." },
+  { category: "participar", question: "¿Necesito experiencia previa o pertenecer a Kiryus?", answer: "No. El festival es abierto y no necesitás pertenecer a Kiryus, saber yoga, bailar o haber participado en otras ediciones. Tampoco necesitás saber pintar para el mural: el proceso estará acompañado por un artista especializado." },
+  { category: "participar", question: "¿La inmersión en hielo es obligatoria?", answer: "No, es voluntaria y supervisada. Habrá preparación previa y deberán respetarse las indicaciones de seguridad. Si tenés una condición de salud relevante para la exposición al frío, informala y consultá previamente con un profesional de salud." },
+  { category: "participar", question: "¿Quién guía el gong y cuándo es el concierto?", answer: "Carlos Sat Nam guía el Baño de Gong el domingo a las 10:00. Alma Qhana, el dúo de Marité y Carlos Sat Nam, ofrece su concierto meditativo el sábado a las 21:30." },
+  { category: "participar", question: "¿Quién acompaña el mural?", answer: "Un artista tucumano especializado en muralismo acompañará el concepto y el proceso colectivo. Su nombre se anunciará próximamente y la obra permanecerá en Kiryus como legado del encuentro." },
+  { category: "compra", question: "¿Cómo adquiero mi entrada?", answer: "Los botones de adquisición te llevan a Fanz. Elegí Camping o Habitación compartida, verificá los datos de tu pedido y las condiciones de compra antes de pagar. Para consultas particulares, escribí a la organización." },
 ];

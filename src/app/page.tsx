@@ -9,6 +9,7 @@ import { Closing } from "@/components/sections/Closing";
 import { getImage } from "@/content/images";
 import { enhancedDawn, enhancedLandscape } from "@/content/enhanced-images";
 import { villages } from "@/content/villages";
+import { festival } from "@/content/festival";
 import { pageMetadata } from "@/lib/metadata";
 import styles from "./Home.module.css";
 
@@ -21,7 +22,7 @@ const paths = [
 ];
 export default function Home() {
   return (<>
-    <Link href="/evento" className={styles.eventBanner}><span><strong>EVENTO / TUCONEXIÓN 2026</strong><span>13, 14 y 15 de noviembre · Aldea Kiryus, Tucumán</span></span><span>Ver evento<ArrowUpRight size={19} aria-hidden="true" /></span></Link>
+    <Link href="/evento" className={styles.eventBanner}><span><strong>EVENTO / TUCONEXIÓN 2026</strong><span>{festival.shortDateLabel} · Aldea Kiryus, Tucumán</span></span><span>Ver evento<ArrowUpRight size={19} aria-hidden="true" /></span></Link>
     <section className={styles.hero} aria-labelledby="home-title">
       <HeroAtmosphere className={styles.atmosphere}><ResponsiveHeroPhoto desktop={enhancedLandscape} mobile={enhancedDawn} /></HeroAtmosphere>
       <div className={styles.heroShade} />

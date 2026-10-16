@@ -3,19 +3,19 @@ import { festival, festivalTickets } from "@/content/festival";
 import styles from "./FestivalBookingBar.module.css";
 
 export function FestivalBookingBar() {
-  const generalTicket = festivalTickets.find((ticket) => ticket.id === "general");
-  const generalPrice = generalTicket?.price.toLocaleString("es-AR");
+  const campingTicket = festivalTickets.find((ticket) => ticket.id === "camping");
+  const campingPrice = campingTicket?.price.toLocaleString("es-AR");
 
   return (
     <aside className={styles.bar} aria-label={`Entradas para ${festival.title}`}>
       <div className={styles.information}>
         <strong className={styles.name}>TuConexión 2026</strong>
         <p className={styles.details}>
-          <span>13–15 nov</span>
+          <span>{festival.compactDateLabel}</span>
           <span className={styles.separator} aria-hidden="true">·</span>
-          {generalPrice && (
+          {campingPrice && (
             <span className={styles.price}>
-              <span className={styles.kind}>General </span>${generalPrice} ARS
+              <span className={styles.kind}>Camping </span>${campingPrice} ARS
             </span>
           )}
         </p>

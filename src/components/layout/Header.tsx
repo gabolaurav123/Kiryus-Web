@@ -5,6 +5,7 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState, type KeyboardEvent } from "react";
 import { ArrowUpRight, ChevronDown, Menu, X } from "lucide-react";
+import { festival } from "@/content/festival";
 import styles from "./Navigation.module.css";
 
 type Destination = { href: string; label: string; detail?: string };
@@ -176,7 +177,7 @@ export function Header() {
               {group.items.map((item) => <Link href={item.href} key={item.href} aria-current={pathname === item.href ? "page" : undefined} onClick={closeMobile}>{item.label}<ArrowUpRight size={15} aria-hidden="true" /></Link>)}
             </div>)}
           </nav>
-          <div className={styles.mobileBottom}><Link className={styles.mobileCta} href="/evento" onClick={closeMobile}><span><span className={styles.eventDot} aria-hidden="true" />Ver evento TuConexión 2026</span><ArrowUpRight size={19} aria-hidden="true" /></Link><p>13, 14 y 15 de noviembre · Tucumán</p></div>
+          <div className={styles.mobileBottom}><Link className={styles.mobileCta} href="/evento" onClick={closeMobile}><span><span className={styles.eventDot} aria-hidden="true" />Ver evento TuConexión 2026</span><ArrowUpRight size={19} aria-hidden="true" /></Link><p>{festival.shortDateLabel} · Tucumán</p></div>
         </div>
       </dialog>
     </header>
