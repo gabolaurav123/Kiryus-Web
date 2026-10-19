@@ -40,6 +40,7 @@ export type FestivalFaq = {
 
 // Propuesta y programa facilitados por la organización el 16/10/2026.
 // Sustituyen íntegramente las modalidades y el programa anteriores.
+// Precios corregidos por la organización el 19/10/2026.
 export const festival = {
   title: "Festival TuConexión 2026",
   edition: "Cuarta edición",
@@ -123,14 +124,14 @@ export const festivalIncludes = [
 
 export const festivalTickets: FestivalTicket[] = [
   {
-    id: "camping", name: "Camping", price: 135000,
+    id: "camping", name: "Camping", price: 180000,
     description: "Festival completo, comidas y espacio para instalar tu propia carpa.",
     includes: ["Festival completo del sábado y domingo.", "Todas las experiencias del programa.", "Todas las comidas previstas durante el encuentro.", "Espacio en Kiryus para instalar tu propia carpa y pasar una noche."],
     notIncluded: ["Carpa.", "Equipo de camping y ropa de cama.", "Transporte."],
     note: "Traé tu propia carpa y todo lo necesario para acampar.",
   },
   {
-    id: "habitacion", name: "Habitación compartida", price: 180000,
+    id: "habitacion", name: "Habitación compartida", price: 240000,
     description: "El mismo festival y comidas, con una noche en habitación comunitaria compartida.",
     includes: ["Festival completo del sábado y domingo.", "Todas las experiencias del programa.", "Todas las comidas previstas durante el encuentro.", "Una noche de alojamiento en habitación comunitaria compartida."],
     notIncluded: ["Transporte."],
@@ -177,7 +178,7 @@ export const festivalPurchaseConditions = [
 export const festivalFaqs: FestivalFaq[] = [
   { category: "viaje", question: "¿Cuándo y dónde es TuConexión 2026?", answer: "El sábado 14 y domingo 15 de noviembre de 2026, en Aldea Kiryus, Burruyacú, Tucumán. Comienza el sábado a las 09:00 y termina el domingo a las 17:00: dos días y una noche." },
   { category: "participar", question: "¿Hay actividades el viernes?", answer: "No. Esta edición comienza el sábado 14 de noviembre por la mañana." },
-  { category: "compra", question: "¿Qué diferencia hay entre las entradas?", answer: "Las actividades y las comidas son las mismas. Camping cuesta $135.000 ARS por persona e incluye el espacio para tu propia carpa. Habitación compartida cuesta $180.000 ARS por persona e incluye una noche en alojamiento comunitario, sujeto a disponibilidad." },
+  { category: "compra", question: "¿Qué diferencia hay entre las entradas?", answer: "Las actividades y las comidas son las mismas. Camping cuesta $180.000 ARS por persona e incluye el espacio para tu propia carpa. Habitación compartida cuesta $240.000 ARS por persona e incluye una noche en alojamiento comunitario, sujeto a disponibilidad." },
   { category: "compra", question: "¿Tengo que pagar experiencias por separado?", answer: "No. Ambas modalidades incluyen todas las experiencias del programa: naturaleza, hielo, Neuroconstelaciones Holográficas, Neurodanza, yoga, gong, concierto de Alma Qhana, fogata, ceremonias, actividad colectiva y mural." },
   { category: "viaje", question: "¿Kiryus me da la carpa o el equipo de camping?", answer: "No. Si elegís Camping, tenés que llevar tu propia carpa, equipo y elementos para dormir. Kiryus pone el espacio para instalarte durante la noche del festival." },
   { category: "viaje", question: "¿Las habitaciones son privadas?", answer: "No, son comunitarias y compartidas, sujetas a disponibilidad. No necesitás carpa; la organización te informará si debés llevar algún elemento adicional de ropa de cama." },
